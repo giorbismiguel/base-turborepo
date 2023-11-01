@@ -1,0 +1,1 @@
+export {default as RouterTab, TabRouteType} from './RouterTab'

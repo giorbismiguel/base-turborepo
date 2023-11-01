@@ -1,0 +1,40 @@
+{
+  "name": "security",
+  "version": "0.0.0",
+  "private":true,
+  "description": "Internal Security",
+  "main": "dist/cjs/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup src/index.ts --format cjs --dts --external react",
+    "clean": "rimraf dist",
+    "dev": "tsup src/index.ts --format cjs --watch --dts --external react",
+    "lint": "eslint src/**/*"
+  },
+  "author": "Giorbis Miguel",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.17.9",
+    "@mui/material": "^5.7.0",
+    "@types/react": "^18.0.2",
+    "axios": "^0.24.0",
+    "babel-loader": "^8.2.4",
+    "i18next": "^21.8.16",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.12",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-i18next": "^11.15.2",
+    "react-query": "^3.34.19",
+    "rimraf": "^3.0.2",
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.3"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
+  "gitHead": "67b80e10c9f767d9c3c0ef4bd798598be8e4975d"
+}
