@@ -2,7 +2,7 @@ import React, {memo, useEffect, useMemo} from 'react';
 import Alert from '@mui/material/Alert';
 import AlertTitle from '@mui/material/AlertTitle';
 import Collapse from '@mui/material/Collapse';
-import {useToggle} from '@dfl/hook-utils';
+import {useToggle} from 'hook-utils';
 import {Trans} from 'react-i18next';
 import {HandlerErrorProps} from './HandleError.types';
 

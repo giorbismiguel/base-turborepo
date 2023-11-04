@@ -3,7 +3,7 @@ import {Box, InputAdornment, useTheme} from "@mui/material";
 import TextField from "./TextField";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import {useToggle} from "@dfl/hook-utils";
+import {useToggle} from "hook-utils";
 import {PasswordFieldProps} from "./text.types";
 
 const PasswordField = ({ hideIcon,...props }:PasswordFieldProps) => {

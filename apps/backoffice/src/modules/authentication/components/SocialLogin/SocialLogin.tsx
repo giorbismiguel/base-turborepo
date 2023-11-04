@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import Grid from "@mui/material/Grid";
-import {FacebookButton, GoogleButton} from "@dfl/mui-react-common";
+import {FacebookButton, GoogleButton} from "mui-react-common";
 import {useTranslation} from "react-i18next";
 
 type SocialLoginProps = {

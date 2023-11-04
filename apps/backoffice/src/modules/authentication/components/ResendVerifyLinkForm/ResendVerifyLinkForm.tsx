@@ -1,11 +1,11 @@
 import {useMemo} from "react";
 import {useTranslation} from "react-i18next";
-import {FormTextField, HandlerError, LoadingButton, Span} from "@dfl/mui-react-common";
+import {FormTextField, HandlerError, LoadingButton, Span} from "mui-react-common";
 import Grid from "@mui/material/Grid";
 import FormHelperText from "@mui/material/FormHelperText";
 import {ERRORS, LOGIN_ERRORS} from "modules/authentication/constants";
 import useResendConfirmationForm from "modules/authentication/hooks/useResendConfirmationForm";
-import {DFLError, ReactLink} from "@dfl/react-security";
+import {DFLError, ReactLink} from "react-security";
 import Box from "@mui/material/Box";
 
 const useMapError = (error: DFLError) =>

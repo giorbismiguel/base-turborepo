@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import {useTranslation} from "react-i18next";
-import {H1} from "@dfl/mui-react-common";
+import {H1} from "mui-react-common";
 import RecoveryInitContainer from "modules/authentication/container/RecoveryInitContainer";
 
 const RecoveryInit = () => {

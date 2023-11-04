@@ -2,7 +2,7 @@ import {memo, useEffect} from 'react';
 import LoginContainer from 'modules/authentication/container/LoginContainer';
 import {useTranslation} from 'react-i18next';
 import { H1 } from 'components/Typography';
-// import {useSecurity} from "@dfl/react-security";
+// import {useSecurity} from "react-security";
 // import {useNavigate} from "react-router-dom";
 
 const Login = () => {

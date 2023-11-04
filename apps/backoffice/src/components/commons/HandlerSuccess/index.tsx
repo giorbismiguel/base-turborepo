@@ -1,23 +1,24 @@
-import React, {FC, memo, useEffect} from "react";
+import type {FC} from "react";
+import React, { memo, useEffect} from "react";
 import PropTypes, {bool} from "prop-types";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Collapse from "@mui/material/Collapse";
-import {useToggle} from "@dfl/hook-utils";
-import {HandlerSuccessProps} from "./HandlerSuccess.types";
+import {useToggle} from "hook-utils";
+import type {HandlerSuccessProps} from "./HandlerSuccess.types";
 
 const HandlerSuccess: FC<HandlerSuccessProps> = ({active, title, message}) => {
-  const {isOpen, onClose, setOpen} = useToggle(!!active);
+  const {isOpen, onClose, setOpen} = useToggle(Boolean(active));
 
   useEffect(() => {
-    setOpen(!!active);
+    setOpen(Boolean(active));
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [active]);
 
   return (
     <Collapse in={isOpen}>
-      <Alert severity={"success"} onClose={onClose} className={"mb-4"}>
-        {title && <AlertTitle>{title}</AlertTitle>}
+      <Alert className="mb-4" onClose={onClose} severity="success">
+        {title ? <AlertTitle>{title}</AlertTitle> : null}
         {message}
       </Alert>
     </Collapse>

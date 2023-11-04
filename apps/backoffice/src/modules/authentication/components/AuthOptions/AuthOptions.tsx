@@ -3,7 +3,7 @@ import Stack from "@mui/material/Stack";
 import {Link} from "react-router-dom";
 import {useTranslation} from "react-i18next";
 import MuiLink from "@mui/material/Link";
-import {LanguageSelector} from "@dfl/mui-react-common";
+import {LanguageSelector} from "mui-react-common";
 import LanguageOutlinedIcon from "@mui/icons-material/LanguageOutlined";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 

@@ -4,12 +4,12 @@ import {
     LoadingButton,
     HandlerError,
     FormPasswordField, Span,
-} from "@dfl/mui-react-common";
+} from "mui-react-common";
 import Grid from "@mui/material/Grid";
 import {useTranslation} from "react-i18next";
 import useResetPasswordForm from "modules/authentication/hooks/useResetPasswordForm";
 import {LOGIN_ERRORS} from "modules/authentication/constants";
-import {ReactLink} from "@dfl/react-security";
+import {ReactLink} from "react-security";
 import Box from "@mui/material/Box";
 
 type RecoveryFinishFormProps = {

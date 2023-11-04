@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import Divider from "@mui/material/Divider";
-import {H3} from "@dfl/mui-react-common";
+import {H3} from "mui-react-common";
 import {useTranslation} from "react-i18next";
 
 const OrDivider = () => {

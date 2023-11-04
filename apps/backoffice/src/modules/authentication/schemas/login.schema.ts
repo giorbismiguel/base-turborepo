@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import "@dfl/yup-validations";
+import "yup-validations";
 
 export const loginSchema = Yup.object().shape({
     identifier: Yup.string().email("validEmail").max(255, "max-255").required("required"),

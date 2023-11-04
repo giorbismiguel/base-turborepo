@@ -7,7 +7,7 @@ import {
     SelectProps,
 } from "@mui/material";
 import {darken} from "@mui/system/colorManipulator";
-import {useToggle} from "@dfl/hook-utils";
+import {useToggle} from "hook-utils";
 import {DropDown} from "../DropDown";
 import {grey} from "@mui/material/colors";
 

@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import { H1 } from '@dfl/mui-react-common';
+import { H1 } from 'mui-react-common';
 import SignUpContainer from 'modules/authentication/container/SignUpContainer';
 import { useTranslation } from 'react-i18next';
 

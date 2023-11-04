@@ -1,6 +1,6 @@
 import React, {memo, useState} from 'react'
 import SelectAutocompleteField, {SelectAutocompleteFieldProps} from "./SelectAutocompleteField";
-import {useToggle} from "@dfl/hook-utils";
+import {useToggle} from "hook-utils";
 import debounce from "lodash/debounce";
 import {useFindEntity} from "./useFindEntity";
 import {useFindValue} from "./useFindValue";

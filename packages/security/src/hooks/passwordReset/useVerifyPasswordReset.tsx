@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useRef} from 'react';
-import {useIsClientSide} from '@dfl/hook-utils';
+import {useIsClientSide} from 'hook-utils';
 import {RecoveryPasswordService} from '../../services';
 import {useApiRequestReducer} from "../useApiRequest";
 

@@ -1,5 +1,5 @@
 import {useCallback, useEffect, useRef} from 'react';
-import {useIsClientSide} from '@dfl/hook-utils';
+import {useIsClientSide} from 'hook-utils';
 import {useApiRequestReducer} from "../useApiRequest";
 import {AuthService} from "../../services";
 import useAuth from "../useAuth";

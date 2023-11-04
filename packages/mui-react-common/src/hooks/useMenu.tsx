@@ -1,4 +1,4 @@
-import {useSecurity} from "@dfl/react-security";
+import {useSecurity} from "react-security";
 import {ReactNode, useMemo} from "react";
 import {useTranslation} from "react-i18next";
 import {ListProps} from "@mui/material";

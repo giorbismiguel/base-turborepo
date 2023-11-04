@@ -3,7 +3,7 @@ import PropTypes, {bool} from "prop-types";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Collapse from "@mui/material/Collapse";
-import {useToggle} from "@dfl/hook-utils";
+import {useToggle} from "hook-utils";
 import {HandlerSuccessProps} from "./HandlerSuccess.types";
 
 const HandlerSuccess: FC<HandlerSuccessProps> = ({active, title, message}) => {

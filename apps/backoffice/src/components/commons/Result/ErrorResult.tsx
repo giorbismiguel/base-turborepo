@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { DFLError, NETWORK_ERROR } from '@dfl/react-security';
+import { DFLError, NETWORK_ERROR } from 'react-security';
 import ResultBase, { ErrorTitle, ResultBaseProps } from './ResultBase';
 import NotConnectionResult from './NotConnectionResult';
 import { useTranslation } from 'react-i18next';
