@@ -1,5 +1,5 @@
-import {RouteProps} from 'react-router/lib/components';
 import {ElementType, ReactElement} from 'react';
+import { RouteProps } from 'react-router';
 
 
 export type RouteConfigProps = RouteProps & {

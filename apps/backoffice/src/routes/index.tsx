@@ -1,7 +1,6 @@
 import { memo, Suspense } from 'react';
 import { routes } from './main.routes';
 import PageLoader from '../components/PageLoader';
-import { RouteLoader } from '../components/security/Router';
 
 
 const Routes = () => {

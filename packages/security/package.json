@@ -1,7 +1,7 @@
 {
   "name": "security",
   "version": "0.0.0",
-  "private":true,
+  "private": true,
   "description": "Internal Security",
   "main": "dist/cjs/index.js",
   "types": "dist/index.d.ts",
@@ -36,5 +36,9 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "gitHead": "67b80e10c9f767d9c3c0ef4bd798598be8e4975d"
+  "gitHead": "67b80e10c9f767d9c3c0ef4bd798598be8e4975d",
+  "dependencies": {
+    "react-router": "^6.18.0",
+    "tsup": "^7.2.0"
+  }
 }

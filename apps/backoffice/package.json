@@ -39,7 +39,8 @@
     "typescript": "^4.9.5",
     "web-vitals": "^2.1.4",
     "yup": "^1.2.0",
-    "security": "*"
+    "security": "*",
+    "eslint-config-custom": "*"
   },
   "eslintConfig": {
     "extends": [

@@ -1,6 +1,6 @@
 import React, {memo, useState} from 'react'
 import SelectAutocompleteField, {SelectAutocompleteFieldProps} from "./SelectAutocompleteField";
-import {useToggle} from "@dfl/hook-utils";
+// import {useToggle} from "@dfl/hook-utils";
 import debounce from "lodash/debounce";
 import {useFindEntity} from "./useFindEntity";
 import {useFindValue} from "./useFindValue";
@@ -38,7 +38,7 @@ const AsyncSelectAutocompleteField = ({
                                           ...props
                                       }: AsyncSelectAutocompletedProps) => {
     const [search, setSearch] = useState<string>('');
-    const {isOpen, onOpen, onClose} = useToggle();
+    // const {isOpen, onOpen, onClose} = useToggle();
     const {isLoading, data, isError} = useFindEntity(fetchFunc, queryKey, search, fetchOption, isOpen, staleTime);
     const {
         isLoading: valueLoading,
