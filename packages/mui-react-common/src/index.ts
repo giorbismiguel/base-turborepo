@@ -7,8 +7,9 @@ export * from './types';
 export {default as BuildTest} from './test/BuildTest';
 
 export {
-    THEMES, defaultTheme, ThemeSettingType, ThemesOptionsType, toasterOptions, theming, themesOptions
+    THEMES, defaultTheme, toasterOptions, theming, themesOptions
 } from './settings';
+export type { ThemeSettingType, ThemesOptionsType } from './settings';
 
 
 

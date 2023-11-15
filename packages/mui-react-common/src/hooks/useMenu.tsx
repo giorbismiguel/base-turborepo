@@ -1,7 +1,7 @@
-import {useSecurity} from "react-security";
-import {ReactNode, useMemo} from "react";
-import {useTranslation} from "react-i18next";
-import {ListProps} from "@mui/material";
+import { useSecurity } from "security";
+import { ReactNode, useMemo } from "react";
+import { useTranslation } from "react-i18next";
+import { ListProps } from "@mui/material";
 import cloneDeep from "lodash/cloneDeep";
 
 export type IMenuLeaf = {
@@ -39,8 +39,8 @@ export type IMenu = Omit<ListProps, 'subheader' | 'children'> & {
  * @return IMenu[]
  * */
 function handlerItem(menu: (IMenu | IMenuItem | IMenuLeaf)[],
-                     t: (value: string) => string,
-                     hasPermission: (permissions: string | string[], atLessOne?: boolean | undefined) => boolean): (IMenu | IMenuItem | IMenuLeaf)[] {
+    t: (value: string) => string,
+    hasPermission: (permissions: string | string[], atLessOne?: boolean | undefined) => boolean): (IMenu | IMenuItem | IMenuLeaf)[] {
 
     return menu.filter(item => {
 
@@ -70,8 +70,8 @@ function handlerItem(menu: (IMenu | IMenuItem | IMenuLeaf)[],
 }
 
 export const useMenu = (menu: IMenu[], translation: string = 'menu') => {
-    const {t} = useTranslation(translation);
-    const {hasPermission} = useSecurity();
+    const { t } = useTranslation(translation);
+    const { hasPermission } = useSecurity();
 
     return useMemo<IMenu[]>(() => handlerItem(cloneDeep(menu), t, hasPermission) as IMenu[], [menu, t, hasPermission]);
 };

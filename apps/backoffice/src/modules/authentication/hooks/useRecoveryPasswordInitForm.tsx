@@ -1,17 +1,17 @@
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
-import {useRecoveryPasswordInit} from "@dfl/react-security";
-import {identifierSchema} from "modules/authentication/schemas/login.schema";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useRecoveryPasswordInit } from "security";
+import { identifierSchema } from "modules/authentication/schemas/login.schema";
 
 const useRecoveryPasswordInitForm = () => {
-  const {register, control, handleSubmit} = useForm({
+  const { register, control, handleSubmit } = useForm({
     resolver: yupResolver(identifierSchema),
     defaultValues: {
       identifier: "",
     },
   });
 
-  const {mutateAsync, error, isLoading, isSuccess, reset, data} =
+  const { mutateAsync, error, isLoading, isSuccess, reset, data } =
     useRecoveryPasswordInit();
 
   return {
@@ -22,7 +22,7 @@ const useRecoveryPasswordInitForm = () => {
     error,
     isLoading: isLoading,
     reset,
-    onSubmit: handleSubmit((value)=>mutateAsync(value)),
+    onSubmit: handleSubmit((value) => mutateAsync(value)),
   };
 };
 

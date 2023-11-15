@@ -1,10 +1,10 @@
-import {useForm} from "react-hook-form";
-import {yupResolver} from "@hookform/resolvers/yup";
-import {signUpSchema} from "../schemas/login.schema";
-import {useSignUp} from "@dfl/react-security";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { signUpSchema } from "../schemas/login.schema";
+import { useSignUp } from "security";
 
 const useSignUpForm = () => {
-  const {register, control, handleSubmit, watch} = useForm({
+  const { register, control, handleSubmit, watch } = useForm({
     resolver: yupResolver(signUpSchema),
     defaultValues: {
       email: "",
@@ -16,7 +16,7 @@ const useSignUpForm = () => {
 
   const termAcceptance = watch("acceptTerms");
 
-  const {mutateAsync, error, isLoading, isSuccess, data} = useSignUp();
+  const { mutateAsync, error, isLoading, isSuccess, data } = useSignUp();
 
 
   return {

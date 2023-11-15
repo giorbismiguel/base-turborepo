@@ -1,6 +1,7 @@
 {
   "name": "mui-react-common",
   "version": "0.0.0",
+  "private": true,
   "description": "",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
@@ -16,58 +17,35 @@
   },
   "author": "Giorbis Miguel",
   "license": "MIT",
-  "devDependencies": {
+  "dependencies": {
     "@babel/core": "^7.17.9",
-    "hook-utils": "*",
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
     "@mui/icons-material": "^5.4.4",
     "@mui/lab": "^5.0.0-alpha.63",
     "@mui/material": "^5.2.6",
+    "@mui/x-date-pickers": "^6.18.1",
     "@types/lodash": "^4.14.181",
     "@types/react": "^18.0.2",
     "babel-loader": "^8.2.4",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "emotion-theming": "^11.0.0",
+    "hook-utils": "*",
     "i18next": "^21.6.4",
+    "isomorphic-dompurify": "^1.9.0",
     "lodash": "^4.17.21",
     "postcss": "^8.4.12",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "react-hook-form": "^7.26.0",
     "react-i18next": "^11.15.2",
-    "rimraf": "^3.0.2",
+    "security": "*",
     "source-map-explorer": "^2.5.2",
     "tslib": "^2.3.1",
     "typescript": "^4.6.3"
   },
-  "peerDependencies": {
-    "@hook-utils": "*",
-    "react-security": "*",
-    "validations": "*",
-    "@emotion/react": "^11.7.1",
-    "@emotion/styled": "^11.6.0",
-    "@hookform/resolvers": "^2.8.8",
-    "@mui/icons-material": "^5.4.4",
-    "@mui/lab": "^5.0.0-alpha.63",
-    "@mui/material": "^5.2.6",
-    "@mui/x-date-pickers": "^5.0.0-beta.1",
-    "classnames": "^2.3.1",
-    "date-fns": "^2.28.0",
-    "i18next": "^21.6.4",
-    "isomorphic-dompurify": "^0.18.0",
-    "lodash": "^4.17.21",
-    "object-assign": "^4.1.1",
-    "react": "^16.0.0",
-    "react-dom": "^16.0.0",
-    "react-hook-form": "^7.26.0",
-    "react-i18next": "^11.15.2",
-    "react-query": "^3.34.19",
-    "yup": "^0.32.11"
-  },
-  "publishConfig": {
-    "registry": ""
-  },
-  "gitHead": "67b80e10c9f767d9c3c0ef4bd798598be8e4975d"
+  "devDependencies": {
+    "rimraf": "^3.0.2"
+  }
 }

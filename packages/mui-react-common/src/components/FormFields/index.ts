@@ -19,23 +19,24 @@ export {default as SelectField} from "./Select/SelectField";
 
 export {default as SelectAutocompleteField} from "./Select/SelectAutocompleteField";
 export {
-    default as AsyncSelectAutocompleteField,
-    FetchOption,
+    default as AsyncSelectAutocompleteField
 } from "./Select/AsyncSelectAutocompleteField";
+export type { FetchOption } from "./Select/AsyncSelectAutocompleteField";
 
 // DatePicker
 export {default as DatePickerField} from "./DatePicker/DatePickerField";
 
 // React hooks form integration
-export {default as FormFieldControl, FormFieldControlProps} from "./FormFieldControl";
+export { default as FormFieldControl } from "./FormFieldControl";
+export type { FormFieldControlProps } from "./FormFieldControl";
 
 // Text
 export {
     default as FormTextField,
     FormDarkTextField,
-    DarkTextField,
-    FormTextFieldProps,
+    DarkTextField
 } from "./Text/FormTextField";
+export type { FormTextFieldProps } from "./Text/FormTextField";
 export {default as FormPasswordField} from "./Text/FormPasswordField";
 
 // Check

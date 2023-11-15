@@ -8,7 +8,7 @@ export * from "./Typography";
 export * from "./Icons";
 
 export {default as HandlerError} from "./HandlerError";
-export {ErrorType} from "./HandlerError/HandleError.types";
+export type {ErrorType} from "./HandlerError/HandleError.types";
 export {default as HandlerSuccess} from "./HandlerSuccess";
 export {default as ConditionContainer} from "./ConditionContainer";
 export {default as DetailList} from "./DetailList";

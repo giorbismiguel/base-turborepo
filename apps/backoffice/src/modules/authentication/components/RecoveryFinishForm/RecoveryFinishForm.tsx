@@ -1,4 +1,4 @@
-import {memo} from "react";
+import { memo } from "react";
 import {
     Paragraph,
     LoadingButton,
@@ -6,10 +6,10 @@ import {
     FormPasswordField, Span,
 } from "mui-react-common";
 import Grid from "@mui/material/Grid";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 import useResetPasswordForm from "modules/authentication/hooks/useResetPasswordForm";
-import {LOGIN_ERRORS} from "modules/authentication/constants";
-import {ReactLink} from "react-security";
+import { LOGIN_ERRORS } from "modules/authentication/constants";
+import { ReactLink } from "security";
 import Box from "@mui/material/Box";
 
 type RecoveryFinishFormProps = {
@@ -17,8 +17,8 @@ type RecoveryFinishFormProps = {
     verifyKey: string
 }
 
-const RecoveryFinishForm = ({disable, verifyKey}: RecoveryFinishFormProps) => {
-    const {t} = useTranslation(["authentication", "common"]);
+const RecoveryFinishForm = ({ disable, verifyKey }: RecoveryFinishFormProps) => {
+    const { t } = useTranslation(["authentication", "common"]);
     const {
         onSubmit,
         control,
@@ -32,7 +32,7 @@ const RecoveryFinishForm = ({disable, verifyKey}: RecoveryFinishFormProps) => {
     const isDisable = disable || loading;
     return (
         <div>
-            <HandlerError error={error} errors={LOGIN_ERRORS} networkError={isPaused}/>
+            <HandlerError error={error} errors={LOGIN_ERRORS} networkError={isPaused} />
             <Paragraph>{t("recovery.newPasswordHelpText")}</Paragraph>
             <form onSubmit={onSubmit}>
                 <Grid container columnSpacing={2} rowSpacing={4}>

@@ -24,7 +24,7 @@ export const styledField = ({
             borderWidth: "1px !important"
         },
         "&.MuiInputBase-root, & .MuiInputBase-root": {
-            backgroundColor: theme.palette.mode === "light" ? theme.palette.darkField
+            backgroundColor: theme.palette.mode === "light" ? theme.palette.tonalOffset
                 || '#e5eaf2' : theme.palette.divider
         }
     }) : {}

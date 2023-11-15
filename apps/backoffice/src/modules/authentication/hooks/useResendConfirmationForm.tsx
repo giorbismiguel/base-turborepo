@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { identifierSchema } from '../schemas/login.schema';
-import { useResendConfirmation } from '@dfl/react-security';
+import { useResendConfirmation } from 'security';
 import { useMemo } from 'react';
 import toast from 'react-hot-toast';
 import { useTranslation } from 'react-i18next';
