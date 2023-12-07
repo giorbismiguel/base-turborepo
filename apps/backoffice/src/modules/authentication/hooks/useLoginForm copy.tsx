@@ -6,8 +6,8 @@ import { useNavigate, useLocation } from 'react-router-dom';
 
 const useLoginForm = () => {
     const { isLoading: isLoadingUser } = useUser();
-    let location = useLocation();
-    let navigate = useNavigate();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const { register, control, handleSubmit } = useForm({
         resolver: yupResolver(loginSchema),
@@ -26,10 +26,10 @@ const useLoginForm = () => {
         error,
         isLoading: isLoading || isLoadingUser,
         onSubmit: handleSubmit(async (value) => {
-            // @ts-ignore
+            // @ts-expect-error
             await mutateAsync(value);
             //go to the previews page
-            // @ts-ignore
+            // @ts-expect-error
             const from = location.state?.from?.pathname || "/";
             navigate(from, { replace: true });
         }),

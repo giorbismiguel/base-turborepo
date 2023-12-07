@@ -15,7 +15,7 @@ import { Box, Stack } from '@mui/material';
 import SocialLogin from 'modules/authentication/components/SocialLogin/SocialLogin';
 import OrDivider from 'modules/authentication/components/OrDivider/OrDivider';
 import { LOGIN_ERRORS } from '../constants';
-import { ReactLink } from 'components/security';
+import { ReactLink } from 'security';
 
 
 const LoginContainer = () => {
