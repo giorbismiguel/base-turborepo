@@ -1,1 +1,0 @@
-export {default as TagList, renderTagList, OwnChipProps} from "./TagList";

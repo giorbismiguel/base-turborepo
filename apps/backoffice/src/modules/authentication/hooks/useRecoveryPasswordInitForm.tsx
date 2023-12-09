@@ -20,7 +20,7 @@ const useRecoveryPasswordInitForm = () => {
     data,
     isSuccess,
     error,
-    isLoading: isLoading,
+    isLoading,
     reset,
     onSubmit: handleSubmit((value) => mutateAsync(value)),
   };

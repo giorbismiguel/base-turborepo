@@ -10,15 +10,15 @@ import {
   Form,
   FormSwitchField,
   HandlerError
-} from 'components/commons';
+} from 'mui-react-common';
 import { Box, Stack } from '@mui/material';
 import SocialLogin from 'modules/authentication/components/SocialLogin/SocialLogin';
 import OrDivider from 'modules/authentication/components/OrDivider/OrDivider';
-import { LOGIN_ERRORS } from '../constants';
 import { ReactLink } from 'security';
+import { LOGIN_ERRORS } from '../constants';
 
 
-const LoginContainer = () => {
+function LoginContainer() {
   const { t } = useTranslation(['authentication', 'common']);
   const { onSubmit, control, isLoading, error } = useLoginForm();
 
@@ -27,8 +27,8 @@ const LoginContainer = () => {
       <HandlerError error={error} errors={LOGIN_ERRORS} />
       <SocialLogin isLoading={isLoading} />
       <OrDivider/>
-      <Form onSubmit={onSubmit} isLoading={isLoading} control={control}>
-        <Grid container columnSpacing={2} rowSpacing={4}>
+      <Form control={control} isLoading={isLoading} onSubmit={onSubmit}>
+        <Grid columnSpacing={2} container rowSpacing={4}>
           <Grid item xs={12}>
             <FormTextField
                 name='identifier'
@@ -37,16 +37,16 @@ const LoginContainer = () => {
           </Grid>
           <Grid item xs={12}>
             <FormPasswordField
-                name='password'
               label={t('common:password')}
+              name='password'
             />
           </Grid>
         </Grid>
-        <Stack mt={2} direction={{ xs: 'column', sm: 'row' }} justifyContent={'space-between'}
-               alignItems={'center'}>
+        <Stack alignItems="center" direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between"
+               mt={2}>
           <FormSwitchField
-            name='remember'
             label={t('remember')}
+            name='remember'
           />
           <ReactLink to='/auth/reset-password/init' underline="hover">
             {t('forgotPassword')}
@@ -55,17 +55,17 @@ const LoginContainer = () => {
         <Box mt={4}>
           <LoadingButton
             fullWidth
+            loading={isLoading}
+            size="large"
             type='submit'
             variant='contained'
-            loading={isLoading}
-            size={'large'}
           >
             {t('login')}
           </LoadingButton>
         </Box>
       </Form>
-      <Box mt={2} textAlign={"center"}>
-        <Span mt={3} color='text.secondary'>
+      <Box mt={2} textAlign="center">
+        <Span color='text.secondary' mt={3}>
           {t('notHaveAccount')}
           <ReactLink to='/auth/signup' underline="hover">
             {t('createAccount')}
@@ -74,6 +74,6 @@ const LoginContainer = () => {
       </Box>
     </div>
   );
-};
+}
 
 export default memo(LoginContainer);
