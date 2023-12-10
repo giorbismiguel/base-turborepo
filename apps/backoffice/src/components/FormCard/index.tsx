@@ -1,23 +1,24 @@
 import React from 'react';
-import Paper, {PaperProps} from '@mui/material/Paper';
-import {StackProps, styled} from '@mui/material';
+import type {PaperProps} from '@mui/material/Paper';
+import Paper from '@mui/material/Paper';
+import {styled} from '@mui/material';
 
 
 type FormCardProps = PaperProps & { rounded?: boolean, maxWidth?: any }
 
-const Card = ({children, rounded, ...props}: FormCardProps) => {
+function Card({children, rounded, ...props}: FormCardProps) {
     return (
         <Paper elevation={1}  {...props}>
             {children}
         </Paper>
     );
-};
+}
 
 
 const FormCard = styled(Card)<FormCardProps>(({theme, rounded, maxWidth = 700}) => ({
     padding: 16,
     width: '100%',
-    maxWidth: maxWidth,
+    maxWidth,
     height: '100%',
     borderRadius: rounded ? 6 : 0,
     [theme.breakpoints.down('md')]: {

@@ -3,8 +3,8 @@ import "yup-validations";
 
 export const loginSchema = Yup.object().shape({
     identifier: Yup.string().email("validEmail").max(255, "max-255").required("required"),
-    // @ts-ignore
-    password: Yup.string().password().required("required"),
+    // @ts-expect-error
+    password: Yup.string().password().required("required") as string,
 });
 
 export const identifierSchema = Yup.object().shape({
@@ -15,13 +15,13 @@ export const signUpSchema = Yup.object().shape({
     firstName: Yup.string()
         .min(2, "min-2")
         .max(255, "max-255")
-        // @ts-ignore
+        // @ts-expect-error
         .name("invalidValue")
         .required("required"),
     lastName: Yup.string()
         .min(2, "min-2")
         .max(255, "max-255")
-        // @ts-ignore
+        // @ts-expect-error
         .name("invalidValue")
         .required("required"),
     email: Yup.string().email("validEmail").max(255).required("required"),
@@ -29,7 +29,7 @@ export const signUpSchema = Yup.object().shape({
 });
 
 export const resetPasswordSchema = Yup.object().shape({
-    // @ts-ignore
+    // @ts-expect-error
     password: Yup.string().password().required("required"),
     confirmPassword: Yup.string()
         .required("required")
