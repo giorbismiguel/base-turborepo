@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "contexts/*": ["contexts/*"],
+      "constants/*": ["constants/*"],
+      "hooks/*": ["hooks/*"],
+      "interfaces/*": ["interfaces/*"],
+      "layouts/*": ["layouts/*"],
+      "locals/*": ["locales/*"],
+      "modules/*": ["modules/*"],
+      "routes/*": ["routes/*"],
+      "settings/*": ["settings/*"],
+    }
+  }
+}

@@ -2,9 +2,14 @@ import * as Yup from "yup";
 import "yup-validations";
 
 export const loginSchema = Yup.object().shape({
-    identifier: Yup.string().email("validEmail").max(255, "max-255").required("required"),
-    // @ts-expect-error
-    password: Yup.string().password().required("required") as string,
+  identifier: Yup.string()
+    .email("validEmail")
+    .max(255, "max-255")
+    .required("required"),
+  // @ts-expect-error
+  password: Yup.string().password().required("required") as unknown as string,
+  email: Yup.string(),
+  remember: Yup.bool(),
 });
 
 export const identifierSchema = Yup.object().shape({

@@ -1,7 +1,7 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { signUpSchema } from "../schemas/login.schema";
 import { useSignUp } from "security";
+import { signUpSchema } from "../schemas/login.schema";
 
 const useSignUpForm = () => {
   const { register, control, handleSubmit, watch } = useForm({

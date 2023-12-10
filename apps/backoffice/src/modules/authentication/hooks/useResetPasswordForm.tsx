@@ -1,10 +1,10 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { resetPasswordSchema } from "../schemas/login.schema";
 import { useRecoveryPasswordFinish } from "security";
 import { useMemo } from "react";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
+import { resetPasswordSchema } from "../schemas/login.schema";
 
 const useResetPasswordForm = (key: string) => {
     const { t } = useTranslation("authentication");
