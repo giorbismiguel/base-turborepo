@@ -2,10 +2,11 @@ import {memo} from "react";
 import {useParams} from "react-router";
 import VerifyContainer from "modules/authentication/container/VerifyContainer";
 
-const Verify = () => {
-  let params = useParams();
+function Verify() {
+  const params = useParams();
 
-  return <VerifyContainer verifyKey={params.key as string}></VerifyContainer>;
-};
+  // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
+  return <VerifyContainer verifyKey={params.key!} />;
+}
 
 export default memo(Verify);
