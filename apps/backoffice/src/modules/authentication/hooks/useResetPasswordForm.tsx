@@ -1,5 +1,6 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import * as Yup from "yup";
 import { useRecoveryPasswordFinish } from "security";
 import { useMemo } from "react";
 import toast from "react-hot-toast";
@@ -9,7 +10,7 @@ import { resetPasswordSchema } from "../schemas/login.schema";
 const useResetPasswordForm = (key: string) => {
     const { t } = useTranslation("authentication");
     const { register, control, handleSubmit } = useForm({
-        resolver: yupResolver(resetPasswordSchema),
+        resolver: yupResolver<Yup.AnyObjectSchema>(resetPasswordSchema),
         defaultValues: {
             password: "",
             confirmPassword: "",

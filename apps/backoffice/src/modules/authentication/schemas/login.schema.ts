@@ -1,5 +1,5 @@
 import * as Yup from "yup";
-import "yup-validations";
+import "validations";
 
 export const loginSchema = Yup.object().shape({
   identifier: Yup.string()

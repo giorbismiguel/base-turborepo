@@ -1,11 +1,13 @@
-import { Box, styled, Theme } from '@mui/material';
+import type { Theme } from '@mui/material';
+import { Box, styled } from '@mui/material';
 import classNames from 'classnames';
 import get from 'lodash/get';
 import React from 'react';
-import { TypographyCreator, TypographyOptionsProps, TypographyProps, TypographyStyleProps } from './typography.types';
+import type { TypographyCreator, TypographyOptionsProps, TypographyProps, TypographyStyleProps } from './typography.types';
 
 const getValueFromTheme = (theme: Theme, typography: string, field: string, defaultValue: any) => {
   const value = get(typography, `typography.${typography}.${field}`);
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-return
   return value || defaultValue;
 };
 
@@ -38,27 +40,27 @@ const createTypographyComp: (config: TypographyCreator) => (props: TypographyPro
                                                                                                         lineHeight,
                                                                                                         marginBottom = 0
                                                                                                       }) => {
-  // eslint-disable-next-line react/prop-types,react/display-name
-  return (props: TypographyProps) => {
+  // eslint-disable-next-line react/display-name, func-names
+  return function(props: TypographyProps) {
     const { children, className, ellipsis, secondary, gutterBottom, block, ...rest } = props;
     // @ts-ignore
     return (
       <StyledBox
-        ellipsis={ellipsis}
         className={classNames({
           [className || '']: true
         })}
+        color={secondary ? 'secondary.500' : undefined}
         component={component}
-        mb={marginBottom}
-        mt={gutterBottom?0: undefined}
         defaultValues={{
-          component: component,
+          component,
           fontSize,
           fontWeight,
           lineHeight
         }}
-        color={secondary ? 'secondary.500' : undefined}
         display={block ? 'block' : undefined}
+        ellipsis={ellipsis}
+        mb={marginBottom}
+        mt={gutterBottom?0: undefined}
         {...rest}
       >
         {children}

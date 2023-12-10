@@ -6,9 +6,9 @@ import {styled} from '@mui/material';
 
 type FormCardProps = PaperProps & { rounded?: boolean, maxWidth?: any }
 
-function Card({children, rounded, ...props}: FormCardProps) {
+function Card({children, ...props}: FormCardProps) {
     return (
-        <Paper elevation={1}  {...props}>
+        <Paper elevation={1} {...props}>
             {children}
         </Paper>
     );
