@@ -1,5 +1,5 @@
 
-import { RouteConfig } from '../components/security/Router/router.types';
+import type { RouteConfig } from 'security';
 import {lazy} from 'react';
 
 // import {TermsConditions} from "modules/anonymous";
