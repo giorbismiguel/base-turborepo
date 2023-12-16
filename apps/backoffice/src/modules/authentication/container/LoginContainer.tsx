@@ -31,8 +31,8 @@ function LoginContainer() {
         <Grid columnSpacing={2} container rowSpacing={4}>
           <Grid item xs={12}>
             <FormTextField
-                name='identifier'
                 label={t('common:email')}
+                name='identifier'
             />
           </Grid>
           <Grid item xs={12}>

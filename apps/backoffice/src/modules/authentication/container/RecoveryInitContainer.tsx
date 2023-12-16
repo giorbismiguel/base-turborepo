@@ -4,7 +4,8 @@ import {
     Span,
     LoadingButton,
     HandlerError, Paragraph
-,ConditionContainer} from 'mui-react-common';
+,ConditionContainer,
+Form} from 'mui-react-common';
 import Grid from '@mui/material/Grid';
 import {useTranslation} from 'react-i18next';
 import {ReactLink} from 'security';
@@ -34,11 +35,10 @@ function RecoveryInitContainer() {
             >
                 <HandlerError error={error} errors={LOGIN_ERRORS}/>
                 <Paragraph>{t("recovery.helpText")}</Paragraph>
-                <form onSubmit={onSubmit}>
+                <Form control={control} onSubmit={onSubmit}>
                     <Grid columnSpacing={2} container rowSpacing={4}>
                         <Grid item xs={12}>
                             <FormTextField
-                                control={control}
                                 disabled={isLoading}
                                 label={t("common:email")}
                                 name="identifier"
@@ -56,7 +56,7 @@ function RecoveryInitContainer() {
                             {t("resetPassword")}
                         </LoadingButton>
                     </Box>
-                </form>
+                </Form>
             </ConditionContainer>
             <Box mt={2} textAlign="center">
                 <Span color='text.secondary' mt={3}>

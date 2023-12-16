@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { memo } from 'react';
 import map from 'lodash/map';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import SecureRoute from './SecureRoute';
 import { getPaths } from '../../utils/rute';
 import NavigationWithMemory from './NavigationWithMemory';
@@ -42,14 +42,18 @@ const RouteLoader = ({ routes, prefix, notfoundRedirect, memory }:RouteLoaderPro
     )
   );
 
-  return (<Routes>
-    {routesChildren}
-    {notfoundRedirect && (<Route
-      path='*'
-      key='page_no_found'
-      element={<NavigationWithMemory to={notfoundRedirect} memory={memory} />}
-    />)}
-  </Routes>);
+  return (
+    <BrowserRouter>
+      <Routes>
+        {routesChildren}
+        {notfoundRedirect && (<Route
+          path='*'
+          key='page_no_found'
+          element={<NavigationWithMemory to={notfoundRedirect} memory={memory} />}
+        />)}
+      </Routes>
+    </BrowserRouter>
+  );
 };
 
 export default memo(RouteLoader);

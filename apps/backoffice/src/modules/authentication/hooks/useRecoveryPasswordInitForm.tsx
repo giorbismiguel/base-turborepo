@@ -3,8 +3,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useRecoveryPasswordInit } from "security";
 import { identifierSchema } from "modules/authentication/schemas/login.schema";
 
+interface FormData {
+  identifier: string;
+}
+
 const useRecoveryPasswordInitForm = () => {
-  const { register, control, handleSubmit } = useForm({
+  const { register, control, handleSubmit } = useForm<FormData>({
     resolver: yupResolver(identifierSchema),
     defaultValues: {
       identifier: "",
