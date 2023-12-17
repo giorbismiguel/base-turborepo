@@ -1,0 +1,11 @@
+{
+  "testimonyList": "Testimonios",
+  "author": "Autor",
+  "create": "Nuevo Testimonio",
+  "edit": "Editar Testimonio",
+  "positionAuthor": "Cargo",
+  "testimonial": "Testimonio",
+  "successDeleted": "Testimonio eliminado!",
+  "successUpdate": "Testimonio actualizado!",
+  "successCreated": "Testimonio creado!"
+}

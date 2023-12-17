@@ -1,0 +1,31 @@
+{
+    "main_menu": {
+        "general": {
+            "title": "General"
+        },
+        "overview": {
+            "title": "Overview"
+        },
+        "analytics": {
+            "title": "Analytics"
+        },
+        "finance": {
+            "title": "Finance"
+        },
+        "logistics": {
+            "title": "Logistics"
+        },
+        "account": {
+            "title": "Account"
+        },
+        "management": {
+            "title": "Management"
+        },
+        "users": {
+            "title": "Users"
+        },
+        "roles": {
+            "title": "Roles"
+        }
+    }
+}

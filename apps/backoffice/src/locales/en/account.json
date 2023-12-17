@@ -1,0 +1,72 @@
+{
+  "fullName": "Full Name",
+  "password": "Current Password",
+  "newPassword": "New Password",
+  "confirmPassword": "Confirm Password",
+  "retypePassword": "Retype Password",
+  "emailAddress": "Email Address",
+  "phoneNumber": "Phone Number",
+  "country": "Country",
+  "state": "State/Region",
+  "city": "City",
+  "address": "Address",
+  "zipCode": "Zip/Code",
+  "label": "Label",
+  "saveChanges": "Save Changes",
+  "resetPassword": "Reset password",
+  "profile": {
+    "phone": "Phone",
+    "country": "Country",
+    "creation": "Creation Date",
+    "changeRole": "CHANGE ROLE"
+  },
+  "tabs": {
+    "general": "General",
+    "notifications": "NOTIFICATIONS",
+    "security": "Security",
+    "activity": "ACTIVITY"
+  },
+  "activityTab": {
+    "activity": "Activity",
+    "recentActivity": "Your recent activity:"
+  },
+  "securityTab": {
+    "passwordMakeChange": "Make this user change their password when they first sign in",
+    "passwordAutoGenerate": "Auto-generate password",
+    "passwordCreate": "Let me create the password",
+    "changePassword": "Change your password",
+    "resetPassword": "Reset password",
+    "loginHistory": "Login history",
+    "recentLoginHistory": "Your recent login activity:",
+    "passwordSuccessfullyUpdated": "Password Successfully Updated",
+    "loginType": "Connection type",
+    "ipAddress": "IP Address",
+    "client": "Client"
+  },
+  "notificationsTab": {
+    "notifications": "Notifications",
+    "requestPermission": "We need permission from your browser to show notifications. Request permission",
+    "email": {
+      "header": "EMAIL",
+      "productUpdates": {
+        "primary": "Product updates",
+        "secondary": "News, announcements, and product updates."
+      },
+      "securityUpdates": {
+        "primary": "Security updates",
+        "secondary": "Important notifications about your account security."
+      }
+    },
+    "phoneNotifications": {
+      "header": "PHONE NOTIFICATIONS",
+      "securityUpdates": {
+        "primary": "Security updates",
+        "secondary": "Important notifications about your account security."
+      }
+    }
+  },
+  "successUpdate": "Successfully updated",
+  "generatePassword": "Auto-generate password",
+  "createPassword": "Let me create the password",
+  "changePasswordRequire": "Make this user change their password when they first sign in."
+}

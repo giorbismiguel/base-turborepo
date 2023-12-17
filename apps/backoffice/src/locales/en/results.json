@@ -1,0 +1,23 @@
+{
+  "suggest": "Sugerencias:",
+  "notSearchResult": {
+    "title": "Al parecer, no hay buenas coincidencias para tu búsqueda",
+    "subtext": "Ups! Sin resultados",
+    "suggest1": "Asegúrate de que todas las palabras estén escritas correctamente.",
+    "suggest2": "Prueba diferentes filtros."
+  },
+  "notConnection": {
+    "title": "Sin conexión",
+    "subtext": "Ups! No se ha podido ejecutar esta acción",
+    "suggest1": "Por favor, compruebe la conexión y vuelva a intentarlo"
+  },
+  "errorResult": {
+    "title": "Por algún motivo el sitio ha dejado de funcionar correctamente",
+    "subtext": "Ups! Esto es un error",
+    "suggest1": "Compruebe su conexión e intentelo de nuevo.",
+    "suggest2": "Si el error persiste puede contactarnos."
+  },
+  "notFound": {
+    "notifications": "It appears that the requested notification is not available"
+  }
+}

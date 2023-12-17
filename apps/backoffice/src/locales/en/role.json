@@ -1,0 +1,25 @@
+
+{
+  "roleList": "Roles",
+  "create": "New Role",
+  "edit": "Edit Role",
+  "delete": "Delete Role",  
+  "successDeleted": "Role deleted!",
+  "successUpdate": "Role updated!",
+  "successCreated": "Role created!",
+  "name": "Role",
+  "description": "Description",
+  "permissions": "Permissions",
+  "permissionManage": "Manage Permissions",
+  "addUser": "Add Members",
+  "addPermission": "Add Permissions",
+  "userList": "Users",
+  "addUserSubtitle": "You are adding members to the role <bold>{{role}}</bold>.",
+  "addPermissionSubtitle": "You are adding members to the role <bold>{{role}}</bold>.",
+  "successAddPermissions": "Permissions added!",
+  "successAddUsers": "Users added!",
+  "successDeletedUsers": "Users deleted successfully!",
+  "successDeletedRoles": "Roles deleted successfully!",
+  "updateRoleIcon": "Update Role Icon",
+  "updateIconRoleSubtitle":  "You are updating icon to the role <bold>{{role}}</bold>."
+}

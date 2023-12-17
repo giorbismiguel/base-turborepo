@@ -1,0 +1,28 @@
+{
+  "userList": "Users",
+  "create": "New user",
+  "edit": "Edit user",
+  "advancedEdit": "Advanced Edit",
+  "name": "Name",
+  "status": "Status",
+  "statusName": {
+    "DELETED": "Deleted",
+    "LOCK": "Lock",
+    "UNVERIFIED": "Unverified",
+    "ACTIVE": "Active"
+  },
+  "all": "All",
+  "active": "Active",
+  "unverify": "Unverified",
+  "lock": "Locked",
+  "locked": "Locked",
+  "lockedDescription": "A blocked user will no longer be able to access the system.",
+  "verified": "Verified",
+  "verifiedDescription": "It will verify the user without access by email.",
+  "changeRole": "Update roles",
+  "roleUnknown": "Unknown",
+  "roles": "Roles",
+  "addRoles": "Add Roles",
+  "addRolesSubtitle": "You are adding roles to the user <bold>{{user}}</bold>.",
+  "successAddRoles": "Roles added!!"
+}

@@ -1,0 +1,73 @@
+{
+  "fullName": "Nombre Completo",
+  "password": "Contraseña Actual",
+  "newPassword": "Nueva Contraseña",
+  "confirmPassword": "Confirmar Contraseña",
+  "retypePassword": "Confirme la Contraseña",
+  "emailAddress": "Dirección de Correo Electrónico",
+  "phoneNumber": "Número de Teléfono",
+  "country": "País",
+  "state": "Estado/Región",
+  "city": "Ciudad",
+  "address": "Dirección",
+  "zipCode": "Código Postal",
+  "label": "Etiqueta",
+  "saveChanges": "Guardar Cambios",
+  "resetPassword": "Resetear Contraseña",
+  "profile": {
+    "phone": "Teléfono",
+    "creation": "Fecha de Creación",
+    "changeRole": "CAMBIAR ROL"
+  },
+  "tabs": {
+    "general": "General",
+    "notifications": "Notificaciones",
+    "security": "Seguridad",
+    "activity": "Actividad"
+  },
+  "activityTab": {
+    "recentActivity": "Su actividad reciente:"
+  },
+  "securityTab": {
+    "passwordMakeChange": "Hacer que este usuario cambie su contraseña la primera vez que se registre",
+    "passwordAutoGenerate": "Generar automáticamente la contraseña",
+    "passwordCreate": "Déjame crear la contraseña",
+    "changePassword": "Cambiar la contraseña",
+    "resetPassword": "Restablecer la contraseña",
+    "loginHistory": "Historial de inicio de sesión",
+    "recentLoginHistory": "Su actividad de inicio de sesión reciente:",
+    "passwordSuccessfullyUpdated": "Contraseña Actualizada correctamente",
+    "loginType": "Tipo de Conexión",
+    "ipAddress": "Dirección IP",
+    "client": "Cliente"
+  },
+  "notificationsTab": {
+    "notifications": "Notificaciones",
+    "requestPermission": "Necesitamos el permiso de su navegador para mostrar las notificaciones. Solicitar permiso",
+    "email": {
+      "header": "CORREO ELECTRÓNICO",
+      "productUpdates": {
+        "primary": "Actualizaciones de productos",
+        "secondary": "Noticias, anuncios y actualizaciones de productos."
+      },
+      "securityUpdates": {
+        "primary": "Actualizaciones de seguridad",
+        "secondary": "Notificaciones importantes sobre la seguridad de su cuenta."
+      }
+    },
+    "phoneNotifications": {
+      "header": "NOTIFICACIONES TELEFÓNICAS",
+      "securityUpdates": {
+        "primary": "Actualizaciones de seguridad",
+        "secondary": "Notificaciones importantes sobre la seguridad de su cuenta."
+      }
+    }
+  },
+  "errors": {
+    "permissions": "Usted no tiene permiso para esta operación"
+  },
+  "successUpdate": "Actualización realizada correctamente.",
+  "generatePassword": "Auto-generar contraseña",
+  "createPassword": "Dejarme crear contraseña",
+  "changePasswordRequire": "Hacer que este usuario cambie su contraseña cuando inicie sesión por primera vez."
+}

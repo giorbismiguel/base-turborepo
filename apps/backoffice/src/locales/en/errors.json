@@ -1,0 +1,13 @@
+{
+  "validEmail": "Must be a valid email",
+  "required": "Required",
+  "max-255": "Must be at most 255 characters",
+  "min-2": "Must be at least 2 characters",
+  "invalidValue": "Please enter valid value",
+  "passwordsMustMatch": "Passwords Must Match",
+  "passwordStrength": "Password should be of minimum 6 characters length",
+  "notConnection": "No connection",
+  "notConnectionMessage": "Please check your connection and try again",
+  "generalError": "Error",
+  "generalErrorMessage": "We couldn't perform this action"
+}

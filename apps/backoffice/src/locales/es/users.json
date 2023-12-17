@@ -1,0 +1,30 @@
+{
+  "userList": "Usuarios",
+  "create": "Nuevo usuario",
+  "edit": "Editar Usuario",
+  "advancedEdit": "Editar Avanzado",
+  "name": "Nombre",
+  "status": "Estado",
+  "min-1": "Debe seleccionar al menos un usuario",
+  "statusName": {
+    "DELETED": "Eliminado",
+    "LOCK": "Bloqueado",
+    "UNVERIFIED": "Sin verificar",
+    "ACTIVE": "Activo"
+  },
+  "all": "Todos",
+  "active": "Activos",
+  "unverify": "Sin verificar",
+  "lock": "Bloqueados",
+  "locked": "Bloqueado",
+  "lockedDescription": "Un usuario bloqueado no podrá acceder más al sistema",
+  "verified": "Verificado",
+  "verifiedDescription": "Verificará el usuario sin q este acceda por correo electronico.",
+  "changeRole": "Actualizar Roles",
+  "roleUnknown": "Desconocido",
+  "roles": "Roles",
+  "selectRoles": "Seleccionar roles",
+  "addRoles": "Adicionar Roles",
+  "addRolesSubtitle": "Estas adicionando roles al <bold>{{user}}</bold>.",
+  "successAddRoles": "Roles adicionados!!"
+}
