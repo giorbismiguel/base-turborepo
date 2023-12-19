@@ -1,1 +1,1 @@
-export {default as NumberRangeFilter} from './NumberRangeFilter'
+export { default as NumberRangeFilter } from "./NumberRangeFilter";

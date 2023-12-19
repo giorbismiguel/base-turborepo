@@ -1,1 +1,1 @@
-export const DATE_FORMAT = 'PPP'
+export const DATE_FORMAT = "PPP";

@@ -1,16 +1,19 @@
-import React, { Fragment, memo, useRef } from 'react';
-import { useToggle } from 'hook-utils';
-import { Avatar, Box, ButtonBase } from '@mui/material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import AccountPopover from './AccountPopover';
-import { useUser } from 'security';
-import { ChildrenProps } from 'mui-react-common';
+import React, { Fragment, memo, useRef } from "react";
+import { useToggle } from "hook-utils";
+import { Avatar, Box, ButtonBase } from "@mui/material";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import AccountPopover from "./AccountPopover";
+import { useUser } from "security";
+import { ChildrenProps } from "mui-react-common";
 
 type AccountButtonProps = ChildrenProps & {
-  logoutText: string
+  logoutText: string;
 };
 
-const AccountButton = ({ children, logoutText = 'Logout' }: AccountButtonProps) => {
+const AccountButton = ({
+  children,
+  logoutText = "Logout",
+}: AccountButtonProps) => {
   const anchorRef = useRef(null);
   const { isOpen, onOpen, onClose } = useToggle(false);
   // To get the user from the authContext, you can use
@@ -23,21 +26,21 @@ const AccountButton = ({ children, logoutText = 'Logout' }: AccountButtonProps) 
         onClick={onOpen}
         ref={anchorRef}
         sx={{
-          alignItems: 'center',
-          display: 'flex',
-          ml: 2
+          alignItems: "center",
+          display: "flex",
+          ml: 2,
         }}
       >
         <Avatar
           sx={{
             height: 40,
             width: 40,
-            bgcolor: 'secondary'
+            bgcolor: "secondary",
           }}
-          color='secondary'
+          color="secondary"
           src={user?.avatar}
         >
-          <AccountCircleIcon fontSize='small' />
+          <AccountCircleIcon fontSize="small" />
         </Avatar>
       </Box>
       <AccountPopover

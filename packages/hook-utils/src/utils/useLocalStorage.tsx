@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from "react";
 
-const useLocalStorage = (key:string, initialValue: any) => {
+const useLocalStorage = (key: string, initialValue: any) => {
   const [data, setData] = useState(initialValue);
   useEffect(() => {
     const getData = window.localStorage.getItem(key);
@@ -13,11 +13,11 @@ const useLocalStorage = (key:string, initialValue: any) => {
   const storeData = useCallback((updateValue: any) => {
     setData(updateValue);
     window.localStorage.setItem(key, JSON.stringify(updateValue));
-  },[]);
+  }, []);
 
   return {
     data,
-    storeData
+    storeData,
   };
 };
 

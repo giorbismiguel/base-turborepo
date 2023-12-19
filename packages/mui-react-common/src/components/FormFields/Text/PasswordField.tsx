@@ -1,16 +1,16 @@
-import React, {memo} from "react";
-import {Box, InputAdornment, useTheme} from "@mui/material";
+import React, { memo } from "react";
+import { Box, InputAdornment, useTheme } from "@mui/material";
 import TextField from "./TextField";
 import VisibilityOutlinedIcon from "@mui/icons-material/VisibilityOutlined";
 import VisibilityOffOutlinedIcon from "@mui/icons-material/VisibilityOffOutlined";
-import {useToggle} from "hook-utils";
-import {PasswordFieldProps} from "./text.types";
+import { useToggle } from "hook-utils";
+import { PasswordFieldProps } from "./text.types";
 
-const PasswordField = ({ hideIcon,...props }:PasswordFieldProps) => {
-  const {isOpen, onToggle} = useToggle();
+const PasswordField = ({ hideIcon, ...props }: PasswordFieldProps) => {
+  const { isOpen, onToggle } = useToggle();
   const theme = useTheme();
 
-    return (
+  return (
     <TextField
       {...props}
       type={isOpen ? "text" : "password"}
@@ -27,15 +27,28 @@ const PasswordField = ({ hideIcon,...props }:PasswordFieldProps) => {
                         props?.value?.length >= props.strong
                           ? theme.palette.success.main
                           : theme.palette.warning.light,
-                        padding: "0.5rem"
+                      padding: "0.5rem",
                     }}
                   >
                     {props?.value?.length >= props.strong ? "Strong" : "Weak"}
                   </Box>
                 )}
                 {!hideIcon && (
-                  <Box component={"span"} sx={{padding: "0.5rem", cursor: "pointer", display: "flex", alignItems: "center"}} onClick={onToggle}>
-                    {isOpen ? <VisibilityOffOutlinedIcon /> : <VisibilityOutlinedIcon />}
+                  <Box
+                    component={"span"}
+                    sx={{
+                      padding: "0.5rem",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center",
+                    }}
+                    onClick={onToggle}
+                  >
+                    {isOpen ? (
+                      <VisibilityOffOutlinedIcon />
+                    ) : (
+                      <VisibilityOutlinedIcon />
+                    )}
                   </Box>
                 )}
               </>
@@ -47,8 +60,8 @@ const PasswordField = ({ hideIcon,...props }:PasswordFieldProps) => {
   );
 };
 
-PasswordField.defaultProps={
-  hideIcon:false
-}
+PasswordField.defaultProps = {
+  hideIcon: false,
+};
 
 export default memo(PasswordField);

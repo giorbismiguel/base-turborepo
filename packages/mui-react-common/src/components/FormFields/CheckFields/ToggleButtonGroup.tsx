@@ -1,44 +1,38 @@
-import React, { memo, useCallback, MouseEvent } from 'react'
+import React, { memo, useCallback, MouseEvent } from "react";
 import MuiToggleButtonGroup, {
-    ToggleButtonGroupProps as MuiToggleButtonGroupProps
+  ToggleButtonGroupProps as MuiToggleButtonGroupProps,
 } from "@mui/material/ToggleButtonGroup";
 
-export type ToggleButtonGroupProps = Omit<MuiToggleButtonGroupProps, 'onChange'> & {
-    onChange: any
-    helperText?: any,//it just to ignore it
-    inputRef?: any,//it just to ignore it
-    error?: any,//it just to ignore it
-    inputProps?: any,//it just to ignore it
-}
+export type ToggleButtonGroupProps = Omit<
+  MuiToggleButtonGroupProps,
+  "onChange"
+> & {
+  onChange: any;
+  helperText?: any; //it just to ignore it
+  inputRef?: any; //it just to ignore it
+  error?: any; //it just to ignore it
+  inputProps?: any; //it just to ignore it
+};
 
 const ToggleButtonGroup = ({
-    value,
-    onChange,
-    helperText,
-    inputRef,
-    error,
-    inputProps,
-    ...props
+  value,
+  onChange,
+  helperText,
+  inputRef,
+  error,
+  inputProps,
+  ...props
 }: ToggleButtonGroupProps) => {
+  const handleChange = useCallback(
+    (event: MouseEvent<HTMLElement>, newValue: string | null) => {
+      onChange?.({ target: { value: newValue } });
+    },
+    [onChange]
+  );
 
-    const handleChange = useCallback(
-        (
-            event: MouseEvent<HTMLElement>,
-            newValue: string | null,
-        ) => {
-            onChange?.({ target: { value: newValue } });
-        },
-        [onChange]
-    );
-
-    return (
-        <MuiToggleButtonGroup
-            value={value}
-            onChange={handleChange}
-            {...props}
-        />
-    );
-
-}
+  return (
+    <MuiToggleButtonGroup value={value} onChange={handleChange} {...props} />
+  );
+};
 
 export default memo(ToggleButtonGroup);

@@ -1,1 +1,1 @@
-export {default as ResendVerifyLinkForm} from './ResendVerifyLinkForm';
+export { default as ResendVerifyLinkForm } from "./ResendVerifyLinkForm";

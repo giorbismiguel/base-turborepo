@@ -1,1 +1,1 @@
-export {default as RecoveryFinishForm} from './RecoveryFinishForm'
+export { default as RecoveryFinishForm } from "./RecoveryFinishForm";

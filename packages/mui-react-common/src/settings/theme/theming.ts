@@ -1,8 +1,6 @@
-import {createTheme, responsiveFontSizes} from "@mui/material";
+import { createTheme, responsiveFontSizes } from "@mui/material";
 import merge from "lodash/merge";
-import {THEMES} from "./themes";
-
-
+import { THEMES } from "./themes";
 
 const baseOptions = {
   direction: "ltr",
@@ -25,22 +23,26 @@ const baseOptions = {
 };
 
 export type ThemeSettingType = {
-  theme: THEMES
-  responsiveFontSizes: boolean
-}
+  theme: THEMES;
+  responsiveFontSizes: boolean;
+};
 export type ThemesOptionsType = {
-  [THEMES.LIGHT]?: any
-  [THEMES.DARK]?: any
-}
+  [THEMES.LIGHT]?: any;
+  [THEMES.DARK]?: any;
+};
 
-export const theming = (theme:any={},themesOptions:ThemesOptionsType={}, config: ThemeSettingType) => {
+export const theming = (
+  theme: any = {},
+  themesOptions: ThemesOptionsType = {},
+  config: ThemeSettingType
+) => {
   let themeOption = themesOptions[config.theme];
 
   if (!themeOption) {
     themeOption = themesOptions[THEMES.LIGHT] || {};
   }
 
-  const merged = merge({}, baseOptions,theme, themeOption);
+  const merged = merge({}, baseOptions, theme, themeOption);
 
   let mergedTheme = createTheme(merged);
 
@@ -56,4 +58,4 @@ export const theming = (theme:any={},themesOptions:ThemesOptionsType={}, config:
 
   return theme;
 };
-export {THEMES};
+export { THEMES };

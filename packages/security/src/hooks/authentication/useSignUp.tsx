@@ -1,21 +1,22 @@
-import { useMutation } from 'react-query';
-import { AuthService } from '../../services';
+import { useMutation } from "react-query";
+import { AuthService } from "../../services";
 
 export const useSignUp = () => {
-  const { mutateAsync, mutate, isLoading, isError, data, error, isSuccess } = useMutation(AuthService.signUp, {
-    onSuccess: () => {
-      window.scroll({
-        top: 0,
-        left: 0
-      });
-    },
-    onError: () => {
-      window.scroll({
-        top: 0,
-        left: 0
-      });
-    }
-  });
+  const { mutateAsync, mutate, isLoading, isError, data, error, isSuccess } =
+    useMutation(AuthService.signUp, {
+      onSuccess: () => {
+        window.scroll({
+          top: 0,
+          left: 0,
+        });
+      },
+      onError: () => {
+        window.scroll({
+          top: 0,
+          left: 0,
+        });
+      },
+    });
 
   return {
     mutateAsync,
@@ -24,6 +25,6 @@ export const useSignUp = () => {
     isSuccess,
     isError,
     data,
-    error
+    error,
   };
 };

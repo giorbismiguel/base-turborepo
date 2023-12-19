@@ -1,69 +1,72 @@
-import {useMemo} from "react";
-import {useQuery} from "react-query";
+import { useMemo } from "react";
+import { useQuery } from "react-query";
 
-
-type FetchFuncType = ((payload: string | string[] | any) => Promise<any>) | undefined
+type FetchFuncType =
+  | ((payload: string | string[] | any) => Promise<any>)
+  | undefined;
 
 const buildSingleFetch = (value: string, fetchFunc: FetchFuncType) => {
-    const fetch = () => {
-        return fetchFunc?.(value);
-    };
+  const fetch = () => {
+    return fetchFunc?.(value);
+  };
 
-    const isEnabled = (value && fetchFunc) ? typeof value === 'string' : false;
+  const isEnabled = value && fetchFunc ? typeof value === "string" : false;
 
-    return {fetch, isEnabled}
-}
+  return { fetch, isEnabled };
+};
 
 const buildMultiFetch = (value: string[], fetchFunc: FetchFuncType) => {
-    const payload = {
-        filters: {
-            type: 'IN',
-            field: '_id',
-            value: value,
-            objectId: true
-        },
-        size: value.length
-    }
+  const payload = {
+    filters: {
+      type: "IN",
+      field: "_id",
+      value: value,
+      objectId: true,
+    },
+    size: value.length,
+  };
 
-    const fetch = async () => {
-        const data = await fetchFunc?.(payload);
-        return data?.hasOwnProperty('hasMore') && data?.hasOwnProperty('total') ? data.data : data;
-    };
+  const fetch = async () => {
+    const data = await fetchFunc?.(payload);
+    return data?.hasOwnProperty("hasMore") && data?.hasOwnProperty("total")
+      ? data.data
+      : data;
+  };
 
-    const isEnabled = (value && value.length && fetchFunc) ? !value.some(val => typeof val !== 'string') : false;
-    return {fetch, isEnabled};
-}
+  const isEnabled =
+    value && value.length && fetchFunc
+      ? !value.some((val) => typeof val !== "string")
+      : false;
+  return { fetch, isEnabled };
+};
 
+export const useFindValue = (
+  fetchFunc: FetchFuncType,
+  value: string | string[],
+  enabled?: boolean,
+  staleTime?: number
+) => {
+  const { fetch, isEnabled } = useMemo(() => {
+    if (!Array.isArray(value)) return buildSingleFetch(value, fetchFunc);
+    return buildMultiFetch(value, fetchFunc);
+  }, [value, fetchFunc]);
 
-export const useFindValue = (fetchFunc: FetchFuncType,
-                             value: string | string[],
-                             enabled?: boolean,
-                             staleTime?: number) => {
+  const { isLoading, data, isError } = useQuery([value], fetch, {
+    staleTime: staleTime || 20000,
+    enabled: Boolean(enabled) && isEnabled,
+  });
 
-    const {fetch, isEnabled} = useMemo(() => {
-        if (!Array.isArray(value))
-            return buildSingleFetch(value, fetchFunc);
-        return buildMultiFetch(value, fetchFunc);
-    }, [value, fetchFunc]);
-
-
-    const {
-        isLoading,
-        data,
-        isError,
-    } = useQuery([value], fetch, {staleTime: staleTime || 20000, enabled: Boolean(enabled) && isEnabled});
-
-    if (enabled && isEnabled) {
-        return {
-            isLoading,
-            data: data || value,
-            isError
-        }
-    }
-
+  if (enabled && isEnabled) {
     return {
-        isLoading: false,
-        data: value,
-        isError: false
-    }
-}
+      isLoading,
+      data: data || value,
+      isError,
+    };
+  }
+
+  return {
+    isLoading: false,
+    data: value,
+    isError: false,
+  };
+};

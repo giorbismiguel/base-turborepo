@@ -1,4 +1,4 @@
-import { AxiosRequestConfig } from 'axios';
+import { AxiosRequestConfig } from "axios";
 
 export interface RequestConfig extends AxiosRequestConfig {
   ignoreSpace?: boolean;
@@ -8,7 +8,7 @@ export interface RequestConfig extends AxiosRequestConfig {
 }
 
 export interface UploadRequest {
-  method?: 'post' | 'patch' | 'get';
+  method?: "post" | "patch" | "get";
   headers?: { [key: string]: string };
-  body?: Document | XMLHttpRequestBodyInit | null | undefined
+  body?: Document | XMLHttpRequestBodyInit | null | undefined;
 }

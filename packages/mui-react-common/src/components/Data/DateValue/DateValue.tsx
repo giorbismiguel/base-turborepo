@@ -1,43 +1,52 @@
-import React, {memo, useMemo} from 'react'
-import dateFormat from 'date-fns/format'
+import React, { memo, useMemo } from "react";
+import dateFormat from "date-fns/format";
 import formatDistanceToNow from "date-fns/formatDistanceToNow";
-import {useDateSettings} from "../../../contexts/DateSettingsContext";
+import { useDateSettings } from "../../../contexts/DateSettingsContext";
 
 type DateProps = {
-    value?: number | Date | string,
-    now?: boolean
-    format?: string
-    fromNow?: boolean
-    defaultValue?: any
-}
+  value?: number | Date | string;
+  now?: boolean;
+  format?: string;
+  fromNow?: boolean;
+  defaultValue?: any;
+};
 
-const DateValue = ({value, now, format, fromNow, defaultValue}: DateProps) => {
-    const {locale, defaultFormat} = useDateSettings();
-    const date = useMemo(() => (now && !value) ? new Date() : (typeof value === "string" ? new Date(value) : value),
-        [now, value])
+const DateValue = ({
+  value,
+  now,
+  format,
+  fromNow,
+  defaultValue,
+}: DateProps) => {
+  const { locale, defaultFormat } = useDateSettings();
+  const date = useMemo(
+    () =>
+      now && !value
+        ? new Date()
+        : typeof value === "string"
+        ? new Date(value)
+        : value,
+    [now, value]
+  );
 
-    if (!date) return <>{defaultValue || '-'}</>
+  if (!date) return <>{defaultValue || "-"}</>;
 
-    if (fromNow)
-        return (
-            <>
-                {
-                    formatDistanceToNow(date, {
-                        locale: locale
-                    })
-                }
-            </>
-        );
-
+  if (fromNow)
     return (
-        <>
-            {
-                dateFormat(date, format || defaultFormat || 'PP', {
-                    locale: locale
-                })
-            }
-        </>
+      <>
+        {formatDistanceToNow(date, {
+          locale: locale,
+        })}
+      </>
     );
-}
+
+  return (
+    <>
+      {dateFormat(date, format || defaultFormat || "PP", {
+        locale: locale,
+      })}
+    </>
+  );
+};
 
 export default memo(DateValue);

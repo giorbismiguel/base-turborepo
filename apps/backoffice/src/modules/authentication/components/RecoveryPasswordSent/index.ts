@@ -1,1 +1,1 @@
-export {default as RecoveryPasswordSent} from './RecoveryPasswordSent'
+export { default as RecoveryPasswordSent } from "./RecoveryPasswordSent";

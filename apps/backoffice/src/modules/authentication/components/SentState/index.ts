@@ -1,2 +1,1 @@
-
-export { default as SentState } from './SentState';
+export { default as SentState } from "./SentState";

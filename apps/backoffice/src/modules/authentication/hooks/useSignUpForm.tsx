@@ -18,7 +18,6 @@ const useSignUpForm = () => {
 
   const { mutateAsync, error, isLoading, isSuccess, data } = useSignUp();
 
-
   return {
     control,
     register,

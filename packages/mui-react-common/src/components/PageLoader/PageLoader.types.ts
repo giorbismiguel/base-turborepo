@@ -1,4 +1,4 @@
 export type PageLoaderTypes = {
-    className?: string;
-    hScreen?: boolean;
-}
+  className?: string;
+  hScreen?: boolean;
+};

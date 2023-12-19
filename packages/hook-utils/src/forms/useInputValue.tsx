@@ -1,7 +1,6 @@
-import { ChangeEvent, useCallback, useState } from 'react';
+import { ChangeEvent, useCallback, useState } from "react";
 
-
-const useInputValue = (init: string = '') => {
+const useInputValue = (init: string = "") => {
   const [value, setValue] = useState(init);
 
   const onChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
@@ -9,17 +8,15 @@ const useInputValue = (init: string = '') => {
   }, []);
 
   const resetValue = useCallback(() => {
-    setValue('');
+    setValue("");
   }, []);
-
 
   return {
     setValue,
     onChange,
     resetValue,
-    value
+    value,
   };
-
 };
 
 export default useInputValue;

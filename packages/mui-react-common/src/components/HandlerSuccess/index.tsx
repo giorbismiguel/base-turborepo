@@ -1,13 +1,17 @@
-import React, {FC, memo, useEffect} from "react";
-import PropTypes, {bool} from "prop-types";
+import React, { FC, memo, useEffect } from "react";
+import PropTypes, { bool } from "prop-types";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import Collapse from "@mui/material/Collapse";
-import {useToggle} from "hook-utils";
-import {HandlerSuccessProps} from "./HandlerSuccess.types";
+import { useToggle } from "hook-utils";
+import { HandlerSuccessProps } from "./HandlerSuccess.types";
 
-const HandlerSuccess: FC<HandlerSuccessProps> = ({active, title, message}) => {
-  const {isOpen, onClose, setOpen} = useToggle(!!active);
+const HandlerSuccess: FC<HandlerSuccessProps> = ({
+  active,
+  title,
+  message,
+}) => {
+  const { isOpen, onClose, setOpen } = useToggle(!!active);
 
   useEffect(() => {
     setOpen(!!active);

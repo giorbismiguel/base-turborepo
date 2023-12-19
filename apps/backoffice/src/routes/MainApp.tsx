@@ -1,8 +1,8 @@
-import { memo, Suspense } from 'react';
-import { RouteLoader } from 'security';
-import { PageLoader } from 'mui-react-common';
-import { MainLayout } from 'layouts';
-import appRoutes from './app.routes';
+import { memo, Suspense } from "react";
+import { RouteLoader } from "security";
+import { PageLoader } from "mui-react-common";
+import { MainLayout } from "layouts";
+import appRoutes from "./app.routes";
 
 function MainApp() {
   return (

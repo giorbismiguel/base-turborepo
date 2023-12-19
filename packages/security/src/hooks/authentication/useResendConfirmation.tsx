@@ -1,14 +1,11 @@
-import React from 'react';
-import { useMutation } from 'react-query';
-import { AuthService } from '../../services';
-import { MutationOptions } from '../../types/react-query';
+import React from "react";
+import { useMutation } from "react-query";
+import { AuthService } from "../../services";
+import { MutationOptions } from "../../types/react-query";
 
 const useResendConfirmation = (config: MutationOptions) => {
-  const {
-    mutateAsync, mutate,
-    isLoading, isError, isSuccess,
-    data, error
-  } = useMutation(AuthService.resendConfirmationAccess, config);
+  const { mutateAsync, mutate, isLoading, isError, isSuccess, data, error } =
+    useMutation(AuthService.resendConfirmationAccess, config);
 
   return {
     mutateAsync,
@@ -17,7 +14,7 @@ const useResendConfirmation = (config: MutationOptions) => {
     isSuccess,
     isError,
     data,
-    error
+    error,
   };
 };
 

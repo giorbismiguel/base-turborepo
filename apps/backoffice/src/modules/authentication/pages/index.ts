@@ -1,11 +1,10 @@
-import {lazy} from "react";
+import { lazy } from "react";
 
 const loadLogin = () => import("./Login");
 export const Login = lazy(loadLogin);
 
 const loadSignUp = () => import("./SignUp");
 export const SignUp = lazy(loadSignUp);
-
 
 const loadVerify = () => import("./Verify");
 export const Verify = lazy(loadVerify);

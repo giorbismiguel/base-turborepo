@@ -1,1 +1,1 @@
-export {default as CurrencyValue} from './CurrencyValue'
+export { default as CurrencyValue } from "./CurrencyValue";

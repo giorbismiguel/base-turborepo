@@ -1,9 +1,9 @@
-import {ReactElement, ReactNode} from "react";
+import { ReactElement, ReactNode } from "react";
 
 export type LanguageSelectorProps = {
-    className?: string,
-    compProps?: any,
-    component?: any,
-    icon?: ReactNode,
-    mini: boolean,
+  className?: string;
+  compProps?: any;
+  component?: any;
+  icon?: ReactNode;
+  mini: boolean;
 };

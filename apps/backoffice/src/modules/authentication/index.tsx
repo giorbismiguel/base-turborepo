@@ -1,5 +1,5 @@
-import { RouteLoader } from 'security';
-import routes from 'modules/authentication/routes';
+import { RouteLoader } from "security";
+import routes from "modules/authentication/routes";
 
 function Module() {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment

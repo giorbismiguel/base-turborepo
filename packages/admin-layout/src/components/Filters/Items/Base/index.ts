@@ -1,1 +1,1 @@
-export {default as FilterBase} from './FilterBase'
+export { default as FilterBase } from "./FilterBase";

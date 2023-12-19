@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   Avatar,
   Box,
@@ -7,12 +7,12 @@ import {
   ListItemText,
   MenuItem,
   Popover,
-  Typography
-} from '@mui/material';
-import LogoutIcon from '@mui/icons-material/Logout';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { ChildrenProps, Span } from 'mui-react-common';
-import { useAuth, useUser } from 'security';
+  Typography,
+} from "@mui/material";
+import LogoutIcon from "@mui/icons-material/Logout";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { ChildrenProps, Span } from "mui-react-common";
+import { useAuth, useUser } from "security";
 
 type AccountPopoverProps = ChildrenProps & {
   anchorEl: any;
@@ -22,7 +22,7 @@ type AccountPopoverProps = ChildrenProps & {
 };
 
 const AccountPopover = (props: AccountPopoverProps) => {
-  const { anchorEl, onClose, open, children,logoutText, ...other } = props;
+  const { anchorEl, onClose, open, children, logoutText, ...other } = props;
   const { user } = useUser();
   const { logout } = useAuth();
 
@@ -39,41 +39,42 @@ const AccountPopover = (props: AccountPopoverProps) => {
     <Popover
       anchorEl={anchorEl}
       anchorOrigin={{
-        horizontal: 'center',
-        vertical: 'bottom'
+        horizontal: "center",
+        vertical: "bottom",
       }}
       keepMounted
       onClose={onClose}
       open={!!open}
       PaperProps={{ sx: { width: 300 } }}
       transitionDuration={0}
-      {...other}>
+      {...other}
+    >
       <Box
         sx={{
-          alignItems: 'center',
+          alignItems: "center",
           p: 2,
-          display: 'flex'
+          display: "flex",
         }}
       >
         <Avatar
           src={user?.avatar}
           sx={{
             height: 40,
-            width: 40
+            width: 40,
           }}
         >
-          <AccountCircleIcon fontSize='small' />
+          <AccountCircleIcon fontSize="small" />
         </Avatar>
         <Box
           sx={{
             ml: 1,
-            overflow: 'hidden'
+            overflow: "hidden",
           }}
         >
-          <Span block textTransform={'none'}>
+          <Span block textTransform={"none"}>
             {user?.fullName}
           </Span>
-          <Span secondary block textTransform={'none'} ellipsis fontSize={14}>
+          <Span secondary block textTransform={"none"} ellipsis fontSize={14}>
             {user?.email}
           </Span>
         </Box>
@@ -84,14 +85,10 @@ const AccountPopover = (props: AccountPopoverProps) => {
         <Divider />
         <MenuItem onClick={handleLogout}>
           <ListItemIcon>
-            <LogoutIcon fontSize='small' />
+            <LogoutIcon fontSize="small" />
           </ListItemIcon>
           <ListItemText
-            primary={(
-              <Typography variant='body1'>
-                {logoutText}
-              </Typography>
-            )}
+            primary={<Typography variant="body1">{logoutText}</Typography>}
           />
         </MenuItem>
       </Box>

@@ -1,10 +1,10 @@
-import React, { memo } from 'react';
-import useResendConfirmationForm from 'modules/authentication/hooks/useResendConfirmationForm';
-import { SentState } from 'modules/authentication/components/SentState';
+import React, { memo } from "react";
+import useResendConfirmationForm from "modules/authentication/hooks/useResendConfirmationForm";
+import { SentState } from "modules/authentication/components/SentState";
 
 type SignUpSentProps = {
-  email: string
-}
+  email: string;
+};
 
 const SignUpSent = ({ email }: SignUpSentProps) => {
   const { mutateAsync, isLoading, error } = useResendConfirmationForm();
@@ -13,8 +13,8 @@ const SignUpSent = ({ email }: SignUpSentProps) => {
 
   return (
     <SentState
-      message='authentication:successSignUp'
-      buttonText='resend'
+      message="authentication:successSignUp"
+      buttonText="resend"
       error={error}
       isLoading={isLoading}
       email={email}

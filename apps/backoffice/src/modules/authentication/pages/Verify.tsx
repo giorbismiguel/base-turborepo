@@ -1,5 +1,5 @@
-import {memo} from "react";
-import {useParams} from "react-router";
+import { memo } from "react";
+import { useParams } from "react-router";
 import VerifyContainer from "modules/authentication/container/VerifyContainer";
 
 function Verify() {

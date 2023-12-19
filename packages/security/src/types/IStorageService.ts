@@ -1,5 +1,5 @@
 export interface IStorageService {
-  getItem(key: string): string| undefined | null;
+  getItem(key: string): string | undefined | null;
 
   setItem(key: string, value: string, options?: any): void;
 

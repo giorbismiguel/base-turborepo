@@ -1,29 +1,29 @@
-import {useContext, useCallback, useEffect} from 'react';
-import { SecurityContext } from '../contexts/SecurityContext';
-import { ApiClientService, StorageService } from '../services';
-import { setAuthData } from '../services/TokenService';
-import { AuthResult } from '../types/auth';
-import { SecurityProps } from '../contexts/Security';
+import { useContext, useCallback, useEffect } from "react";
+import { SecurityContext } from "../contexts/SecurityContext";
+import { ApiClientService, StorageService } from "../services";
+import { setAuthData } from "../services/TokenService";
+import { AuthResult } from "../types/auth";
+import { SecurityProps } from "../contexts/Security";
 
 type Auth = {
-  setAuth: (authData: AuthResult) => void
-  logout: () => Promise<void>
-}
+  setAuth: (authData: AuthResult) => void;
+  logout: () => Promise<void>;
+};
 
 const useAuth = (): Auth => {
   const context: SecurityProps = useContext(SecurityContext);
   if (context === undefined) {
-    throw new Error('useSecurity must be used within a SecurityProvider');
+    throw new Error("useSecurity must be used within a SecurityProvider");
   }
-  const {
-    loadUser
-  } = context;
+  const { loadUser } = context;
 
-
-  const setAuth = useCallback((authData: AuthResult) => {
-    setAuthData(authData);
-    loadUser();
-  }, [loadUser]);
+  const setAuth = useCallback(
+    (authData: AuthResult) => {
+      setAuthData(authData);
+      loadUser();
+    },
+    [loadUser]
+  );
 
   const logout = useCallback(async () => {
     ApiClientService.removeToken();
@@ -33,9 +33,8 @@ const useAuth = (): Auth => {
 
   return {
     setAuth,
-    logout
+    logout,
   };
 };
-
 
 export default useAuth;

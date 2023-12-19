@@ -1,1 +1,1 @@
-export {default as DeleteIconWithTooltip} from './DeleteIconWithTooltip'
+export { default as DeleteIconWithTooltip } from "./DeleteIconWithTooltip";

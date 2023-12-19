@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react';
-import { Box, Drawer, Theme, useMediaQuery } from '@mui/material';
-import { Scrollbar } from '../components/Scrollbar';
-import { useLocation } from 'react-router';
-import { ChildrenProps } from 'mui-react-common';
+import React, { useEffect } from "react";
+import { Box, Drawer, Theme, useMediaQuery } from "@mui/material";
+import { Scrollbar } from "../components/Scrollbar";
+import { useLocation } from "react-router";
+import { ChildrenProps } from "mui-react-common";
 
 type AdminSidebarProps = ChildrenProps & {
-  onClose: () => void,
-  open: boolean,
-}
+  onClose: () => void;
+  open: boolean;
+};
 
-export const AdminSidebar = ({ onClose, open , children}: AdminSidebarProps) => {
+export const AdminSidebar = ({
+  onClose,
+  open,
+  children,
+}: AdminSidebarProps) => {
   const { pathname } = useLocation();
-  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up('lg'), {
-    noSsr: true
+  const lgUp = useMediaQuery((theme: Theme) => theme.breakpoints.up("lg"), {
+    noSsr: true,
   });
   // const lgUp=true;
 
@@ -32,22 +36,20 @@ export const AdminSidebar = ({ onClose, open , children}: AdminSidebarProps) => 
     <>
       <Scrollbar
         sx={{
-          height: '100%',
-          '& .simplebar-content': {
-            height: '100%'
-          }
+          height: "100%",
+          "& .simplebar-content": {
+            height: "100%",
+          },
         }}
       >
         <Box
           sx={{
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%'
+            display: "flex",
+            flexDirection: "column",
+            height: "100%",
           }}
         >
-          {
-            children
-          }
+          {children}
         </Box>
       </Scrollbar>
     </>
@@ -56,18 +58,18 @@ export const AdminSidebar = ({ onClose, open , children}: AdminSidebarProps) => 
   if (lgUp) {
     return (
       <Drawer
-        anchor='left'
+        anchor="left"
         open
         PaperProps={{
           sx: {
-              backgroundColor: (theme:Theme) => theme.palette.sidebar.background,
-              borderRightColor: 'divider',
-              borderRightStyle: 'solid',
-              borderRightWidth: 1, //(theme) => (theme.palette.mode === 'dark' ? 1 : 0),
-              width: 280
-          }
+            backgroundColor: (theme: Theme) => theme.palette.sidebar.background,
+            borderRightColor: "divider",
+            borderRightStyle: "solid",
+            borderRightWidth: 1, //(theme) => (theme.palette.mode === 'dark' ? 1 : 0),
+            width: 280,
+          },
         }}
-        variant='permanent'
+        variant="permanent"
       >
         {content}
       </Drawer>
@@ -76,17 +78,17 @@ export const AdminSidebar = ({ onClose, open , children}: AdminSidebarProps) => 
 
   return (
     <Drawer
-      anchor='left'
+      anchor="left"
       onClose={onClose}
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: (theme:Theme) => theme.palette.sidebar.background,
-          width: 280
-        }
+          backgroundColor: (theme: Theme) => theme.palette.sidebar.background,
+          width: 280,
+        },
       }}
-      sx={{ zIndex: (theme:Theme) => theme.zIndex.appBar + 100 }}
-      variant='temporary'
+      sx={{ zIndex: (theme: Theme) => theme.zIndex.appBar + 100 }}
+      variant="temporary"
     >
       {content}
     </Drawer>

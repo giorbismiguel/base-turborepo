@@ -1,17 +1,23 @@
-import React, {FC, memo} from "react";
+import React, { FC, memo } from "react";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import {Link} from "@mui/material";
-import {useTranslation} from "react-i18next";
+import { Link } from "@mui/material";
+import { useTranslation } from "react-i18next";
 import classNames from "classnames";
-import {LanguageSelectorProps} from "./LanguageSelector.types";
+import { LanguageSelectorProps } from "./LanguageSelector.types";
 
-const LanguageSelector: FC<LanguageSelectorProps> = ({component=Link, className, icon, mini, compProps}) => {
-  const {t, i18n} = useTranslation("locales");
+const LanguageSelector: FC<LanguageSelectorProps> = ({
+  component = Link,
+  className,
+  icon,
+  mini,
+  compProps,
+}) => {
+  const { t, i18n } = useTranslation("locales");
   const locale = i18n?.language;
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const {className: componentClass, ...props} = compProps || {};
+  const { className: componentClass, ...props } = compProps || {};
 
   const handleClick = (event: any) => {
     setAnchorEl(event.currentTarget);
@@ -54,18 +60,14 @@ const LanguageSelector: FC<LanguageSelectorProps> = ({component=Link, className,
           key={"en"}
           selected={locale === "en"}
         >
-          <>
-            {t("en")}
-          </>
+          <>{t("en")}</>
         </MenuItem>
         <MenuItem
           onClick={() => changeLanguageHandler("es")}
           key={"es"}
           selected={locale === "es"}
         >
-          <>
-            {t("es")}
-          </>
+          <>{t("es")}</>
         </MenuItem>
       </Menu>
     </div>

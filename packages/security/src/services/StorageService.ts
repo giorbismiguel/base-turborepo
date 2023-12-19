@@ -1,9 +1,10 @@
-import { IStorageService } from '../types/IStorageService';
+import { IStorageService } from "../types/IStorageService";
 
 class LocalStorageService implements IStorageService {
-
   getItem(key: string): string | undefined | null {
-    return typeof window !== 'undefined' ? localStorage.getItem(key) : undefined;
+    return typeof window !== "undefined"
+      ? localStorage.getItem(key)
+      : undefined;
   }
 
   setItem(key: string, value: string, options?: any) {

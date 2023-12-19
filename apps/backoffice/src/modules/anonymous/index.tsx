@@ -1,1 +1,1 @@
-export * from 'modules/anonymous/pages'
+export * from "modules/anonymous/pages";

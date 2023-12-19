@@ -1,4 +1,4 @@
-import {ERRORS} from "./errors";
+import { ERRORS } from "./errors";
 
 export const LOGIN_ERRORS = {
   [ERRORS.UNAUTHORIZED_INVALID_CREDENTIALS]: {
@@ -18,7 +18,6 @@ export const LOGIN_ERRORS = {
   },
   [ERRORS.USER_NOT_FOUND_OR_VERIFIED]: {
     description: "authentication:confirmation.errorUserNotFountOrVerified",
-
   },
   [ERRORS.PASSWORD_HISTORY]: {
     description: "authentication:errors.passwordHistory",

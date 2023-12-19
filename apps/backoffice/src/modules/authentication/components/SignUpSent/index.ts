@@ -1,1 +1,1 @@
-export { default as SignUpSent } from './SignUpSent';
+export { default as SignUpSent } from "./SignUpSent";

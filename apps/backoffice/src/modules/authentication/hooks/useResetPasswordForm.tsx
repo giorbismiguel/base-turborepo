@@ -8,37 +8,37 @@ import { useTranslation } from "react-i18next";
 import { resetPasswordSchema } from "../schemas/login.schema";
 
 const useResetPasswordForm = (key: string) => {
-    const { t } = useTranslation("authentication");
-    const { register, control, handleSubmit } = useForm({
-        resolver: yupResolver<Yup.AnyObjectSchema>(resetPasswordSchema),
-        defaultValues: {
-            password: "",
-            confirmPassword: "",
-        },
-    });
+  const { t } = useTranslation("authentication");
+  const { register, control, handleSubmit } = useForm({
+    resolver: yupResolver<Yup.AnyObjectSchema>(resetPasswordSchema),
+    defaultValues: {
+      password: "",
+      confirmPassword: "",
+    },
+  });
 
-    const config = useMemo(() => {
-        return {
-            onSuccess: () => {
-                toast.success(t("recovery.passwordChanged"));
-            },
-        };
-    }, [t]);
-
-    const { mutateAsync, error, isLoading, isSuccess, isPaused, data } =
-        useRecoveryPasswordFinish(key, config);
-
+  const config = useMemo(() => {
     return {
-        control,
-        register,
-        error,
-        isLoading,
-        isSuccess,
-        isPaused,
-        data,
-        mutateAsync,
-        onSubmit: handleSubmit((value) => mutateAsync(value)),
+      onSuccess: () => {
+        toast.success(t("recovery.passwordChanged"));
+      },
     };
+  }, [t]);
+
+  const { mutateAsync, error, isLoading, isSuccess, isPaused, data } =
+    useRecoveryPasswordFinish(key, config);
+
+  return {
+    control,
+    register,
+    error,
+    isLoading,
+    isSuccess,
+    isPaused,
+    data,
+    mutateAsync,
+    onSubmit: handleSubmit((value) => mutateAsync(value)),
+  };
 };
 
 export default useResetPasswordForm;

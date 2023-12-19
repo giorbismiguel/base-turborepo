@@ -1,1 +1,1 @@
-export {default as FixedListFilter} from './FixedListFilter'
+export { default as FixedListFilter } from "./FixedListFilter";

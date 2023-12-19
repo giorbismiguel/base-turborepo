@@ -1,1 +1,1 @@
-export { default as  PermissionCheck } from './PermissionCheck';
+export { default as PermissionCheck } from "./PermissionCheck";

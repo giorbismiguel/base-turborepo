@@ -1,1 +1,1 @@
-export {default as TextFilter} from './TextFilter'
+export { default as TextFilter } from "./TextFilter";

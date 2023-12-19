@@ -1,2 +1,2 @@
-export {ERRORS} from "./errors";
-export {LOGIN_ERRORS} from "./login.errors";
+export { ERRORS } from "./errors";
+export { LOGIN_ERRORS } from "./login.errors";

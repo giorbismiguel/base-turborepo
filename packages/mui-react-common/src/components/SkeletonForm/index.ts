@@ -1,1 +1,1 @@
-export {default as SkeletonForm} from './SkeletonForm';
+export { default as SkeletonForm } from "./SkeletonForm";

@@ -1,10 +1,10 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useState } from "react";
 
 const useToggle = (init: boolean = false) => {
   const [isOpen, setOpen] = useState(init);
 
   const onToggle = useCallback(() => {
-    setOpen(prevState => !prevState);
+    setOpen((prevState) => !prevState);
   }, []);
 
   const onClose = useCallback(() => {
@@ -20,9 +20,8 @@ const useToggle = (init: boolean = false) => {
     setOpen,
     onToggle,
     onOpen,
-    onClose
+    onClose,
   };
-
 };
 
 export default useToggle;

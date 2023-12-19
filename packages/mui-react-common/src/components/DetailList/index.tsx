@@ -1,10 +1,14 @@
-import React, {FC, memo} from "react";
-import {Stack} from "@mui/material";
-import {H5, Span} from "../Typography";
+import React, { FC, memo } from "react";
+import { Stack } from "@mui/material";
+import { H5, Span } from "../Typography";
 import get from "lodash/get";
-import {Details, DetailsProps} from "./DetailList.types";
+import { Details, DetailsProps } from "./DetailList.types";
 
-const useDetails = (details: Details[], data: {}, t:(key: string) => string) => {
+const useDetails = (
+  details: Details[],
+  data: {},
+  t: (key: string) => string
+) => {
   return details.map((item, key) => {
     const value = item.value ? item.value : item.field && get(data, item.field);
     const label = item.translate && t ? t(item.label) : item.label;
@@ -22,7 +26,7 @@ const useDetails = (details: Details[], data: {}, t:(key: string) => string) => 
   });
 };
 
-const DetailList: FC<DetailsProps> = ({details, data, t}) => {
+const DetailList: FC<DetailsProps> = ({ details, data, t }) => {
   const items = useDetails(details, data, t);
 
   return (

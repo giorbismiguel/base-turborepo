@@ -1,3 +1,1 @@
-import './strings';
-
-
+import "./strings";

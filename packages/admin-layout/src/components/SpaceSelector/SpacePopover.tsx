@@ -1,17 +1,16 @@
-import React, {FC} from 'react';
-import {MenuItem, Popover} from "@mui/material";
-
+import React, { FC } from "react";
+import { MenuItem, Popover } from "@mui/material";
 
 type SpacePopoverProps = {
-    anchorEl: any;
-    onClose: () => void;
-    open: boolean;
+  anchorEl: any;
+  onClose: () => void;
+  open: boolean;
 };
 
 const organizations = ["Acme Inc", "Division Inc"];
 
 export const SpacePopover: FC<SpacePopoverProps> = (props) => {
-  const {anchorEl, onClose, open, ...other} = props;
+  const { anchorEl, onClose, open, ...other } = props;
 
   const handleChange = () => {
     onClose?.();
@@ -27,7 +26,7 @@ export const SpacePopover: FC<SpacePopoverProps> = (props) => {
       keepMounted
       onClose={onClose}
       open={!!open}
-      PaperProps={{sx: {width: 248}}}
+      PaperProps={{ sx: { width: 248 } }}
       transitionDuration={0}
       {...other}
     >
