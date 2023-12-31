@@ -65,7 +65,7 @@ const AsyncSelectAutocompleteField = ({
       onClose={onClose}
       disabled={valueLoading || disabled}
       options={data?.data || []}
-      onInputChange={debounce((event, value) => setSearch(value), 300)}
+      onInputChange={debounce((_event, value) => setSearch(value), 300)}
       loading={isLoading || valueLoading}
       error={error || isError || valueError}
       helperText={valueError ? t("errors.loadValue") : helperText}

@@ -4,7 +4,7 @@ import {
   Form,
   FormTextField,
   HandlerError,
-  LoadingButton,
+
   Span,
 } from "mui-react-common";
 import Grid from "@mui/material/Grid";
@@ -14,6 +14,7 @@ import useResendConfirmationForm from "modules/authentication/hooks/useResendCon
 import type { DFLError } from "security";
 import { ReactLink } from "security";
 import Box from "@mui/material/Box";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const useMapError = (error: DFLError) =>
   useMemo(() => {

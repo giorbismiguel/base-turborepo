@@ -18,7 +18,7 @@ const SpaceSelector = () => {
           sx={{
             alignItems: "center",
             backgroundColor: (theme: Theme) =>
-              theme.palette.spaceSelector || theme.palette.secondary.light,
+              theme.palette.secondary.contrastText || theme.palette.secondary.light,
             cursor: "pointer",
             display: "flex",
             justifyContent: "space-between",

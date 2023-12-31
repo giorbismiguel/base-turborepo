@@ -1,13 +1,13 @@
-import { BoxProps } from "@mui/material/Box/Box";
-import { ElementType } from "react";
+import type { BoxProps } from "@mui/material/Box/Box";
+import type { ElementType } from "react";
 
-export type TypographyOptionsProps = {
+export interface TypographyOptionsProps {
   fontSize?: string;
   fontWeight?: string;
   component: string;
   lineHeight?: number;
   marginBottom?: string | number;
-};
+}
 
 export type TypographyStyleProps = BoxProps & {
   ellipsis?: boolean;
@@ -22,7 +22,7 @@ export type TypographyStyleProps = BoxProps & {
 };
 
 export type TypographyCreator = TypographyOptionsProps & {
-  component: ElementType<any> | undefined;
+  component: ElementType | undefined;
 };
 
 export type TypographyProps = BoxProps & {

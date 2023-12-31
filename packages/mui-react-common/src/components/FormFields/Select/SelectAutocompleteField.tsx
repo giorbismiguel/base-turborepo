@@ -91,7 +91,7 @@ const SelectAutocompleteField = ({
         readOnly={readOnlyValue}
         renderInput={input}
         {...rest}
-        onChange={(event: any, newValue: any) => {
+        onChange={(_event: any, newValue: any) => {
           onChange?.({ target: { value: newValue } });
         }}
       />

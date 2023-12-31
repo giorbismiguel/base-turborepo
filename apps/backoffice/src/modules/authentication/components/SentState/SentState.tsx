@@ -2,11 +2,12 @@
 import React, { memo } from "react";
 import { Trans, useTranslation } from "react-i18next";
 import type { ChildrenProps } from "mui-react-common";
-import { HandlerError, LoadingButton } from "mui-react-common";
+import { HandlerError} from "mui-react-common";
 import Alert from "@mui/material/Alert";
 import AlertTitle from "@mui/material/AlertTitle";
 import { ButtonLink } from "security";
 import Box from "@mui/material/Box";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 interface SentStateProps {
   action: any;

@@ -24,7 +24,7 @@ const ToggleButtonGroup = ({
   ...props
 }: ToggleButtonGroupProps) => {
   const handleChange = useCallback(
-    (event: MouseEvent<HTMLElement>, newValue: string | null) => {
+    (_event: MouseEvent<HTMLElement>, newValue: string | null) => {
       onChange?.({ target: { value: newValue } });
     },
     [onChange]

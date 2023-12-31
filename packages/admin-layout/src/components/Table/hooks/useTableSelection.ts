@@ -18,7 +18,7 @@ export const useTableSelection = (rows?: any[]) => {
   );
 
   const handleSelectionClick = useCallback(
-    (event: ChangeEvent<HTMLInputElement>, id: string) => {
+    (_event: ChangeEvent<HTMLInputElement>, id: string) => {
       setSelected((prevSelected) => {
         const selectedIndex = prevSelected.indexOf(id);
         let newSelected: readonly string[] = [];

@@ -2,7 +2,6 @@ import { memo } from "react";
 import {
   FormTextField,
   Span,
-  LoadingButton,
   HandlerError,
   Paragraph,
   ConditionContainer,
@@ -15,7 +14,7 @@ import Box from "@mui/material/Box";
 import useRecoveryPasswordInitForm from "modules/authentication/hooks/useRecoveryPasswordInitForm";
 import { LOGIN_ERRORS } from "modules/authentication/constants";
 import { RecoveryPasswordSent } from "modules/authentication/components/RecoveryPasswordSent";
-
+import LoadingButton from "@mui/lab/LoadingButton";
 function RecoveryInitContainer() {
   const { t } = useTranslation(["authentication", "common"]);
   const { onSubmit, control, isLoading, error, isSuccess, data, reset } =

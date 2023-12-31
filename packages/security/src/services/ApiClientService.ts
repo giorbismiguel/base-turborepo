@@ -157,7 +157,7 @@ class ApiClientService {
         // @ts-ignore
         xhr.setRequestHeader(k, opts.headers[k]);
       }
-      xhr.onload = (e: ProgressEvent) => {
+      xhr.onload = () => {
         let result = null;
         if (xhr.status === 200) {
           const parseJSON = JSON.parse(xhr.response);
@@ -193,15 +193,15 @@ class ApiClientService {
     );
   }
 
-  setSpace(space: string, options?: any) {
+  setSpace(space: string) {
     if (space && space !== "null") {
-      StorageService.setItem(this._SPACE_KEY, space, options);
+      StorageService.setItem(this._SPACE_KEY, space);
     }
-    this.removeSpace(options);
+    this.removeSpace();
   }
 
-  removeSpace(options?: any) {
-    StorageService.removeItem(this._SPACE_KEY, options);
+  removeSpace() {
+    StorageService.removeItem(this._SPACE_KEY);
   }
 
   getLan() {
@@ -209,16 +209,16 @@ class ApiClientService {
     if (lang) return lang.split("-")[0];
   }
 
-  setToken(token: string, options?: any) {
-    return StorageService.setItem(this._ACCESS_TOKEN_KEY, token, options);
+  setToken(token: string) {
+    return StorageService.setItem(this._ACCESS_TOKEN_KEY, token);
   }
 
-  setRefreshToken(token: string, options?: any) {
-    return StorageService.setItem(this.REFRESH_TOKEN_KEY, token, options);
+  setRefreshToken(token: string) {
+    return StorageService.setItem(this.REFRESH_TOKEN_KEY, token);
   }
 
-  removeToken(options?: any) {
-    StorageService.removeItem(this._ACCESS_TOKEN_KEY, options);
+  removeToken() {
+    StorageService.removeItem(this._ACCESS_TOKEN_KEY);
   }
 
   get ACCESS_TOKEN_KEY(): string {

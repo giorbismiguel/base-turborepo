@@ -12,8 +12,8 @@ export const FacebookButton = (props: ButtonProps) => (
   <Button startIcon={<FacebookIcon sx={{ mr: 1 }} />} {...props} />
 );
 
-export const LoadingButton = ({ loading, ...props }: LoadingButtonProps) => {
-  if (loading) return <MuiLoadingButton {...props} loading />;
+// export const LoadingButton = ({ loading, ...props }: LoadingButtonProps) => {
+//   if (loading) return <MuiLoadingButton {...props} loading />;
 
-  return <Button {...props} />;
-};
+//   return <Button {...props} />;
+// };

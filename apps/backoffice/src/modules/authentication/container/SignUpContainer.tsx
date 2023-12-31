@@ -5,7 +5,6 @@ import {
   FormPasswordField,
   Span,
   Form,
-  LoadingButton,
   FormSwitchField,
   HandlerError,
   ConditionContainer,
@@ -19,6 +18,7 @@ import { SignUpSent } from "modules/authentication/components/SignUpSent";
 import { ReactLink } from "security";
 import Box from "@mui/material/Box";
 import { SIGNUP_ERRORS } from "../constants/login.errors";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 const components = {
   terms: <ReactLink target="_blank" to="/terms-conditions" underline="hover" />,

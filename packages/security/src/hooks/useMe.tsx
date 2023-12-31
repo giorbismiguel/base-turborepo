@@ -25,7 +25,7 @@ export const useMe = (
       return user;
     },
     {
-      retry: (failureCount: number, error: any) => {
+      retry: (error: any) => {
         if (error?.authenticatedError) return false;
         if (error?.code === 403 || error?.code === 401) return false;
         return true;

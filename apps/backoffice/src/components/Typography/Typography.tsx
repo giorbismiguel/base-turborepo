@@ -24,7 +24,7 @@ const getValueFromTheme = (
 // @ts-ignore
 const styleTypography = (
   theme: Theme,
-  component: ElementType<any> | undefined,
+  component: any | undefined,
   { fontSize, fontWeight, lineHeight }: TypographyOptionsProps
 ) => ({
   fontSize: getValueFromTheme(theme, component, "fontSize", fontSize),

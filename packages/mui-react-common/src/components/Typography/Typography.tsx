@@ -10,7 +10,7 @@ import {
 } from "./typography.types";
 
 const getValueFromTheme = (
-  theme: Theme,
+  _theme: Theme,
   typography: string,
   field: string,
   defaultValue: any
@@ -19,10 +19,10 @@ const getValueFromTheme = (
   return value || defaultValue;
 };
 
-// @ts-ignore
+
 const styleTypography = (
   theme: Theme,
-  component: ElementType<any> | undefined,
+  component: any | undefined,
   { fontSize, fontWeight, lineHeight }: TypographyOptionsProps
 ) => ({
   fontSize: getValueFromTheme(theme, component, "fontSize", fontSize),

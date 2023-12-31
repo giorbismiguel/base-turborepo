@@ -62,7 +62,7 @@ export const AdminSidebar = ({
         open
         PaperProps={{
           sx: {
-            backgroundColor: (theme: Theme) => theme.palette.sidebar.background,
+            backgroundColor: (theme: Theme) => theme.palette.background.default,
             borderRightColor: "divider",
             borderRightStyle: "solid",
             borderRightWidth: 1, //(theme) => (theme.palette.mode === 'dark' ? 1 : 0),
@@ -83,7 +83,7 @@ export const AdminSidebar = ({
       open={open}
       PaperProps={{
         sx: {
-          backgroundColor: (theme: Theme) => theme.palette.sidebar.background,
+          backgroundColor: (theme: Theme) => theme.palette.background.default,
           width: 280,
         },
       }}

@@ -10,7 +10,7 @@ export const useTablePagination = () => {
   const rowsPerPage = parseNumber(searchParams.get("size"), 10);
 
   const onPageChange = useCallback(
-    (event: unknown, newPage: number) => {
+    (_event: unknown, newPage: number) => {
       update({ page: newPage.toString() });
     },
     [update]

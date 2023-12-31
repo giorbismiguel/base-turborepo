@@ -18,6 +18,7 @@ const Container = styled(Box)(({ size }: ContainerStyleProps) => ({
   justifyContent: "center",
   // eslint-disable-next-line no-nested-ternary
   minHeight:
+    // eslint-disable-next-line no-nested-ternary
     typeof size === "number"
       ? `${size}px`
       : size === "screen"

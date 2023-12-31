@@ -1,6 +1,6 @@
 import { memo } from "react";
 import { MenuItem, Stack } from "@mui/material";
-import { IconDropDown, StatusPicker } from "mui-react-common";
+// import { IconDropDown, StatusPicker } from "mui-react-common";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import { useToggle } from "hook-utils";
 
@@ -13,7 +13,7 @@ function TestComponent() {
   return (
     <Stack mt={4} spacing={2}>
       test page
-      <StatusPicker
+      {/* <StatusPicker
         name="pepe"
         onChange={handleOnChange}
         options={[]}
@@ -36,7 +36,7 @@ function TestComponent() {
         <MenuItem onClick={onClose}>Profile</MenuItem>
         <MenuItem onClick={onClose}>My account</MenuItem>
         <MenuItem onClick={onClose}>Logout</MenuItem>
-      </IconDropDown>
+      </IconDropDown> */}
     </Stack>
   );
 }

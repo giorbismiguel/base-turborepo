@@ -12,27 +12,27 @@ export type BaseFilterProps = ChildrenProps & {
   menuProps?: any;
 };
 
-export const MenuStl = styled(Menu)(() => ({
-  ".MuiList-root": {
-    minWidth: "150px",
-  },
-  ".MuiCheckbox-root": {
-    padding: "0 9px 0 0",
-  },
-  ".MuiRadio-root": {
-    padding: "0 9px 0 0",
-  },
-}));
+// export const MenuStl = styled(Menu)(() => ({
+//   ".MuiList-root": {
+//     minWidth: "150px",
+//   },
+//   ".MuiCheckbox-root": {
+//     padding: "0 9px 0 0",
+//   },
+//   ".MuiRadio-root": {
+//     padding: "0 9px 0 0",
+//   },
+// }));
 
-export const ButtonInput = styled(Button)(({ theme }) => ({
-  color: theme.palette.text.primary,
-  paddingRight: "8px",
-  border:
-    "1px solid " +
-    (theme.palette.mode === "light"
-      ? theme.palette.grey[400]
-      : theme.palette.grey[600]),
-}));
+// export const ButtonInput = styled(Button)(({ theme }) => ({
+//   color: theme.palette.text.primary,
+//   paddingRight: "8px",
+//   border:
+//     "1px solid " +
+//     (theme.palette.mode === "light"
+//       ? theme.palette.grey[400]
+//       : theme.palette.grey[600]),
+// }));
 
 const FilterBase = ({ id, title, children, menuProps }: BaseFilterProps) => {
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
@@ -57,7 +57,7 @@ const FilterBase = ({ id, title, children, menuProps }: BaseFilterProps) => {
 
   return (
     <Box>
-      <ButtonInput
+      <Button
         id={menuID}
         aria-controls={open ? controls : undefined}
         aria-haspopup="true"
@@ -68,8 +68,8 @@ const FilterBase = ({ id, title, children, menuProps }: BaseFilterProps) => {
         endIcon={<KeyboardArrowDownIcon />}
       >
         <span>{title}</span>
-      </ButtonInput>
-      <MenuStl
+      </Button>
+      <Menu
         id={controls}
         MenuListProps={{
           "aria-labelledby": menuID,
@@ -80,7 +80,7 @@ const FilterBase = ({ id, title, children, menuProps }: BaseFilterProps) => {
         {...menuProps}
       >
         {children}
-      </MenuStl>
+      </Menu>
     </Box>
   );
 };

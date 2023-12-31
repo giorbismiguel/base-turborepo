@@ -1,7 +1,6 @@
 import { memo } from "react";
 import {
   Paragraph,
-  LoadingButton,
   HandlerError,
   FormPasswordField,
   Span,
@@ -13,6 +12,7 @@ import useResetPasswordForm from "modules/authentication/hooks/useResetPasswordF
 import { LOGIN_ERRORS } from "modules/authentication/constants";
 import { ReactLink } from "security";
 import Box from "@mui/material/Box";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 interface RecoveryFinishFormProps {
   disable: boolean;

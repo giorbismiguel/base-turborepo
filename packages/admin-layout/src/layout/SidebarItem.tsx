@@ -6,11 +6,11 @@ import { ChildrenProps, IMenuItem, IMenuLeaf } from "mui-react-common";
 import { Link } from "react-router-dom";
 
 const backgroundItem = (theme: Theme) =>
-  theme.palette.sidebar.active || theme.palette.primary.light;
+  theme.palette.primary.main || theme.palette.primary.light;
 
 const activeColor = (theme: Theme) =>
-  theme.palette.sidebar.activeColor || "secondary.main";
-const color = (theme: Theme) => theme.palette.sidebar.color || "secondary.main";
+  theme.palette.primary.main || "secondary.main";
+const color = (theme: Theme) => theme.palette.info.light || "secondary.main";
 
 type SidebarItemProps = Omit<IMenuItem, "children"> &
   IMenuLeaf &

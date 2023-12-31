@@ -8,7 +8,8 @@ import {
   DialogActions,
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
-import { HandlerError, LoadingButton } from "mui-react-common";
+import { HandlerError } from "mui-react-common";
+import { LoadingButton } from "@mui/lab";
 
 type DeleteDialogActionProps = {
   open: boolean;

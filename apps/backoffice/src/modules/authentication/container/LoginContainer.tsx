@@ -5,7 +5,6 @@ import { useTranslation } from "react-i18next";
 import {
   FormTextField,
   FormPasswordField,
-  LoadingButton,
   Span,
   Form,
   FormSwitchField,
@@ -16,7 +15,7 @@ import SocialLogin from "modules/authentication/components/SocialLogin/SocialLog
 import OrDivider from "modules/authentication/components/OrDivider/OrDivider";
 import { ReactLink } from "security";
 import { LOGIN_ERRORS } from "../constants";
-
+import LoadingButton from "@mui/lab/LoadingButton";
 function LoginContainer() {
   const { t } = useTranslation(["authentication", "common"]);
   const { onSubmit, control, isLoading, error } = useLoginForm();

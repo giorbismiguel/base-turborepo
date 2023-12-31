@@ -37,7 +37,7 @@ const TabsFilter = ({
   const { views, loading } = useFilterView();
   const { t } = useTranslation(translation || "common");
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setFilterView(newValue);
   };
 

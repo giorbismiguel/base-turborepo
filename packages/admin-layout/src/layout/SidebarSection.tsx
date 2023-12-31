@@ -79,7 +79,7 @@ const reduceChildRoutes = ({
 type SidebarSectionProps = IMenu & { path: string };
 
 const sectionColor = (theme: Theme) =>
-  theme.palette.sidebar.section || "secondary.400";
+  theme.palette.secondary.contrastText || "secondary.400";
 
 export const SidebarSection = (props: SidebarSectionProps) => {
   const { items, path, title, atLessOne, ...other } = props;
@@ -102,7 +102,7 @@ export const SidebarSection = (props: SidebarSectionProps) => {
           {title}
         </ListSubheader>
       }
-      {...other}
+      // {...other}
     >
       {renderNavItems({
         items,

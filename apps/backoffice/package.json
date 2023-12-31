@@ -17,7 +17,9 @@
     "@fontsource/roboto": "^5.0.3",
     "@hookform/resolvers": "^2.8.1",
     "@mui/icons-material": "^5.11.16",
-    "@mui/material": "^5.13.5",
+    "@mui/lab": "^5.0.0-alpha.158",
+    "@mui/material": "^5.15.5",
+    "admin-layout": "*",
     "axios": "^1.4.0",
     "classnames": "^2.3.2",
     "date-fns": "^2.30.0",
@@ -34,7 +36,6 @@
     "react-scripts": "5.0.1",
     "security": "*",
     "validations": "*",
-    "admin-layout": "*",
     "web-vitals": "^2.1.4",
     "yup": "^0.32.11"
   },

@@ -22,15 +22,15 @@ export type DateFilterProps = BaseFilterProps & {
 
 const defaultValue: string = "";
 
-export const CustomMenuItem = styled(Stack)(() => ({
-  padding: "0px 16px",
-}));
+// export const CustomMenuItem = styled(Stack)(() => ({
+//   padding: "0px 16px",
+// }));
 
-const SDateRangePicker = styled(DateRangePicker)(() => ({
-  ".rdrDefinedRangesWrapper": {
-    display: "none",
-  },
-}));
+// const SDateRangePicker = styled(DateRangePicker)(() => ({
+//   ".rdrDefinedRangesWrapper": {
+//     display: "none",
+//   },
+// }));
 
 const DateFilter = ({
   id,
@@ -84,8 +84,8 @@ const DateFilter = ({
               <ListItemText primary={t("custom_range")} />
             </MenuItem>
             {isOpen && (
-              <CustomMenuItem>
-                <SDateRangePicker
+              <MenuItem>
+                <DateRangePicker
                   staticRanges={[]}
                   inputRanges={[]}
                   onChange={handleCustomRangeChange}
@@ -102,7 +102,7 @@ const DateFilter = ({
                   direction="horizontal"
                   showDateDisplay={false}
                 />
-              </CustomMenuItem>
+              </MenuItem>
             )}
           </>
         )}

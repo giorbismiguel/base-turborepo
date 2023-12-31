@@ -1,6 +1,6 @@
 {
   "$schema": "https://json.schemastore.org/tsconfig",
-  "display": "Next.js",
+  "display": "Default",
   "extends": "./base.json",
   "compilerOptions": {
     "allowJs": true,

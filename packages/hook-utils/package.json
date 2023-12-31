@@ -1,10 +1,11 @@
 {
   "name": "hook-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
+  "license": "MIT",
   "description": "",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format cjs --dts --external react",
     "clean": "rimraf dist",
@@ -12,7 +13,6 @@
     "lint": "eslint src/**/*"
   },
   "author": "Giorbis Miguel",
-  "license": "MIT",
   "dependencies": {
     "@types/react": "^18.0.2",
     "postcss": "^8.4.12",

@@ -7,7 +7,7 @@ export const useTableOrder = () => {
   const { order, setOrder, id } = useTable();
 
   const onChangeOrder = useCallback(
-    (event: MouseEvent<unknown>, property: string) => {
+    (_event: MouseEvent<unknown>, property: string) => {
       setOrder(({ orderBy, order }) => {
         const isAsc = orderBy === property && order === "asc";
         const settings: TableOrder = {

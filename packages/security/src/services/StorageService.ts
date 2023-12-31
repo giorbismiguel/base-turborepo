@@ -7,11 +7,11 @@ class LocalStorageService implements IStorageService {
       : undefined;
   }
 
-  setItem(key: string, value: string, options?: any) {
+  setItem(key: string, value: string) {
     localStorage.setItem(key, value);
   }
 
-  removeItem(key: string, options?: any) {
+  removeItem(key: string) {
     localStorage.removeItem(key);
   }
 
@@ -35,12 +35,12 @@ class StorageService implements IStorageService {
     return this.storage.getItem(key);
   }
 
-  setItem(key: string, value: string, options?: any) {
-    this.storage.setItem(key, value, options);
+  setItem(key: string, value: string) {
+    this.storage.setItem(key, value);
   }
 
-  removeItem(key: string, options?: any) {
-    this.storage.removeItem(key, options);
+  removeItem(key: string) {
+    this.storage.removeItem(key);
   }
 
   async clear() {
