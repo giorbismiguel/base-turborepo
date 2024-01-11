@@ -1,7 +1,7 @@
 // @ts-nocheck
 import React, { memo } from "react";
 import map from "lodash/map";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import SecureRoute from "./SecureRoute";
 import { getPaths } from "../../utils/rute";
 import NavigationWithMemory from "./NavigationWithMemory";
@@ -53,7 +53,6 @@ const RouteLoader = ({
   );
 
   return (
-    <BrowserRouter>
       <Routes>
         {routesChildren}
         {notfoundRedirect && (
@@ -66,7 +65,6 @@ const RouteLoader = ({
           />
         )}
       </Routes>
-    </BrowserRouter>
   );
 };
 

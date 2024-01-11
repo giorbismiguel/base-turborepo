@@ -27,11 +27,11 @@ const routes = {
     path: "/reset_password/:key",
     component: RecoveryFinish,
   },
-  // Rest: {
-  //   path: "*",
-  //   authenticated: true, //this is to save the location state in order to restore it after login
-  //   component: () => "path",
-  // },
+  Rest: {
+    path: "*",
+    authenticated: true, //this is to save the location state in order to restore it after login
+    component: RecoveryFinish,
+  },
 };
 
 export default routes;

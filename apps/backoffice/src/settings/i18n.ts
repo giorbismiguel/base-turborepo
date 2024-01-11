@@ -1,5 +1,5 @@
-import i18n, { InitOptions } from "i18next";
-
+import type { InitOptions } from "i18next";
+import i18n from "i18next";
 import * as ES from "locales/es";
 import * as EN from "locales/en";
 
@@ -39,10 +39,12 @@ const options: InitOptions = {
   },
 };
 
+// eslint-disable-next-line func-names, @typescript-eslint/no-shadow
 i18n.on("languageChanged", function (lng) {
   localStorage.setItem("i18nextLng", lng);
 });
 
+// eslint-disable-next-line @typescript-eslint/no-floating-promises
 i18n.init(options).then();
 
 export default i18n;
