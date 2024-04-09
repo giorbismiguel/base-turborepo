@@ -1,4 +1,4 @@
-// import {UserModule, ContentModule, SecurityModule} from 'modules';
+import { UserModule /*, ContentModule, SecurityModule*/ } from "modules";
 import type { RouteConfig } from "security";
 import TestComponent from "modules/test/TestComponent";
 
@@ -8,11 +8,11 @@ const appRoutes: RouteConfig = {
   //     exact: false,
   //     component: SecurityModule,
   // },
-  // Account: {
-  //     path: "/users/*",
-  //     exact: false,
-  //     component: UserModule,
-  // },
+  Account: {
+      path: "/users/*",
+      exact: false,
+      component: UserModule,
+  },
   // Content: {
   //     path: "/content/*",
   //     exact: false,
