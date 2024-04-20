@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react'
 import { Stack } from "@mui/material";
-import { useToggle } from "@dfl/hook-utils";
+import { useToggle } from "hook-utils";
 import { TableToolbar, TableToolbarActions, TablaHeaderOptions } from "admin-layout";
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from "react-i18next";

@@ -1,7 +1,7 @@
 import { RoleDetail } from "modules/users/pages";
 import AccountGeneral from "modules/users/containers/AccountGeneral";
 import AccountSecurity from "modules/users/containers/AccountSecurity";
-import { RouteConfig } from "security";
+import type { RouteConfig } from "security";
 
 const accountRoutes: RouteConfig = {
   general: {

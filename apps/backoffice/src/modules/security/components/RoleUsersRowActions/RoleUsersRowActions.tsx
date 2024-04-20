@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
-import { useToggle } from "@dfl/hook-utils";
+import { useToggle } from "hook-utils";
 import { useDeleteManyRoleBySelection } from 'modules/security/hooks/useDeleteManyRoleBySelection';
 import { useParams } from "react-router";
 import { LoadingButton } from 'mui-react-common';

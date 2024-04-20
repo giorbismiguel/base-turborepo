@@ -4,7 +4,7 @@ import { useRoleDetail } from "modules/security/contexts";
 import { DetailStack } from "mui-react-common";
 import { ROLE_DETAILS_SUMMARY } from "modules/security/constants";
 import AvatarUploadBase from "components/UploadFiles/AvatarUploadBase";
-import { useToggle } from "@dfl/hook-utils";
+import { useToggle } from "hook-utils";
 import SecurityIcon from "@mui/icons-material/Security";
 import UpdateIconRoleModal from "modules/security/containers/UpdateIconRoleModal";
 

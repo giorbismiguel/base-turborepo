@@ -1,4 +1,4 @@
-import {ApiClientService, EntityApiService} from "@dfl/react-security";
+import {ApiClientService, EntityApiService} from "security";
 import {ImageData} from "interfaces/images";
 
 export type ImageUpload = {
@@ -26,6 +26,7 @@ class FilesService extends EntityApiService<any> {
             );
         }
 
+        // eslint-disable-next-line prefer-promise-reject-errors
         return Promise.reject({
             message: "You must need a userId and a files",
         });

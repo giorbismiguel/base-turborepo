@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { Button, Stack } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import RoleDetailEditModal from "modules/security/containers/RoleDetailEditModal";
-import { useToggle } from "@dfl/hook-utils";
+import { useToggle } from "hook-utils";
 import { DeleteAction } from 'components/DeleteAction';
 import { useParams } from 'react-router';
 import { useDeleteRole } from 'modules/security/hooks/useDeleteRole';

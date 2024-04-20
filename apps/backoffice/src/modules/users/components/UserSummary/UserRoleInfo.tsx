@@ -1,4 +1,4 @@
-import { useToggle } from "@dfl/hook-utils";
+import { useToggle } from "hook-utils";
 import { Box, Button, Skeleton } from "@mui/material";
 import { useUserDetail } from "modules/users/contexts/UserDetail";
 import { memo } from 'react';

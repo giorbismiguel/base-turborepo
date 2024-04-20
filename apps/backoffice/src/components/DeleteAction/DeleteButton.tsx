@@ -1,9 +1,9 @@
 import {memo} from 'react'
-import {LoadingButton} from "@dfl/mui-react-common";
+import { LoadingButton } from "@mui/lab";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
 import {useTranslation} from "react-i18next";
 import {DeleteAction} from "components/DeleteAction";
-import {useToggle} from "@dfl/hook-utils";
+import {useToggle} from "hook-utils";
 
 type DeleteButtonProps = {
     isLoading: boolean

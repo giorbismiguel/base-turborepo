@@ -1,13 +1,13 @@
 import {useForm} from 'react-hook-form';
 import {yupResolver} from '@hookform/resolvers/yup';
 import {useMutation, useQueryClient} from 'react-query';
-import {userSchema} from '../schemas/user.schema';
-import {IUser} from 'modules/users/interfaces/IUser';
+import type {IUser} from 'modules/users/interfaces/IUser';
 import UserServices from "modules/users/services/user.services";
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
 import {useEffect} from 'react';
 import {USERS_LIST_KEY} from "modules/users/constants/queries";
+import {userSchema} from '../schemas/user.schema';
 
 
 const initialValue: IUser = {
@@ -46,7 +46,7 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
                 if (variables._id)
                     queryClient.invalidateQueries(variables._id)
                 toast.success(t('successUpdate'))
-                onClose?.()
+                onClose()
             }
         });
 

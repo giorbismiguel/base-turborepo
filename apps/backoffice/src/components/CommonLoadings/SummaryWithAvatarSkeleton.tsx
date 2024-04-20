@@ -1,5 +1,5 @@
 import {memo} from 'react'
-import {FlexBox} from "@dfl/mui-react-common";
+import {FlexBox} from "mui-react-common";
 import {Skeleton} from "@mui/material";
 import StackDetailSkeleton from "./StackDetailSkeleton";
 

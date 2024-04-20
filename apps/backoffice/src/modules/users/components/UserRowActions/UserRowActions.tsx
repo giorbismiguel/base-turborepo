@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { Stack } from "@mui/material";
-import { useToggle } from "@dfl/hook-utils";
+import { useToggle } from "hook-utils";
 import { DeleteRowAction, EditRowActions } from 'admin-layout';
 import { useParamsLink } from 'security';
 import { useDeleteUser } from 'modules/users/hooks/useDeleteUser';

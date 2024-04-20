@@ -2,7 +2,7 @@ import { memo } from 'react'
 import UserDetailsContent from "modules/users/components/UserDetailsContent/UserDetailsContent";
 import { UserSummary } from "modules/users/components/UserSummary";
 import { UserDetailProvider } from "modules/users/contexts/UserDetail";
-import { DetailContent, DetailLayout, DetailSummary } from "@dfl/mui-form-layout";
+import { DetailContent, DetailLayout, DetailSummary } from "admin-layout";
 
 const UserDetailContainer = () => (
     <UserDetailProvider>

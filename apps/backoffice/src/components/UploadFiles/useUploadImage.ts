@@ -1,7 +1,11 @@
-import FilesService, {ImageUpload} from "components/UploadFiles/files.services";
+import type {ImageUpload} from "components/UploadFiles/files.services";
+import FilesService from "components/UploadFiles/files.services";
 import {useMutation} from "react-query";
-import {ChangeEvent, useCallback} from "react";
+import type {ChangeEvent} from "react";
+import { useCallback} from "react";
 import {MAX_FILE_SIZE_BYTES, validationFile} from "components/UploadFiles/files.utils";
+import { t } from "i18next";
+import toast from "react-hot-toast";
 
 export const useUploadImage = (fileTypes?: string[]) => {
     const {mutate, ...mutation} = useMutation<ImageUpload, any, File>(FilesService.upload, {})
@@ -15,8 +19,7 @@ export const useUploadImage = (fileTypes?: string[]) => {
         });
 
         if (message) {
-            // toast.error(t(message));
-            alert(message)
+            toast.error(t(message));
             return;
         }
 

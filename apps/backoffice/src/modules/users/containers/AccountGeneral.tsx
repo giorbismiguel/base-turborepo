@@ -1,7 +1,7 @@
 import {memo} from 'react'
 import {UserGeneralInfo} from "modules/users/components/UserGeneralInfo";
 
-const AccountGeneral = () => {
+function AccountGeneral() {
 
     return (
         <UserGeneralInfo/>

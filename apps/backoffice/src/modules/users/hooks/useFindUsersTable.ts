@@ -16,7 +16,7 @@ export const useFindUsers = (
   page?: number,
   rowsPerPage?: number,
 ) => {
-  const { fetch, queryKey } = useMemo(() => {
+  const { fetch: fetchData, queryKey } = useMemo(() => {
     const currentPage = page || 0;
     const size = rowsPerPage || 20;
     const payload = {
@@ -32,5 +32,5 @@ export const useFindUsers = (
     };
   }, [search, page, filters, rowsPerPage]);
 
-  return useQuery([USERS_LIST_KEY, queryKey], fetch);
+  return useQuery([USERS_LIST_KEY, queryKey], fetchData);
 };

@@ -1,4 +1,4 @@
-import {UploadMediaType} from "components/UploadFiles/files.services";
+import type {UploadMediaType} from "components/UploadFiles/files.services";
 
 export function formatBytes(bytes: number, decimals = 2) {
     if (bytes === 0) return "0 Bytes";
@@ -9,7 +9,7 @@ export function formatBytes(bytes: number, decimals = 2) {
 
     const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
+    return `${parseFloat((bytes / Math.pow(k, i)).toFixed(dm))} ${sizes[i]}`;
 }
 
 export const MAX_FILE_SIZE_BYTES = 500000000;

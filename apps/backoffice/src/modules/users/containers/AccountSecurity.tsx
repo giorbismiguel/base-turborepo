@@ -1,7 +1,7 @@
 import { memo } from 'react'
 import { UserSecurityInfo } from '../components/UserSecurityInfo'
 
-const AccountSecurity = () => {
+function AccountSecurity() {
     return (
         <UserSecurityInfo />
     )

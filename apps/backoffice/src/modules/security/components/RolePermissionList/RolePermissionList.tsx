@@ -5,7 +5,7 @@ import { Button, Paper, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { FlexBox } from "mui-react-common";
 import AddPermissionToRoleModalWithFetch from 'modules/security/containers/AddPermissionToRoleModalWithFetch';
-import { useToggle } from '@dfl/hook-utils';
+import { useToggle } from 'hook-utils';
 import SecurityIcon from '@mui/icons-material/Security';
 
 const RolePermissionList = () => {

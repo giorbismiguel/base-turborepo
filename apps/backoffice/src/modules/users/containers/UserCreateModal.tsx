@@ -1,23 +1,23 @@
+
 import { memo, useCallback } from 'react'
 import { Button, DialogActions, DialogContent, Grid } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 import {
     Form,
-    LoadingButton,
     FormTextField,
     HandlerError,
     DialogForm,
     ConditionContainer,
-} from "mui-react-common";
+ SkeletonForm } from "mui-react-common";
 import { useTranslation } from "react-i18next";
 import useUserCreateForm from "modules/users/hooks/useUserCreateForm";
-import { mapGetOneErrors } from 'constants/errors';
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import { IUser } from 'modules/users/interfaces/IUser';
-import { SkeletonForm } from 'mui-react-common';
+import type { IUser } from 'modules/users/interfaces/IUser';
 import { useNavigate } from 'react-router';
 import { SelectRole } from "modules/security/components/SelectRole";
+import { mapGetOneErrors } from 'constants/errors';
 
-type UserCreateModalProps = {
+interface UserCreateModalProps {
     open: boolean,
     onClose: () => void,
     title: string,
@@ -27,81 +27,80 @@ type UserCreateModalProps = {
     userId?: string | null,
 }
 
-const UserCreateModal = ({ open, onClose, title, dataError, initValue, loadingInitData, userId }: UserCreateModalProps) => {
+function UserCreateModal({ open, onClose, title, dataError, initValue, loadingInitData, userId }: UserCreateModalProps) {
     const { t } = useTranslation('users');
     const { control, onSubmit, isLoading, error } = useUserCreateForm(initValue, onClose);
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const handleAdvancedEditClick = useCallback(() => {
-        navigate(`/users/${userId}/general`)
+        navigate(`/users/${String(userId)}/general`)
     }, [userId, navigate]);
 
     return (
         <DialogForm
+            aria-labelledby="user-creation-title"
             isLoading={loadingInitData}
-            open={open}
             onClose={onClose}
-            title={t(title)}
-            aria-labelledby={'user-creation-title'}>
+            open={open}
+            title={t(title)}>
             <DialogContent>
                 {
-                    dataError && <HandlerError error={dataError}
+                    dataError ? <HandlerError error={dataError}
                         errors={SIGNUP_ERRORS}
-                        mapError={mapGetOneErrors} />
+                        mapError={mapGetOneErrors} /> : null
                 }
 
                 {!dataError &&
                     <ConditionContainer active={!loadingInitData} alternative={<SkeletonForm numberItemsToShow={5} />}>
                         <HandlerError error={error} />
-                        <Form onSubmit={onSubmit}
-                            control={control}
-                            isLoading={isLoading}
-                            size={'small'}
-                            id={'user-form'}
+                        <Form control={control}
                             dark
+                            id="user-form"
+                            isLoading={isLoading}
+                            onSubmit={onSubmit}
+                            size="small"
                         >
-                            <Grid container spacing={{ xs: 1, md: 2 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-                                <Grid item xs={12} md={6}>
+                            <Grid columns={{ xs: 4, sm: 8, md: 12 }} container spacing={{ xs: 1, md: 2 }}>
+                                <Grid item md={6} xs={12}>
                                     <FormTextField
                                         fullWidth
-                                        autoFocus
-                                        required
-                                        name="firstName"
                                         label={t('common:firstName')}
+                                        name="firstName"
                                         placeholder={t('common:firstName')}
+                                        required
                                     />
                                 </Grid>
-                                <Grid item xs={12} md={6}>
+                                <Grid item md={6} xs={12}>
                                     <FormTextField
                                         fullWidth
-                                        name="lastName"
-                                        required
                                         label={t('common:lastName')}
+                                        name="lastName"
                                         placeholder={t('common:lastName')}
-                                    />
-                                </Grid>
-                                <Grid item xs={12} md={6}>
-                                    <FormTextField
-                                        fullWidth
-                                        name="email"
                                         required
-                                        label={t('common:email')}
-                                        placeholder="example@gmail.com"
                                     />
                                 </Grid>
-                                <Grid item xs={12} md={6}>
+                                <Grid item md={6} xs={12}>
                                     <FormTextField
                                         fullWidth
-                                        name="phone"
+                                        label={t('common:email')}
+                                        name="email"
+                                        placeholder="example@gmail.com"
+                                        required
+                                    />
+                                </Grid>
+                                <Grid item md={6} xs={12}>
+                                    <FormTextField
+                                        fullWidth
                                         label={t('common:phone')}
+                                        name="phone"
                                         placeholder="+5355555555"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
                                     <SelectRole
-                                        name="roles"
-                                        multiple
                                         label={t('roles')}
+                                        multiple
+                                        name="roles"
                                         placeholder={t('selectRoles')}
                                     />
                                 </Grid>
@@ -114,10 +113,10 @@ const UserCreateModal = ({ open, onClose, title, dataError, initValue, loadingIn
                 <Button onClick={onClose}>
                     {t('common:cancel')}
                 </Button>
-                {!!userId && <Button onClick={handleAdvancedEditClick} variant={'outlined'}>
+                {Boolean(userId) && <Button onClick={handleAdvancedEditClick} variant="outlined">
                     {t('advancedEdit')}
                 </Button>}
-                <LoadingButton variant="contained" type={'submit'} loading={isLoading} form="user-form">
+                <LoadingButton form="user-form" loading={isLoading} type="submit" variant="contained">
                     {t('common:save')}
                 </LoadingButton>
             </DialogActions>

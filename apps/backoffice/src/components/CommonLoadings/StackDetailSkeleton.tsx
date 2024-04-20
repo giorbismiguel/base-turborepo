@@ -1,6 +1,6 @@
 import {memo} from 'react'
 import {BoxProps, Skeleton} from "@mui/material";
-import {FlexBox} from "@dfl/mui-react-common";
+import {FlexBox} from "mui-react-common";
 import Box from "@mui/material/Box";
 
 const widths = ['50%', '40%', '60%', '45%']

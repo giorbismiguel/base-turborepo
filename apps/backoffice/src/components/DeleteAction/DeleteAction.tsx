@@ -8,9 +8,9 @@ import {
     DialogActions
 } from "@mui/material";
 import {useTranslation} from "react-i18next";
-import {LoadingButton} from "@dfl/mui-react-common";
+import { LoadingButton } from "@mui/lab";
 
-type DeleteActionProps = {
+interface DeleteActionProps {
     open: boolean,
     onClose: () => void
     onDelete?: () => void
@@ -19,27 +19,27 @@ type DeleteActionProps = {
     confirmation?: string
 }
 
-const DeleteAction = ({
+function DeleteAction({
                           open,
                           onClose,
                           title = 'common:deleteConfirmation.title',
                           confirmation = 'common:deleteConfirmation.confirmation',
                           onDelete,
                           isLoading
-                      }: DeleteActionProps) => {
+                      }: DeleteActionProps) {
     const {t} = useTranslation('common');
 
     const handleDelete = useCallback(() => {
         onDelete?.();
-        onClose?.();
+        onClose();
     }, [onDelete, onClose]);
 
     return (
         <Dialog
-            open={open}
-            onClose={onClose}
-            aria-labelledby="alert-dialog-title"
             aria-describedby="alert-dialog-description"
+            aria-labelledby="alert-dialog-title"
+            onClose={onClose}
+            open={open}
         >
             <DialogTitle id="alert-dialog-title">
                 {t(title)}
@@ -51,7 +51,7 @@ const DeleteAction = ({
             </DialogContent>
             <DialogActions>
                 <Button onClick={onClose}>{t("cancel")}</Button>
-                <LoadingButton onClick={handleDelete} autoFocus variant={"contained"} color={'error'} loading={isLoading}>
+                <LoadingButton color="error" loading={isLoading} onClick={handleDelete} variant="contained">
                     {t("delete")}
                 </LoadingButton>
             </DialogActions>

@@ -19,6 +19,7 @@
     "@mui/icons-material": "^5.11.16",
     "@mui/lab": "^5.0.0-alpha.158",
     "@mui/material": "^5.15.2",
+    "@mui/system": "^5.15.15",
     "@mui/x-date-pickers": "^6.18.7",
     "admin-layout": "*",
     "axios": "^1.4.0",

@@ -1,9 +1,9 @@
 import routes from 'modules/users/routes';
-import {RouteLoader} from 'react-security';
+import {RouteLoader} from 'security';
 
 
-const Module = () => {
-    return (<RouteLoader routes={routes} notfoundRedirect={'/users'} memory/>);
-};
+function Module() {
+    return (<RouteLoader memory notfoundRedirect="/users" routes={routes}/>);
+}
 
 export default Module;
