@@ -5,16 +5,16 @@ import accountRoutes from "modules/users/routes/account";
 import { accountTabs } from "modules/users/constants/account.tabs";
 import { useParams } from "react-router-dom";
 
-const UserDetailsContent = () => {
+function UserDetailsContent() {
     const { id } = useParams();
 
     return (
         <Box pt={1}>
             <Box sx={{ borderBottom: 1, borderColor: 'divider', paddingX: { xs: 2, md: 4 } }}>
-                <RouterTab tabs={accountTabs} prefix={`/users/${id}`} translationNs={'account'} />
+                <RouterTab prefix={`/users/${String(id)}`} tabs={accountTabs} translationNs="account" />
             </Box>
             <Box sx={{ padding: { xs: 2, md: 4 } }}>
-                <RouteLoader routes={accountRoutes} notfoundRedirect={`/users/${id}/general`} />
+                <RouteLoader notfoundRedirect={`/users/${String(id)}/general`} routes={accountRoutes} />
             </Box>
         </Box>
     );

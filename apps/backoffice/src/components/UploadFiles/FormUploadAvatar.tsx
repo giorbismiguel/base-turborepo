@@ -57,7 +57,7 @@ export function UploadAvatar({value = defaultData, size, onChange, loading, alt}
             // @ts-ignore
             if (promise?.catch) {
                 // @ts-ignore
-                promise.catch(e => setValue(prev))
+                promise.catch(_e => setValue(prev))
             }
         }
     }, [data])

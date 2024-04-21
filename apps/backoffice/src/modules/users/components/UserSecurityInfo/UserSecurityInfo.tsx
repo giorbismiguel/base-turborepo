@@ -1,13 +1,13 @@
 import { memo } from 'react'
-import ChangePassword from './ChangePassword';
-import RetypePassword from './RetypePassword';
 import { useSecurity, useUser } from 'security';
 import { useParams } from 'react-router';
+import ChangePassword from './ChangePassword';
+import RetypePassword from './RetypePassword';
 
-const UserSecurityInfo = () => {
+function UserSecurityInfo() {
     const { hasPermission } = useSecurity();
     const { user, isLoading } = useUser();
-    let { id } = useParams();
+    const { id } = useParams();
 
     //todo handle loading
     if (isLoading)

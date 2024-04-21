@@ -3,20 +3,22 @@ import {UserService} from "modules/users/services";
 import {USERS_ONE_KEY} from "modules/users/constants/queries";
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
-import {IRole} from "modules/security/interfaces";
+import type {IRole} from "modules/security/interfaces";
 
 export const useDeleteRolesUser = (_id: string, roles: IRole[], onClose?: () => void) => {
     const queryClient = useQueryClient();
     const {t} = useTranslation("role");
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-return
     return useMutation((roleToDelete: string) => UserService.update(_id, {
         _id,
-        roles: roles.map(({_id}) => _id).filter(role => role !== roleToDelete)
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
+        roles: roles.map(({_id: id}) => id).filter(role => role !== roleToDelete)
     }), {
-        onSuccess: () => {
+        onSuccess: async () => {
             toast.success(t('successDeleted'));
             onClose?.();
-            queryClient.invalidateQueries([_id, USERS_ONE_KEY]);
+            await queryClient.invalidateQueries([_id, USERS_ONE_KEY]);
         },
         onError: () => {
             toast.error(t('common:errors.generalErrorMessage'));

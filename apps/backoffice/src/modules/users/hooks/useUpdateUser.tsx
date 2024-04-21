@@ -1,11 +1,11 @@
 import {useMutation, useQueryClient} from "react-query";
 import {UserService} from "modules/users/services";
 import {USERS_ONE_KEY} from "modules/users/constants/queries";
-import {IUser} from "modules/users/interfaces/IUser";
+import type {IUser} from "modules/users/interfaces/IUser";
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
 
-export const useUpdateUser = (user: IUser | undefined, invalidateQuery: boolean = true, onClose?: () => void) => {
+export const useUpdateUser = (user: IUser, invalidateQuery = true, onClose?: () => void) => {
     const queryClient = useQueryClient();
     const {t} = useTranslation('account');
 
@@ -13,7 +13,9 @@ export const useUpdateUser = (user: IUser | undefined, invalidateQuery: boolean 
         onSuccess: () => {
             onClose?.();
             if (invalidateQuery) {
-                queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
+                queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]).catch(() => {
+                    toast.error(t('common:errors.generalErrorMessage'));
+                });
             }
             toast.success(t("successUpdate"));
         }, onError: () => {

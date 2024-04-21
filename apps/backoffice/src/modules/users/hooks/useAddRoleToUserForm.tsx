@@ -5,10 +5,10 @@ import {yupResolver} from '@hookform/resolvers/yup';
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
 import {userRolesSchema} from 'modules/users/schemas/user.schema';
-import {IUser} from 'modules/users/interfaces/IUser';
+import type {IUser} from 'modules/users/interfaces/IUser';
 import {UserService} from "modules/users/services";
+import type {IRole} from "modules/security/interfaces";
 import {USERS_ONE_KEY} from "../constants/queries";
-import {IRole} from "modules/security/interfaces";
 
 
 const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
@@ -37,15 +37,17 @@ const useAddRoleToUserForm = (user: IUser | undefined, onClose: () => void) => {
         reset: resetMutation,
         isError
     } = useMutation((values: { roles: { _id: string }[] }) => {
-            const rolesIds: string[] = values?.roles?.map(role => role._id) || [];
+            const rolesIds: string[] = values.roles.map(role => role._id);
 
+            // eslint-disable-next-line @typescript-eslint/no-unsafe-return
             return UserService.addRoles(user?._id, rolesIds);
         },
         {
-            onSuccess: (data) => {
+            onSuccess: (_data) => {
+                // eslint-disable-next-line @typescript-eslint/no-floating-promises
                 queryClient.invalidateQueries([user?._id, USERS_ONE_KEY]);
                 toast.success(t('successAddRoles'));
-                onClose?.();
+                onClose();
             }
         });
 

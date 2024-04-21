@@ -1,11 +1,11 @@
 import { useCallback, memo } from 'react'
 import { useSearchParams } from 'react-router-dom';
+import { useSearchParamsChange } from "security";
 import { useFindOneUsers } from '../hooks/useFindOneUsers';
 import UserCreateModal from './UserCreateModal'
-import { useSearchParamsChange } from "security";
 
-const UserEditModal = () => {
-    let [searchParams] = useSearchParams();
+function UserEditModal() {
+    const [searchParams] = useSearchParams();
     const entityId = searchParams.get('edit');
     const { isLoading, data, error } = useFindOneUsers(entityId);
     const { removeField } = useSearchParamsChange('edit');
@@ -16,12 +16,12 @@ const UserEditModal = () => {
 
     return (
         <UserCreateModal
-            title='edit'
-            open={!!entityId}
-            onClose={handleCloseEdit}
+            dataError={error}
             initValue={data}
             loadingInitData={isLoading}
-            dataError={error}
+            onClose={handleCloseEdit}
+            open={Boolean(entityId)}
+            title='edit'
             userId={entityId}
         />
     )

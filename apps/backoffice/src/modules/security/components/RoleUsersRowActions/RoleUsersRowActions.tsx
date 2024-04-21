@@ -15,8 +15,8 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import { useToggle } from "hook-utils";
 import { useDeleteManyRoleBySelection } from 'modules/security/hooks/useDeleteManyRoleBySelection';
 import { useParams } from "react-router";
-import { LoadingButton } from 'mui-react-common';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
+import { LoadingButton } from '@mui/lab';
 
 type UserStatusProps = {
     rowId: string

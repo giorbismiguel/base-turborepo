@@ -11,8 +11,11 @@ export const useDeleteManyRoles = () => {
   const { selected, clearSelection } = useTableSelection();
 
   return useMutation(() => {
-    if (selected && selected?.length)
+    if (selected && selected.length){
       return RoleService.deleteMany(selected as string[]);
+    }
+    
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' });
   }, {
     onSuccess: () => {

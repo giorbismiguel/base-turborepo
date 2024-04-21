@@ -24,21 +24,19 @@ const RoleRowActions = (data: IRole) => {
     const { mutate, isLoading, error } = useDeleteRole(rowId, onClose);
 
     const handleOpen = useCallback(() => {
-        openPermissions(data as IRole)
+        openPermissions(data)
     }, [data, openPermissions])
 
 
     return (
         <Stack direction="row" spacing={1}>
             <RowActions
-                rowId={rowId}
                 tooltip={t('role:permissionManage')}
                 onClick={handleOpen}
                 icon={SecurityIconRole}
             />
 
             <EditRowActions
-                rowId={rowId}
                 onClick={handleEdit}
             />
 

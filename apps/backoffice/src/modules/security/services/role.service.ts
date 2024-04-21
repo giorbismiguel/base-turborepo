@@ -1,8 +1,9 @@
 import { EntityApiService, ApiClientService } from "security";
-import { IRole } from "modules/security/interfaces";
+import type { IRole } from "modules/security/interfaces";
 
 class RoleService extends EntityApiService<IRole> {
   addUsers = (roleId: string | undefined, userIds: string[]) => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (roleId && userIds) {
       if (userIds.length)
         return this.handleResponse(
@@ -12,11 +13,13 @@ class RoleService extends EntityApiService<IRole> {
         );
       return Promise.resolve();
     }
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a roleId and a list of users ids",
     });
   };
   deleteUsers = (roleId: string | undefined, userIds: string[]) => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (roleId && userIds) {
       if (userIds.length)
         return this.handleResponse(
@@ -28,12 +31,14 @@ class RoleService extends EntityApiService<IRole> {
         );
       return Promise.resolve();
     }
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a roleId and a list of users ids",
     });
   };
 
   addPermissions = (roleId: string | undefined, permissions: string[]) => {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (roleId && permissions) {
       if (permissions.length)
         return this.handleResponse(
@@ -43,6 +48,8 @@ class RoleService extends EntityApiService<IRole> {
         );
       return Promise.resolve();
     }
+    
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a roleId and a list of permissions",
     });
@@ -57,6 +64,7 @@ class RoleService extends EntityApiService<IRole> {
         }),
       );
     }
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a roleId and an avatar",
     });

@@ -1,7 +1,7 @@
 import React from "react";
 import { List, ListSubheader, Theme } from "@mui/material";
-import { SidebarItem } from "./SidebarItem";
 import { IMenu, IMenuItem, IMenuLeaf } from "mui-react-common";
+import { SidebarItem } from "./SidebarItem";
 
 const renderNavItems = ({
   depth = 0,

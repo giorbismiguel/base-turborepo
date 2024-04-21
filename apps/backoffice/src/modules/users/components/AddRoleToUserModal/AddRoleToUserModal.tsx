@@ -10,10 +10,11 @@ import {
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Trans, useTranslation } from "react-i18next";
-import { DialogForm, Form, FormSelectAutocompleteField, HandlerError, LoadingButton } from "mui-react-common";
+import { DialogForm, Form, FormSelectAutocompleteField, HandlerError } from "mui-react-common";
 import type { IUser } from 'modules/users/interfaces/IUser';
 import { useFindRoles } from 'modules/security/hooks/useFindRoles';
 import useAddRoleToUserForm from 'modules/users/hooks/useAddRoleToUserForm';
+import { LoadingButton } from '@mui/lab';
 
 interface AddRoleToUserModalProps {
     open: boolean,
@@ -45,6 +46,7 @@ function AddRoleToUserModal({
 
     if (loadingRoles) {
         return (
+            // eslint-disable-next-line react/jsx-no-useless-fragment
             <></>
         )
     }
@@ -67,7 +69,7 @@ function AddRoleToUserModal({
                         <FormSelectAutocompleteField
                             disableCloseOnSelect
                             error={isError}
-                            getOptionLabel={(option) => option.name}
+                            getOptionLabel={(option) => option.name as unknown as string}
                             isOptionEqualToValue={(option, value) => option._id === value._id}
                             multiple
                             name="roles"

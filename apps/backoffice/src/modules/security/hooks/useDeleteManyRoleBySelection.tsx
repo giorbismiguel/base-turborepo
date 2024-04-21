@@ -16,6 +16,7 @@ export const useDeleteManyRoleBySelection = (roleId: string, userId?: string) =>
         if ((roleId && selected && selected.length))
             return RoleService.deleteUsers(roleId, selected as string[]);
 
+        // eslint-disable-next-line prefer-promise-reject-errors
         return Promise.reject({ message: 'you must have items selected to do this operation', reference: 'MD000' })
     }, {
         onSuccess: () => {

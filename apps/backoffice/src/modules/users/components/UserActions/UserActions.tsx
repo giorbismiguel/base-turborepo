@@ -4,17 +4,18 @@ import {useUserDetail} from "modules/users/contexts/UserDetail";
 import {useTranslation} from 'react-i18next';
 import {Box} from '@mui/system';
 import {useUpdateUser} from 'modules/users/hooks/useUpdateUser';
+import type { IUser } from 'modules/users/interfaces/IUser';
 
-const UserActions = () => {
+function UserActions() {
     const {t} = useTranslation('users');
     const {user, setUser, isLoading} = useUserDetail();
     const [checkedLocked, setCheckedLocked] = useState(false);
     const [checkedVerified, setCheckedVerified] = useState(false);
-    const {mutate} = useUpdateUser(user);
+    const {mutate} = useUpdateUser(user as unknown as IUser);
 
     useEffect(() => {
-        setCheckedLocked(!!user?.lock);
-        setCheckedVerified(!!user?.verified);
+        setCheckedLocked(Boolean(user?.lock));
+        setCheckedVerified(Boolean(user?.verified));
     }, [user?.lock, user?.verified]);
 
     const handleChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -49,12 +50,12 @@ const UserActions = () => {
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
                                 }}>
-                                    <Skeleton height={25} width="35%" variant="text"/>
-                                    <Skeleton width={20} height={20} variant="circular"/>
+                                    <Skeleton height={25} variant="text" width="35%"/>
+                                    <Skeleton height={20} variant="circular" width={20}/>
                                 </Box>
 
-                                <Skeleton height={15} width="80%" variant="text"/>
-                                <Skeleton height={15} width="80%" variant="text"/>
+                                <Skeleton height={15} variant="text" width="80%"/>
+                                <Skeleton height={15} variant="text" width="80%"/>
                             </Box>
                         </Box>
                     ))
@@ -65,33 +66,33 @@ const UserActions = () => {
 
     return (
         <List dense>
-            <ListItem key={`switch-list-label-lock`}>
+            <ListItem key="switch-list-label-lock">
                 <ListItemText
-                    id={`switch-list-label-lock`}
+                    id="switch-list-label-lock"
                     primary={t('locked')}
-                    secondary={<Typography fontSize={'small'}
-                                           color={'text.secondary'}>{t('lockedDescription')}</Typography>}
+                    secondary={<Typography color="text.secondary"
+                                           fontSize="small">{t('lockedDescription')}</Typography>}
                 />
                 <Switch
-                    name='lock'
-                    color={'primary'}
-                    edge="end"
                     checked={checkedLocked}
+                    color="primary"
+                    edge="end"
+                    name='lock'
                     onChange={handleChange}
                 />
             </ListItem>
-            <ListItem key={`switch-list-label-verify`}>
+            <ListItem key="switch-list-label-verify">
                 <ListItemText
-                    id={`switch-list-label-verify`}
+                    id="switch-list-label-verify"
                     primary={t('verified')}
-                    secondary={<Typography fontSize={'small'}
-                                           color={'text.secondary'}>{t('verifiedDescription')}</Typography>}
+                    secondary={<Typography color="text.secondary"
+                                           fontSize="small">{t('verifiedDescription')}</Typography>}
                 />
                 <Switch
-                    name='verified'
-                    color={'primary'}
-                    edge="end"
                     checked={checkedVerified}
+                    color="primary"
+                    edge="end"
+                    name='verified'
                     onChange={handleChange}
                 />
             </ListItem>

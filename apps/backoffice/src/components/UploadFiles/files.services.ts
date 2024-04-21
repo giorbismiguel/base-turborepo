@@ -1,15 +1,15 @@
 import {ApiClientService, EntityApiService} from "security";
-import {ImageData} from "interfaces/images";
+import type {ImageData} from "interfaces/images";
 
-export type ImageUpload = {
+export interface ImageUpload {
     thumb: string, image: string
 }
 
-export type UploadMediaType = {
+export interface UploadMediaType {
     file: File | null;
     maxFileSize?: number | undefined;
-    fileTypes: Array<string>;
-};
+    fileTypes: string[];
+}
 
 class FilesService extends EntityApiService<any> {
     upload = (files: File | undefined): Promise<ImageData> => {
@@ -26,10 +26,10 @@ class FilesService extends EntityApiService<any> {
             );
         }
 
-        // eslint-disable-next-line prefer-promise-reject-errors
-        return Promise.reject({
-            message: "You must need a userId and a files",
-        });
+         
+        return Promise.reject(
+          new Error('"You must need a userId and a files"'),
+        );
     };
 }
 

@@ -6,7 +6,7 @@ import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
 import { useTranslation } from "react-i18next";
 import AddUserToRoleModal from "modules/security/containers/AddUserToRoleModal";
 import { useDeleteManyRoleBySelection } from "modules/security/hooks/useDeleteManyRoleBySelection";
-import { LoadingButton } from "mui-react-common";
+import { LoadingButton } from '@mui/lab';
 
 const useToolbarSetting = () => {
     const { isOpen, onClose, onOpen } = useToggle(false);

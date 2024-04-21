@@ -1,8 +1,9 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from 'react-query';
-import { IUser } from 'modules/users/interfaces/IUser';
-import { IChangePassword, PasswordType } from 'modules/users/interfaces/IChangePassword';
+import type { IUser } from 'modules/users/interfaces/IUser';
+import type { ChangePassword } from 'modules/users/interfaces/IChangePassword';
+import { PasswordType } from 'modules/users/interfaces/IChangePassword';
 import UserServices from "modules/users/services/user.services";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
@@ -12,7 +13,7 @@ import { useEffect } from 'react';
 import { generatePassword } from "modules/users/utils";
 
 
-type ResetPasswordProps = {
+interface ResetPasswordProps {
     password: string,
     confirm: string,
     changePasswordRequire: boolean,
@@ -40,7 +41,8 @@ const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetP
         isLoading,
         isSuccess,
         data
-    } = useMutation<any, any, IChangePassword>((dataForm: IChangePassword) => {
+    } = useMutation<any, any, ChangePassword>((dataForm: ChangePassword) => {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         return UserServices.resetPassword(
             user?._id,
             dataForm.password,
@@ -50,7 +52,7 @@ const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetP
     }, {
         onSuccess: () => {
             reset()
-            queryClient.invalidateQueries(CURRENT_USER_KEY)
+            void queryClient.invalidateQueries(CURRENT_USER_KEY)
             toast.success(t('securityTab.passwordSuccessfullyUpdated'))
         }
     });
@@ -74,7 +76,7 @@ const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetP
         typePassword,
         data,
         // @ts-ignore
-        onSubmit: handleSubmit((values: IChangePassword) => {
+        onSubmit: handleSubmit((values: ChangePassword) => {
             mutate(values)
         })
     };

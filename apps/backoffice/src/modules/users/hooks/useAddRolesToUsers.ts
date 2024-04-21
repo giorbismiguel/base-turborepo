@@ -1,19 +1,18 @@
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
-import { useQueryClient } from 'react-query';
+import { useMutation, useQueryClient } from 'react-query';
+import type { IRole } from 'modules/security/interfaces';
+import { RoleService } from 'modules/security/services';
 import { userAddRolesSchema } from '../schemas/user.schema';
 
 
 
-const useAddRolesToUsers = ({defaultValues}) => {
-  const { t } = useTranslation("user");
+const useAddRolesToUsers = () => {
   const queryClient = useQueryClient()
 
   const { control, handleSubmit, reset } = useForm({
-      resolver: yupResolver(userAddRolesSchema)),
-      defaultValues
-  });
+        resolver: yupResolver(userAddRolesSchema),
+    });
 
   // @ts-ignore
   const {
@@ -23,7 +22,10 @@ const useAddRolesToUsers = ({defaultValues}) => {
       isSuccess,
       data
   } = useMutation((role: IRole) => RoleService.saveOrUpdate(role), {
-      onSuccess: (data, values) => {
+      onSuccess: () => {
+            queryClient.invalidateQueries("roles");
+            queryClient.invalidateQueries("users");
+            reset();
       }
   });
 

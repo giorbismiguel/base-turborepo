@@ -18,6 +18,7 @@ const initialValue: IUser = {
     roles: []
 }
 
+// eslint-disable-next-line @typescript-eslint/default-param-last
 const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => void) => {
         const {t} = useTranslation("account");
         const queryClient = useQueryClient()
@@ -33,6 +34,7 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
         }, [defaultValues, reset])
 
         // @ts-ignore
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-return
         const {mutate, error, isLoading, isSuccess, data} = useMutation((user: IUser) => UserServices.saveOrUpdate({
             _id: user?._id,
             firstName: user?.firstName,
@@ -41,10 +43,10 @@ const useUserCreateForm = (defaultValues: IUser = initialValue, onClose: () => v
             phone: user?.phone,
             roles: user?.roles
         }), {
-            onSuccess: (data, variables, context) => {
-                queryClient.invalidateQueries(USERS_LIST_KEY)
+            onSuccess: (_data, variables, _context) => {
+                void queryClient.invalidateQueries(USERS_LIST_KEY)
                 if (variables._id)
-                    queryClient.invalidateQueries(variables._id)
+                    void queryClient.invalidateQueries(variables._id)
                 toast.success(t('successUpdate'))
                 onClose()
             }

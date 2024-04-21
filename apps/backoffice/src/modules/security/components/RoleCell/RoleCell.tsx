@@ -6,25 +6,25 @@ import {
 } from "@mui/material";
 import { ReactLink } from "security";
 import SecurityIcon from "@mui/icons-material/Security";
-import { IRole } from "modules/security/interfaces";
+import type { IRole } from "modules/security/interfaces";
 
-type UserCellProps = {
+interface UserCellProps {
     role: IRole
 }
 
-const RoleAvatar = ({ size = 32, role }: { size?: number, role: IRole }) => {
+function RoleAvatar({ size = 32, role }: { size?: number, role: IRole }) {
     return (
         <Avatar
             alt={role?.name}
-            src={`/images/roles/${role?.avatar}.png`}
+            src={`/images/roles/${String(role?.avatar ?? '')}.png`}
             sx={{ width: size, height: size, bgcolor: 'primary.dark' }}
         >
-            <SecurityIcon fontSize={'small'} />
+            <SecurityIcon fontSize="small" />
         </Avatar>
     )
 }
 
-const RoleCell = ({ role }: UserCellProps) => {
+function RoleCell({ role }: UserCellProps) {
     return (
 
         <ListItem>
@@ -33,16 +33,16 @@ const RoleCell = ({ role }: UserCellProps) => {
             </ListItemAvatar>
 
             <ListItemText
-                primary={<ReactLink to={`/security/roles/${role._id}`} underline={"hover"}>{role.name}</ReactLink>}
+                primary={<ReactLink to={`/security/roles/${String(role._id)}`} underline="hover">{role.name}</ReactLink>}
             />
         </ListItem>
 
     );
 }
-export const RoleChip = ({ role }: UserCellProps) => {
+export function RoleChip({ role }: UserCellProps) {
     return <Chip
         avatar={<RoleAvatar role={role} size={24} />}
-        label={<ReactLink to={`/security/roles/${role?._id}`} underline={"hover"}>{role?.name}</ReactLink>}
+        label={<ReactLink to={`/security/roles/${String(role?._id)}`} underline="hover">{role?.name}</ReactLink>}
         variant="outlined"
     />
 }

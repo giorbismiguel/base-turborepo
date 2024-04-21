@@ -4,7 +4,7 @@ import { ROLES_LIST_KEY } from "modules/security/constants/queries";
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 
-export const useDeleteRole = (id: string, onClose: () => void) => {
+export const useDeleteRole = (id: string, onClose?: () => void) => {
     const queryClient = useQueryClient();
     const { t } = useTranslation("role");
 

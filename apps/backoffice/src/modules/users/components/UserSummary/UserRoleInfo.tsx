@@ -3,24 +3,24 @@ import { Box, Button, Skeleton } from "@mui/material";
 import { useUserDetail } from "modules/users/contexts/UserDetail";
 import { memo } from 'react';
 import { useTranslation } from "react-i18next";
-import AddRoleToUserModal from "../AddRoleToUserModal/AddRoleToUserModal";
 import RoleList from "modules/users/components/UserSummary/RoleList";
 import { FlexBox } from "mui-react-common";
-import { IRole } from "modules/security/interfaces";
+import type { IRole } from "modules/security/interfaces";
+import AddRoleToUserModal from "../AddRoleToUserModal/AddRoleToUserModal";
 
-const UserRoleInfo = () => {
+function UserRoleInfo() {
     const { t } = useTranslation('users');
     const { isOpen, onOpen, onClose } = useToggle(false)
     const { isLoading, user } = useUserDetail()
 
     if (isLoading) {
         return (
-            <FlexBox px={2} my={3} gap={2} flexDirection={'column'}>
-                <FlexBox justifyContent={"space-between"}>
+            <FlexBox flexDirection="column" gap={2} my={3} px={2}>
+                <FlexBox justifyContent="space-between">
                     <Skeleton width={100} />
                     <Skeleton width={16} />
                 </FlexBox>
-                <FlexBox justifyContent={"space-between"}>
+                <FlexBox justifyContent="space-between">
                     <Skeleton width={100} />
                     <Skeleton width={16} />
                 </FlexBox>
@@ -31,20 +31,20 @@ const UserRoleInfo = () => {
     return (
         <>
             {
-                !!user?.roles?.length && <RoleList roles={user?.roles as IRole[]} userId={user?._id as string} />
+                Boolean(user?.roles?.length) && <RoleList roles={user?.roles as IRole[]} userId={user?._id as string} />
             }
 
             <Box px={2}>
                 <Button
+                    color="primary"
                     onClick={onOpen}
-                    variant="text"
-                    color={'primary'}
-                    size="medium">
+                    size="medium"
+                    variant="text">
                     {t('changeRole')}
                 </Button>
             </Box>
 
-            <AddRoleToUserModal user={user} open={isOpen} onClose={onClose} />
+            <AddRoleToUserModal onClose={onClose} open={isOpen} user={user} />
         </>
     );
 }

@@ -12,15 +12,15 @@ import CloseIcon from '@mui/icons-material/Close';
 import {useDeleteRolesUser} from "modules/users/hooks/useDeleteRolesUser";
 import {useTranslation} from "react-i18next";
 import SecurityIcon from '@mui/icons-material/Security';
-import {IRole} from "modules/security/interfaces";
+import type {IRole} from "modules/security/interfaces";
 
-type RoleListProps = {
+interface RoleListProps {
     role: IRole
     roles: IRole[]
     userId: string
 }
 
-const RoleItem = ({role, roles, userId}: RoleListProps) => {
+function RoleItem({role, roles, userId}: RoleListProps) {
     const {t} = useTranslation('common');
     const {isLoading, mutate} = useDeleteRolesUser(userId, roles);
 
@@ -30,8 +30,8 @@ const RoleItem = ({role, roles, userId}: RoleListProps) => {
             key={role?._id}
             secondaryAction={
                 <Tooltip title={t('delete')}>
-                    <IconButton onClick={() => mutate(role?._id as string)} size={"small"} disabled={isLoading}>
-                        {isLoading ? <CircularProgress size={16}/> : <CloseIcon fontSize={'small'}/>}
+                    <IconButton disabled={isLoading} onClick={() => mutate(role?._id as unknown as string)} size="small">
+                        {isLoading ? <CircularProgress size={16}/> : <CloseIcon fontSize="small"/>}
                     </IconButton>
                 </Tooltip>
             }
@@ -39,10 +39,10 @@ const RoleItem = ({role, roles, userId}: RoleListProps) => {
             <ListItemAvatar>
                 <Avatar
                     alt={role?.name}
-                    src={`/images/roles/${role?.avatar}.png`}
+                    src={`/images/roles/${String(role?.avatar)}.png`}
                     sx={{width: 32, height: 32, bgcolor: 'primary.dark'}}
                 >
-                    <SecurityIcon fontSize={'small'}/>
+                    <SecurityIcon fontSize="small"/>
                 </Avatar>
             </ListItemAvatar>
 

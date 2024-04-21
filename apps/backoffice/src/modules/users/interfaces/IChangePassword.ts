@@ -1,4 +1,4 @@
-export interface IChangePassword {
+export interface ChangePassword {
   lastPassword: string;
   password: string;
   confirm: string;
@@ -7,5 +7,5 @@ export interface IChangePassword {
 
 export enum PasswordType {
   GENERATE = "generate",
-  RETYPE = "retype"
-};
+  RETYPE = "retype",
+}

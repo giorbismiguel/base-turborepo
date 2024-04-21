@@ -7,9 +7,10 @@ import {
 } from "@mui/material";
 import { Trans, useTranslation } from "react-i18next";
 import { useRoleDetail } from "modules/security/contexts";
-import { DialogForm, Form, HandlerError, LoadingButton } from "mui-react-common";
+import { DialogForm, Form, HandlerError } from "mui-react-common";
 import { SelectUser } from "modules/users/components/SelectUser";
 import useRoleAddUsersForm from "modules/security/hooks/useRoleAddUsersForm";
+import { LoadingButton } from '@mui/lab';
 
 type AddPermissionToRoleModalProps = {
     open: boolean,

@@ -1,6 +1,7 @@
-import { ApiClientService, EntityApiService, RequestConfig } from "security";
-import { IUser } from "modules/users/interfaces/IUser";
-import { IRoleSetting } from "modules/users/interfaces/IRoleSetting";
+import type { RequestConfig } from "security";
+import { ApiClientService, EntityApiService } from "security";
+import type { IUser } from "modules/users/interfaces/IUser";
+import type { IRoleSetting } from "modules/users/interfaces/IRoleSetting";
 
 class UserService extends EntityApiService<IUser> {
   getUserWhitTransformRoles = (
@@ -8,7 +9,8 @@ class UserService extends EntityApiService<IUser> {
     config?: RequestConfig | undefined,
   ) => {
     return this.getOne(id, config).then((data) => {
-      data.roles = (data.roles as IRoleSetting[])?.map(({ role }) => role);
+      data.roles = (data.roles as IRoleSetting[]).map(({ role }) => role);
+       
       return data;
     });
   };
@@ -30,6 +32,7 @@ class UserService extends EntityApiService<IUser> {
       );
     }
 
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a _id, lastPassword, password and confirm",
     });
@@ -52,6 +55,7 @@ class UserService extends EntityApiService<IUser> {
       );
     }
 
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a _id, lastPassword, password and confirm",
     });
@@ -68,6 +72,7 @@ class UserService extends EntityApiService<IUser> {
         );
       return Promise.resolve();
     }
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need an userId and a list of roles",
     });
@@ -82,6 +87,7 @@ class UserService extends EntityApiService<IUser> {
         }),
       );
     }
+    // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need an userId and an avatar",
     });

@@ -4,9 +4,9 @@ import {useMutation, useQueryClient} from 'react-query';
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
 import {RoleService} from 'modules/security/services';
-import {IRole} from "modules/security/interfaces";
+import type {IRole} from "modules/security/interfaces";
 import {userIdsSchema} from "modules/users/schemas/user.schema";
-import {IUser} from "modules/users/interfaces/IUser";
+import type {IUser} from "modules/users/interfaces/IUser";
 
 const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
     const {t} = useTranslation("role");
@@ -25,14 +25,14 @@ const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
         data,
         reset: resetMutation
     } = useMutation((values: { users: IUser[] }) => {
-            const ids: string[] = values?.users?.map((user) => user._id as string) || [];
+            const ids: string[] = values.users.map((user) => user._id as string);
             return RoleService.addUsers(role?._id, ids);
         },
         {
             onSuccess: () => {
                 toast.success(t('successAddUsers'));
-                queryClient.invalidateQueries(['users', `users-${role?._id}`]);
-                onClose?.();
+                queryClient.invalidateQueries(['users', `users-${String(role?._id)}`]);
+                onClose();
                 reset();
             }
         });

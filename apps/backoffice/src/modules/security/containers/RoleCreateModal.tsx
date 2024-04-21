@@ -1,6 +1,6 @@
 import { memo, useCallback } from 'react'
 import { Button, DialogActions, DialogContent } from "@mui/material";
-import { ConditionContainer, DialogForm, HandlerError, LoadingButton } from "mui-react-common";
+import { ConditionContainer, DialogForm, HandlerError } from "mui-react-common";
 import { useTranslation } from "react-i18next";
 import useRoleCreateForm from "modules/security/hooks/useRoleCreateForm";
 import { IRole } from "modules/security/interfaces";
@@ -8,6 +8,7 @@ import { RoleForm } from "modules/security/components/RoleForm";
 import { SIGNUP_ERRORS } from "modules/authentication/constants/login.errors";
 import { mapGetOneErrors } from "constants/errors";
 import { SkeletonForm } from 'mui-react-common';
+import { LoadingButton } from '@mui/lab';
 
 type RoleCreateModalProps = {
     open: boolean,
@@ -63,7 +64,7 @@ const RoleCreateModal = ({
                 </Button>
                 <LoadingButton variant="contained" type={'submit'}
                     loading={isLoading || loadingInitData}
-                    disabled={!!dataError}
+                    disabled={Boolean(dataError)}
                     form="form">
                     {t('common:save')}
                 </LoadingButton>

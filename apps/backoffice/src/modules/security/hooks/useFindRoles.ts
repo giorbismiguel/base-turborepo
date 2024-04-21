@@ -19,14 +19,14 @@ export const useFindRoles = (
   const { filters, page, size: rowsPerPage } = options || {};
   const areAll = useRef({ areAll: false });
 
-  const { fetch, queryKey } = useMemo(() => {
+  const { fetch: fetchData, queryKey } = useMemo(() => {
     const currentPage = page || 0;
     const size = rowsPerPage || 70;
     const overwriteSearch = areAll.current.areAll ? "" : search || "";
     const payload = {
       search: overwriteSearch.toLowerCase(),
       filters,
-      page: currentPage + 1,
+      page: Number(currentPage) + 1,
       size,
     };
 
@@ -44,7 +44,7 @@ export const useFindRoles = (
     };
   }, [search, page, filters, rowsPerPage]);
 
-  return useQuery([ROLES_LIST_KEY, queryKey], fetch, {
+  return useQuery([ROLES_LIST_KEY, queryKey], fetchData, {
     staleTime: STALE_TIME * 4,
     enabled,
   });

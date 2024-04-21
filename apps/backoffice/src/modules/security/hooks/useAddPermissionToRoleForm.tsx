@@ -4,7 +4,7 @@ import {useMutation, useQueryClient} from 'react-query';
 import toast from "react-hot-toast";
 import {useTranslation} from "react-i18next";
 import {RoleService} from 'modules/security/services';
-import {IRole} from "modules/security/interfaces";
+import type {IRole} from "modules/security/interfaces";
 import {rolePermissionsSchema} from 'modules/security/schemas/role.schema';
 import {ROLES_LIST_KEY, ROLES_ONE_KEY} from 'modules/security/constants/queries';
 import {useEffect} from "react";
@@ -22,7 +22,7 @@ const useAddPermissionToRoleForm = (role: IRole | undefined, onClose: () => void
     useEffect(() => {
         // @ts-ignore
         if (permissions)
-            reset({permissions: permissions})
+            reset({permissions})
     }, [permissions, reset])
 
     // @ts-ignore
@@ -34,7 +34,7 @@ const useAddPermissionToRoleForm = (role: IRole | undefined, onClose: () => void
         data,
         reset: resetMutation
     } = useMutation((values: { permissions: { value: string }[] | [] }) => {
-            const permissionsNames: string[] = values?.permissions?.map(permission => typeof permission === 'string' ? permission : permission.value) || [];
+            const permissionsNames: string[] = values.permissions.map(permission => typeof permission === 'string' ? permission : permission.value);
 
             return RoleService.addPermissions(role?._id, permissionsNames);
         },
@@ -43,7 +43,7 @@ const useAddPermissionToRoleForm = (role: IRole | undefined, onClose: () => void
                 queryClient.invalidateQueries([role?._id, ROLES_ONE_KEY]);
                 queryClient.invalidateQueries([ROLES_LIST_KEY]);
                 toast.success(t('successAddPermissions'));
-                onClose?.();
+                onClose();
             }
         });
 
