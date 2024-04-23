@@ -1,13 +1,13 @@
-import { IUser } from "modules/users/interfaces/IUser";
+import { InterfaceUser } from "modules/users/interfaces/IUser";
 import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import { useFindOneUsers } from "../hooks/useFindOneUsers";
 import { useParams } from "react-router";
 
 // Data value of the provider context
 type UserContextValue = {
-    user?: IUser,
+    user?: InterfaceUser,
     isLoading: boolean,
-    setUser?: Dispatch<SetStateAction<IUser | undefined>>
+    setUser?: Dispatch<SetStateAction<InterfaceUser | undefined>>
     error?: any
 }
 // default value of the context
@@ -31,7 +31,7 @@ const UserDetailProvider = (props: UserContextProps) => {
 
     const { isLoading, data, error } = useFindOneUsers(id ?? null);
 
-    const [user, setUser] = useState<IUser>();
+    const [user, setUser] = useState<InterfaceUser>();
 
     useEffect(() => {
         if (data) {

@@ -1,15 +1,15 @@
-import {memo, useMemo} from 'react'
-import {IUser} from "modules/users/interfaces/IUser";
-import {UploadAvatar} from "components/UploadFiles/FormUploadAvatar";
-import {ImageData} from "interfaces";
-import {useUpdateUser} from "modules/users/hooks/useUpdateUser";
+import { memo, useMemo } from 'react'
+import { InterfaceUser } from "modules/users/interfaces/IUser";
+import { UploadAvatar } from "components/UploadFiles/FormUploadAvatar";
+import { ImageData } from "interfaces";
+import { useUpdateUser } from "modules/users/hooks/useUpdateUser";
 
 type AvatarUserProps = {
-    user: IUser
+    user: InterfaceUser
 }
 
-const AvatarUser = ({user}: AvatarUserProps) => {
-    const {mutateAsync, isLoading} = useUpdateUser(user);
+const AvatarUser = ({ user }: AvatarUserProps) => {
+    const { mutateAsync, isLoading } = useUpdateUser(user);
 
     const avatar: ImageData = useMemo(() => {
         return {
@@ -18,7 +18,7 @@ const AvatarUser = ({user}: AvatarUserProps) => {
         }
     }, [user?.avatar, user?.avatarOriginal]);
 
-    const handleUpdateAvatar = ({target: {value}}: { target: { value: ImageData } }) => {
+    const handleUpdateAvatar = ({ target: { value } }: { target: { value: ImageData } }) => {
         return mutateAsync({
             avatar: value.thumb,
             avatarOriginal: value.image
@@ -27,7 +27,7 @@ const AvatarUser = ({user}: AvatarUserProps) => {
 
     return (
         <div>
-            <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading}/>
+            <UploadAvatar value={avatar} onChange={handleUpdateAvatar} loading={isLoading} />
         </div>
     );
 

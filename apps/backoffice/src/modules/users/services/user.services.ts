@@ -1,16 +1,18 @@
 import type { RequestConfig } from "security";
 import { ApiClientService, EntityApiService } from "security";
-import type { IUser } from "modules/users/interfaces/IUser";
-import type { IRoleSetting } from "modules/users/interfaces/IRoleSetting";
+import type { InterfaceUser } from "modules/users/interfaces/IUser";
+import type { InterfaceRoleSetting } from "modules/users/interfaces/IRoleSetting";
 
-class UserService extends EntityApiService<IUser> {
+class UserService extends EntityApiService<InterfaceUser> {
   getUserWhitTransformRoles = (
     id: string,
     config?: RequestConfig | undefined,
   ) => {
     return this.getOne(id, config).then((data) => {
-      data.roles = (data.roles as IRoleSetting[]).map(({ role }) => role);
-       
+      data.roles = (data.roles as InterfaceRoleSetting[]).map(
+        ({ role }) => role,
+      );
+
       return data;
     });
   };

@@ -1,19 +1,19 @@
-import {useForm} from 'react-hook-form';
-import {yupResolver} from '@hookform/resolvers/yup';
-import {useMutation, useQueryClient} from 'react-query';
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useMutation, useQueryClient } from 'react-query';
 import toast from "react-hot-toast";
-import {useTranslation} from "react-i18next";
-import {RoleService} from 'modules/security/services';
-import type {IRole} from "modules/security/interfaces";
-import {userIdsSchema} from "modules/users/schemas/user.schema";
-import type {IUser} from "modules/users/interfaces/IUser";
+import { useTranslation } from "react-i18next";
+import { RoleService } from 'modules/security/services';
+import type { IRole } from "modules/security/interfaces";
+import { userIdsSchema } from "modules/users/schemas/user.schema";
+import type { InterfaceUser } from "modules/users/interfaces/IUser";
 
 const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
-    const {t} = useTranslation("role");
+    const { t } = useTranslation("role");
     const queryClient = useQueryClient();
-    const {control, handleSubmit, reset} = useForm({
+    const { control, handleSubmit, reset } = useForm({
         resolver: yupResolver(userIdsSchema),
-        defaultValues: {users: []}
+        defaultValues: { users: [] }
     });
 
     // @ts-ignore
@@ -24,10 +24,10 @@ const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
         isSuccess,
         data,
         reset: resetMutation
-    } = useMutation((values: { users: IUser[] }) => {
-            const ids: string[] = values.users.map((user) => user._id as string);
-            return RoleService.addUsers(role?._id, ids);
-        },
+    } = useMutation((values: { users: InterfaceUser[] }) => {
+        const ids: string[] = values.users.map((user) => user._id as string);
+        return RoleService.addUsers(role?._id, ids);
+    },
         {
             onSuccess: () => {
                 toast.success(t('successAddUsers'));

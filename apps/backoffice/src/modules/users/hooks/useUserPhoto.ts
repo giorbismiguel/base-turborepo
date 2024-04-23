@@ -1,11 +1,11 @@
 import { useMutation, useQueryClient } from "react-query";
-import { IUser } from "modules/users/interfaces/IUser";
+import { InterfaceUser } from "modules/users/interfaces/IUser";
 import UserServices from "modules/users/services/user.services";
 import toast from "react-hot-toast";
 import { USERS_ONE_KEY } from "../constants/queries";
 import { useTranslation } from "react-i18next";
 
-export const useUserPhoto = (user: IUser | undefined) => {
+export const useUserPhoto = (user: InterfaceUser | undefined) => {
   const { t } = useTranslation("account");
   const queryClient = useQueryClient();
 

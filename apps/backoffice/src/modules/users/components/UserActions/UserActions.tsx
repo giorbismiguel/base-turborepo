@@ -1,17 +1,17 @@
-import {useCallback, useState, useEffect, memo} from 'react'
-import {List, ListItem, ListItemText, Skeleton, Switch, Typography} from "@mui/material";
-import {useUserDetail} from "modules/users/contexts/UserDetail";
-import {useTranslation} from 'react-i18next';
-import {Box} from '@mui/system';
-import {useUpdateUser} from 'modules/users/hooks/useUpdateUser';
-import type { IUser } from 'modules/users/interfaces/IUser';
+import { useCallback, useState, useEffect, memo } from 'react'
+import { List, ListItem, ListItemText, Skeleton, Switch, Typography } from "@mui/material";
+import { useUserDetail } from "modules/users/contexts/UserDetail";
+import { useTranslation } from 'react-i18next';
+import { Box } from '@mui/system';
+import { useUpdateUser } from 'modules/users/hooks/useUpdateUser';
+import type { InterfaceUser } from 'modules/users/interfaces/IUser';
 
 function UserActions() {
-    const {t} = useTranslation('users');
-    const {user, setUser, isLoading} = useUserDetail();
+    const { t } = useTranslation('users');
+    const { user, setUser, isLoading } = useUserDetail();
     const [checkedLocked, setCheckedLocked] = useState(false);
     const [checkedVerified, setCheckedVerified] = useState(false);
-    const {mutate} = useUpdateUser(user as unknown as IUser);
+    const { mutate } = useUpdateUser(user as unknown as InterfaceUser);
 
     useEffect(() => {
         setCheckedLocked(Boolean(user?.lock));
@@ -50,12 +50,12 @@ function UserActions() {
                                     alignItems: 'center',
                                     justifyContent: 'space-between',
                                 }}>
-                                    <Skeleton height={25} variant="text" width="35%"/>
-                                    <Skeleton height={20} variant="circular" width={20}/>
+                                    <Skeleton height={25} variant="text" width="35%" />
+                                    <Skeleton height={20} variant="circular" width={20} />
                                 </Box>
 
-                                <Skeleton height={15} variant="text" width="80%"/>
-                                <Skeleton height={15} variant="text" width="80%"/>
+                                <Skeleton height={15} variant="text" width="80%" />
+                                <Skeleton height={15} variant="text" width="80%" />
                             </Box>
                         </Box>
                     ))
@@ -71,7 +71,7 @@ function UserActions() {
                     id="switch-list-label-lock"
                     primary={t('locked')}
                     secondary={<Typography color="text.secondary"
-                                           fontSize="small">{t('lockedDescription')}</Typography>}
+                        fontSize="small">{t('lockedDescription')}</Typography>}
                 />
                 <Switch
                     checked={checkedLocked}
@@ -86,7 +86,7 @@ function UserActions() {
                     id="switch-list-label-verify"
                     primary={t('verified')}
                     secondary={<Typography color="text.secondary"
-                                           fontSize="small">{t('verifiedDescription')}</Typography>}
+                        fontSize="small">{t('verifiedDescription')}</Typography>}
                 />
                 <Switch
                     checked={checkedVerified}

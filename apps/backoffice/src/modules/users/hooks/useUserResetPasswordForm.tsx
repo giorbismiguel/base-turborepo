@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from 'react-query';
-import type { IUser } from 'modules/users/interfaces/IUser';
+import type { InterfaceUser } from 'modules/users/interfaces/IUser';
 import type { ChangePassword } from 'modules/users/interfaces/IChangePassword';
 import { PasswordType } from 'modules/users/interfaces/IChangePassword';
 import UserServices from "modules/users/services/user.services";
@@ -27,7 +27,7 @@ const initialValues = {
     typePassword: PasswordType.GENERATE
 }
 
-const useUserResetPasswordForm = (user: IUser | undefined, defaultValues: ResetPasswordProps = initialValues) => {
+const useUserResetPasswordForm = (user: InterfaceUser | undefined, defaultValues: ResetPasswordProps = initialValues) => {
     const { t } = useTranslation("account");
     const queryClient = useQueryClient()
     const { control, handleSubmit, reset, watch, setValue } = useForm({

@@ -5,7 +5,7 @@ import { CellType, HeadCell } from "admin-layout";
 import { renderTagList } from "mui-react-common";
 import { RoleChip } from "modules/security/components/RoleCell/RoleCell";
 import { styled } from "@mui/material";
-import { IRoleSetting } from "../interfaces/IRoleSetting";
+import { InterfaceRoleSetting } from "../interfaces/IRoleSetting";
 import { IRole } from "modules/security/interfaces";
 
 
@@ -21,7 +21,7 @@ export const RolesCell = styled('div')(({ theme }) => ({
 }));
 
 
-const Text = ({ text }: { text?: IRoleSetting }) => {
+const Text = ({ text }: { text?: InterfaceRoleSetting }) => {
     return (<RoleChip role={text?.role as IRole} />);
 }
 

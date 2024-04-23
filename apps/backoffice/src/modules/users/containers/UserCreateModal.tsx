@@ -8,11 +8,12 @@ import {
     HandlerError,
     DialogForm,
     ConditionContainer,
- SkeletonForm } from "mui-react-common";
+    SkeletonForm
+} from "mui-react-common";
 import { useTranslation } from "react-i18next";
 import useUserCreateForm from "modules/users/hooks/useUserCreateForm";
 import { SIGNUP_ERRORS } from 'modules/authentication/constants/login.errors';
-import type { IUser } from 'modules/users/interfaces/IUser';
+import type { InterfaceUser } from 'modules/users/interfaces/IUser';
 import { useNavigate } from 'react-router';
 import { SelectRole } from "modules/security/components/SelectRole";
 import { mapGetOneErrors } from 'constants/errors';
@@ -22,7 +23,7 @@ interface UserCreateModalProps {
     onClose: () => void,
     title: string,
     dataError?: any,
-    initValue?: IUser,
+    initValue?: InterfaceUser,
     loadingInitData?: boolean,
     userId?: string | null,
 }

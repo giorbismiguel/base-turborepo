@@ -3,11 +3,11 @@ import ListItemAvatar from "@mui/material/ListItemAvatar";
 import Avatar from "@mui/material/Avatar";
 import ListItemText from "@mui/material/ListItemText";
 import ListItem from "@mui/material/ListItem";
-import { IUser } from "modules/users/interfaces/IUser";
+import { InterfaceUser } from "modules/users/interfaces/IUser";
 import { ReactLink } from "security";
 
 type UserItemProps = {
-    user: IUser
+    user: InterfaceUser
     sx?: any
 }
 

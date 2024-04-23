@@ -11,14 +11,14 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Trans, useTranslation } from "react-i18next";
 import { DialogForm, Form, FormSelectAutocompleteField, HandlerError } from "mui-react-common";
-import type { IUser } from 'modules/users/interfaces/IUser';
+import type { InterfaceUser } from 'modules/users/interfaces/IUser';
 import { useFindRoles } from 'modules/security/hooks/useFindRoles';
 import useAddRoleToUserForm from 'modules/users/hooks/useAddRoleToUserForm';
 import { LoadingButton } from '@mui/lab';
 
 interface AddRoleToUserModalProps {
     open: boolean,
-    user: IUser | undefined,
+    user: InterfaceUser | undefined,
     onClose: () => void,
 }
 

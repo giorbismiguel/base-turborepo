@@ -5,11 +5,11 @@ import { DeleteRowAction, EditRowActions } from 'admin-layout';
 import { useParamsLink } from 'security';
 import { useDeleteUser } from 'modules/users/hooks/useDeleteUser';
 
-type UserStatusProps = {
+interface UserStatusProps {
     rowId: string
 }
 
-const UserRowActions = ({ rowId }: UserStatusProps) => {
+function UserRowActions({ rowId }: UserStatusProps) {
     const { isOpen, onClose, onOpen } = useToggle();
 
     const { mutate, isLoading, error } = useDeleteUser(rowId, onClose);
@@ -19,17 +19,16 @@ const UserRowActions = ({ rowId }: UserStatusProps) => {
     return (
         <Stack direction="row" spacing={1}>
             <EditRowActions
-                rowId={rowId}
                 onClick={handleEdit}
             />
 
             <DeleteRowAction
-                isOpen={isOpen}
-                onOpen={onOpen}
-                onClose={onClose}
                 error={error}
                 isLoading={isLoading}
+                isOpen={isOpen}
+                onClose={onClose}
                 onDelete={mutate}
+                onOpen={onOpen}
             />
         </Stack>
     );

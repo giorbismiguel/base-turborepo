@@ -1,57 +1,55 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import useUserUpdateForm from '../hooks/useUserUpdateForm';
 import { Grid } from '@mui/material';
-import { FormTextField, LoadingButton } from 'mui-react-common';
+import { Form, FormTextField } from 'mui-react-common';
+import { LoadingButton } from '@mui/lab';
+import useUserUpdateForm from '../hooks/useUserUpdateForm';
 
 // type UserBasicFormProps = {}
 
-const UserBasicForm = () => {
+function UserBasicForm() {
   const { t } = useTranslation('account');
   const { onSubmit, control, isLoading } = useUserUpdateForm();
 
   return (
-    <form onSubmit={onSubmit}>
+    <Form control={control} onSubmit={onSubmit}>
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid item md={6} xs={12}>
           <FormTextField
-            required
-            name="firstName"
-            label={t("firstName")}
-            control={control}
             disabled={isLoading}
+            label={t("firstName")}
+            name="firstName"
+            required
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item md={6} xs={12}>
           <FormTextField
-            required
-            name="lastName"
-            label={t("lastName")}
-            control={control}
             disabled={isLoading}
+            label={t("lastName")}
+            name="lastName"
+            required
           />
         </Grid>
         <Grid item xs={12}>
           <FormTextField
-            required
-            name="email"
-            type={'email'}
-            label={t("email")}
-            control={control}
             disabled={isLoading}
+            label={t("email")}
+            name="email"
+            required
+            type="email"
           />
         </Grid>
       </Grid>
       <LoadingButton
+        loading={isLoading}
+        size="large"
         type="submit"
         variant="contained"
-        size={"large"}
-        loading={isLoading}
       >
         {t("signup")}
       </LoadingButton>
-    </form>
+    </Form>
   );
-};
+}
 
 export default memo(UserBasicForm);
