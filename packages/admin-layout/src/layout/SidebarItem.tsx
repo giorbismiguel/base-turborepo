@@ -16,7 +16,7 @@ type SidebarItemProps = Omit<IMenuItem, "children"> &
   IMenuLeaf &
   ChildrenProps & { depth: number; open: boolean; active: boolean };
 
-export const SidebarItem = (props: SidebarItemProps) => {
+const SidebarItem = (props: SidebarItemProps) => {
   const {
     active,
     children,
@@ -145,6 +145,8 @@ export const SidebarItem = (props: SidebarItemProps) => {
     </ListItem>
   );
 };
+
+export default SidebarItem;
 
 SidebarItem.defaultProps = {
   active: false,

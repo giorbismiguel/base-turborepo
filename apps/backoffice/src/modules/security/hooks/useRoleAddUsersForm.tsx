@@ -4,11 +4,11 @@ import { useMutation, useQueryClient } from 'react-query';
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { RoleService } from 'modules/security/services';
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 import { userIdsSchema } from "modules/users/schemas/user.schema";
 import type { InterfaceUser } from "modules/users/interfaces/IUser";
 
-const useRoleAddUsersForm = (role: IRole | undefined, onClose: () => void) => {
+const useRoleAddUsersForm = (role: InterfaceRole | undefined, onClose: () => void) => {
     const { t } = useTranslation("role");
     const queryClient = useQueryClient();
     const { control, handleSubmit, reset } = useForm({

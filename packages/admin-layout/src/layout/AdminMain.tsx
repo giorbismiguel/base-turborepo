@@ -12,7 +12,7 @@ const AdminLayoutRoot = styled("div")(({ theme }) => ({
   },
 }));
 
-export const AdminMain = ({ children }: ChildrenProps) => {
+const AdminMain = ({ children }: ChildrenProps) => {
   return (
     <AdminLayoutRoot>
       <Box
@@ -29,3 +29,6 @@ export const AdminMain = ({ children }: ChildrenProps) => {
     </AdminLayoutRoot>
   );
 };
+AdminMain.defaultProps = {};
+
+export default AdminMain;

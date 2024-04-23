@@ -2,12 +2,12 @@ import React, { Fragment } from "react";
 import { useToggle } from "hook-utils";
 import { ChildrenProps } from "mui-react-common";
 import { Navbar } from "../components/Navbar";
-import { AdminMain } from "./AdminMain";
-import { AdminSidebar } from "./AdminSidebar";
+import AdminMain from "./AdminMain";
+import AdminSidebar from "./AdminSidebar";
 
 type AdminLayoutProps = ChildrenProps;
 
-export const AdminLayout = ({ children }: AdminLayoutProps) => {
+const AdminLayout = ({ children }: AdminLayoutProps) => {
   const { isOpen, onOpen, onClose } = useToggle(false);
 
   return (
@@ -18,3 +18,7 @@ export const AdminLayout = ({ children }: AdminLayoutProps) => {
     </Fragment>
   );
 };
+
+AdminLayout.defaultProps = {};
+
+export default AdminLayout;

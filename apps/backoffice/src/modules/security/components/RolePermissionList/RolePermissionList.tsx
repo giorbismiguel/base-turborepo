@@ -8,7 +8,7 @@ import AddPermissionToRoleModalWithFetch from 'modules/security/containers/AddPe
 import { useToggle } from 'hook-utils';
 import SecurityIcon from '@mui/icons-material/Security';
 
-const RolePermissionList = () => {
+function RolePermissionList() {
     const { data: role, isLoading } = useRoleDetail();
     const { t } = useTranslation('role');
 
@@ -16,12 +16,12 @@ const RolePermissionList = () => {
 
     return (
         <Paper sx={{ marginBottom: 3, padding: 4, paddingTop: 3 }}>
-            <FlexBox alignItems={'center'} justifyContent={"space-between"} mb={3}>
-                <Typography variant={'h2'}>{t('permissions')}</Typography>
-                <Button onClick={onOpen} variant={"contained"} disabled={isLoading}><SecurityIcon fontSize={'small'} sx={{ mr: 1 }} />  {t('permissionManage')}</Button>
+            <FlexBox alignItems="center" justifyContent="space-between" mb={3}>
+                <Typography variant="h2">{t('permissions')}</Typography>
+                <Button disabled={isLoading} onClick={onOpen} variant="contained"><SecurityIcon fontSize="small" sx={{ mr: 1 }} />  {t('permissionManage')}</Button>
             </FlexBox>
             <PermissionList permissions={role?.permissions} />
-            <AddPermissionToRoleModalWithFetch open={isOpen} onClose={onClose} />
+            <AddPermissionToRoleModalWithFetch onClose={onClose} open={isOpen} />
         </Paper>
     );
 }

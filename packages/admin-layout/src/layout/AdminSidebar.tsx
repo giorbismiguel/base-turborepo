@@ -9,7 +9,7 @@ type AdminSidebarProps = ChildrenProps & {
   open: boolean;
 };
 
-export const AdminSidebar = ({
+const AdminSidebar = ({
   onClose,
   open,
   children,
@@ -94,3 +94,7 @@ export const AdminSidebar = ({
     </Drawer>
   );
 };
+
+AdminSidebar.defaultProps = {};
+
+export default AdminSidebar;

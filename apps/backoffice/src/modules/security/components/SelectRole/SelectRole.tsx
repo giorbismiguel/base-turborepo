@@ -1,6 +1,6 @@
 import { memo } from 'react'
 import { FormAsyncSelectAutocompleteField } from "mui-react-common";
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 import { RoleService } from "modules/security/services";
 import { ROLES_LIST_KEY } from "modules/security/constants/queries";
 import { Checkbox } from "@mui/material";
@@ -12,9 +12,9 @@ type SelectRoleProps = {
     multiple?: boolean
 }
 
-const renderLabel = (option: IRole) => option.name || '';
+const renderLabel = (option: InterfaceRole) => option.name || '';
 
-const renderOption = (props: any, option: IRole, { selected }: any) => {
+const renderOption = (props: any, option: InterfaceRole, { selected }: any) => {
     return (
         <li {...props} key={option._id as string}>
             <Checkbox

@@ -4,18 +4,18 @@ import { useMutation, useQueryClient } from 'react-query';
 import toast from "react-hot-toast";
 import { useTranslation } from "react-i18next";
 import { roleSchema } from "modules/security/schemas/role.schema";
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 import { RoleService } from "modules/security/services";
 import { ROLES_LIST_KEY } from "modules/security/constants/queries";
 import { useEffect } from "react";
 
 
-const initValues: IRole = {
+const initValues: InterfaceRole = {
     name: '',
     description: ''
 }
 
-const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValues) => {
+const useRoleCreateForm = (onClose: () => void, defaultValues: InterfaceRole = initValues) => {
     const { t } = useTranslation("role");
     const queryClient = useQueryClient()
     const { control, handleSubmit, reset } = useForm({
@@ -37,7 +37,7 @@ const useRoleCreateForm = (onClose: () => void, defaultValues: IRole = initValue
         isLoading,
         isSuccess,
         data
-    } = useMutation((role: IRole) => RoleService.saveOrUpdate(role), {
+    } = useMutation((role: InterfaceRole) => RoleService.saveOrUpdate(role), {
         onSuccess: (data, values) => {
             queryClient.invalidateQueries(ROLES_LIST_KEY);
             values?._id && queryClient.invalidateQueries(values._id);

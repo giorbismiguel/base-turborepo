@@ -6,14 +6,14 @@ import { useDeleteRole } from "modules/security/hooks/useDeleteRole";
 import { DeleteRowAction, EditRowActions, RowActions } from "admin-layout";
 import SecurityIcon from '@mui/icons-material/Security';
 import { useRoleRowPermission } from "modules/security/contexts/RoleRowPermissionContext";
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 import { useTranslation } from 'react-i18next';
 
 const SecurityIconRole = () => {
     return (<SecurityIcon fontSize={'small'} />);
 }
 
-const RoleRowActions = (data: IRole) => {
+const RoleRowActions = (data: InterfaceRole) => {
     const rowId = data._id as string;
     const { isOpen, onClose, onOpen } = useToggle();
     const { t } = useTranslation('role');

@@ -1,7 +1,7 @@
 import { EntityApiService, ApiClientService } from "security";
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 
-class RoleService extends EntityApiService<IRole> {
+class RoleService extends EntityApiService<InterfaceRole> {
   addUsers = (roleId: string | undefined, userIds: string[]) => {
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (roleId && userIds) {
@@ -48,7 +48,7 @@ class RoleService extends EntityApiService<IRole> {
         );
       return Promise.resolve();
     }
-    
+
     // eslint-disable-next-line prefer-promise-reject-errors
     return Promise.reject({
       message: "You must need a roleId and a list of permissions",

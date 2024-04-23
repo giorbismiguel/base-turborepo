@@ -1,12 +1,13 @@
 import { UserStatus } from "modules/users/components/UserStatus";
 import { UserCell } from "modules/users/components/UserCell";
 import { UserRowActions } from "modules/users/components/UserRowActions";
-import { CellType, HeadCell } from "admin-layout";
+import type { HeadCell } from "admin-layout";
+import { CellType } from "admin-layout";
 import { renderTagList } from "mui-react-common";
 import { RoleChip } from "modules/security/components/RoleCell/RoleCell";
 import { styled } from "@mui/material";
-import { InterfaceRoleSetting } from "../interfaces/IRoleSetting";
-import { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
+import type { InterfaceRoleSetting } from "../interfaces/IRoleSetting";
 
 
 export const RolesCell = styled('div')(({ theme }) => ({
@@ -21,8 +22,8 @@ export const RolesCell = styled('div')(({ theme }) => ({
 }));
 
 
-const Text = ({ text }: { text?: InterfaceRoleSetting }) => {
-    return (<RoleChip role={text?.role as IRole} />);
+function Text({ text }: { text?: InterfaceRoleSetting }) {
+    return (<RoleChip role={text?.role as InterfaceRole} />);
 }
 
 
@@ -31,8 +32,8 @@ export const userColumns: HeadCell[] = [
         field: 'fullName',
         headerName: 'users:name',
         disablePadding: true,
-        renderCell: (name: string, user: any) => <UserCell userId={user._id} name={user.fullName}
-            avatar={user.avatar} />,
+        renderCell: (name: string, user: any) => <UserCell avatar={user.avatar} name={user.fullName}
+            userId={user._id} />,
     },
     {
         field: 'email',

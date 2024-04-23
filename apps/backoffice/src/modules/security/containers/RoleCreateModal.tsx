@@ -3,7 +3,7 @@ import { Button, DialogActions, DialogContent } from "@mui/material";
 import { ConditionContainer, DialogForm, HandlerError } from "mui-react-common";
 import { useTranslation } from "react-i18next";
 import useRoleCreateForm from "modules/security/hooks/useRoleCreateForm";
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 import { RoleForm } from "modules/security/components/RoleForm";
 import { SIGNUP_ERRORS } from "modules/authentication/constants/login.errors";
 import { mapGetOneErrors } from "constants/errors";
@@ -15,7 +15,7 @@ type RoleCreateModalProps = {
     loadingInitData?: boolean,
     title?: string,
     dataError?: any,
-    initValue?: IRole,
+    initValue?: InterfaceRole,
     onClose: () => void,
 }
 const RoleCreateModal = ({

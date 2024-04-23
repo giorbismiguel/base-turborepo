@@ -2,11 +2,11 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useMutation, useQueryClient } from 'react-query';
 import { RoleService } from 'modules/security/services';
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 import { ROLES_ONE_KEY } from '../constants/queries';
 import { roleIconSchema } from '../schemas/role.schema';
 
-const useRoleUpdateIconForm = (role: IRole | undefined, onClose: () => void) => {
+const useRoleUpdateIconForm = (role: InterfaceRole | undefined, onClose: () => void) => {
     const queryClient = useQueryClient();
     const { control, handleSubmit, reset } = useForm({
         resolver: yupResolver(roleIconSchema),

@@ -7,7 +7,7 @@ import { useTranslation } from "react-i18next";
 import { userRolesSchema } from 'modules/users/schemas/user.schema';
 import type { InterfaceUser } from 'modules/users/interfaces/IUser';
 import { UserService } from "modules/users/services";
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 import { USERS_ONE_KEY } from "../constants/queries";
 
 
@@ -17,10 +17,10 @@ const useAddRoleToUserForm = (user: InterfaceUser | undefined, onClose: () => vo
     // @ts-ignore
     const { control, handleSubmit, reset } = useForm({
         resolver: yupResolver(userRolesSchema),
-        defaultValues: { roles: user?.roles as IRole[] }
+        defaultValues: { roles: user?.roles as InterfaceRole[] }
     });
 
-    const defaultRoles = user?.roles as IRole[];
+    const defaultRoles = user?.roles as InterfaceRole[];
     useEffect(() => {
         // @ts-ignore
         if (defaultRoles)

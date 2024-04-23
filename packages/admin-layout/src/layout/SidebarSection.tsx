@@ -1,7 +1,7 @@
 import React from "react";
 import { List, ListSubheader, Theme } from "@mui/material";
 import { IMenu, IMenuItem, IMenuLeaf } from "mui-react-common";
-import { SidebarItem } from "./SidebarItem";
+import SidebarItem from "./SidebarItem";
 
 const renderNavItems = ({
   depth = 0,
@@ -60,6 +60,7 @@ const reduceChildRoutes = ({
   } else {
     acc.push(
       <SidebarItem
+        open={false}
         active={item.partialMatch ? partialMatch : exactMatch}
         chip={item.chip}
         depth={depth}
@@ -81,7 +82,7 @@ type SidebarSectionProps = IMenu & { path: string };
 const sectionColor = (theme: Theme) =>
   theme.palette.secondary.contrastText || "secondary.400";
 
-export const SidebarSection = (props: SidebarSectionProps) => {
+const SidebarSection = (props: SidebarSectionProps) => {
   const { items, path, title, atLessOne, ...other } = props;
 
   return (
@@ -111,3 +112,7 @@ export const SidebarSection = (props: SidebarSectionProps) => {
     </List>
   );
 };
+
+SidebarSection.defaultProps = {};
+
+export default SidebarSection;

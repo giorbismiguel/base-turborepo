@@ -1,17 +1,19 @@
 import React, { memo } from 'react';
 import { FlexBox } from "mui-react-common";
-import PermissionItem, { InlineChipProps } from "modules/security/components/PermissionList/PermissionItem";
+import type { InlineChipProps } from "modules/security/components/PermissionList/PermissionItem";
+import PermissionItem from "modules/security/components/PermissionList/PermissionItem";
+import type { IPermission } from 'modules/users/interfaces/IPermission';
 
 type PermissionListProps = InlineChipProps & {
-    permissions: string[] | undefined
+    permissions: IPermission[] | undefined
 }
 
-const PermissionList = ({ permissions = [], inline }: PermissionListProps) => {
+function PermissionList({ permissions = [], inline }: PermissionListProps) {
     return (
-        <FlexBox flexWrap={"wrap"}>
+        <FlexBox flexWrap="wrap">
             {
                 permissions.map(permission => (
-                    <PermissionItem label={permission} key={permission} inline={inline} />
+                    <PermissionItem inline={inline} key={permission._id} label={permission.name} />
                 ))
             }
         </FlexBox>

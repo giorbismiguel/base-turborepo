@@ -1,4 +1,4 @@
-import {memo} from 'react'
+import { memo } from 'react'
 import {
     Avatar,
     ListItem,
@@ -9,20 +9,20 @@ import {
     CircularProgress
 } from "@mui/material";
 import CloseIcon from '@mui/icons-material/Close';
-import {useDeleteRolesUser} from "modules/users/hooks/useDeleteRolesUser";
-import {useTranslation} from "react-i18next";
+import { useDeleteRolesUser } from "modules/users/hooks/useDeleteRolesUser";
+import { useTranslation } from "react-i18next";
 import SecurityIcon from '@mui/icons-material/Security';
-import type {IRole} from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 
 interface RoleListProps {
-    role: IRole
-    roles: IRole[]
+    role: InterfaceRole
+    roles: InterfaceRole[]
     userId: string
 }
 
-function RoleItem({role, roles, userId}: RoleListProps) {
-    const {t} = useTranslation('common');
-    const {isLoading, mutate} = useDeleteRolesUser(userId, roles);
+function RoleItem({ role, roles, userId }: RoleListProps) {
+    const { t } = useTranslation('common');
+    const { isLoading, mutate } = useDeleteRolesUser(userId, roles);
 
 
     return (
@@ -31,7 +31,7 @@ function RoleItem({role, roles, userId}: RoleListProps) {
             secondaryAction={
                 <Tooltip title={t('delete')}>
                     <IconButton disabled={isLoading} onClick={() => mutate(role?._id as unknown as string)} size="small">
-                        {isLoading ? <CircularProgress size={16}/> : <CloseIcon fontSize="small"/>}
+                        {isLoading ? <CircularProgress size={16} /> : <CloseIcon fontSize="small" />}
                     </IconButton>
                 </Tooltip>
             }
@@ -40,9 +40,9 @@ function RoleItem({role, roles, userId}: RoleListProps) {
                 <Avatar
                     alt={role?.name}
                     src={`/images/roles/${String(role?.avatar)}.png`}
-                    sx={{width: 32, height: 32, bgcolor: 'primary.dark'}}
+                    sx={{ width: 32, height: 32, bgcolor: 'primary.dark' }}
                 >
-                    <SecurityIcon fontSize="small"/>
+                    <SecurityIcon fontSize="small" />
                 </Avatar>
             </ListItemAvatar>
 

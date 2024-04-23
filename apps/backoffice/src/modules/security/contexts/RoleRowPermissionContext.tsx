@@ -1,11 +1,11 @@
-import {createContext, useCallback, useContext, useState} from 'react';
-import {IRole} from "modules/security/interfaces";
+import { createContext, useCallback, useContext, useState } from 'react';
+import { InterfaceRole } from "modules/security/interfaces";
 
 // Data value of the provider context
 type RoleRowPermissionContextValue = {
-    role?: IRole,
+    role?: InterfaceRole,
     onClose: () => void
-    onOpen: (role: IRole) => void
+    onOpen: (role: InterfaceRole) => void
     isOpen: boolean
 }
 // default value of the context
@@ -30,13 +30,13 @@ type RoleRowPermissionContextProps = {
  * */
 const RoleRowPermissionProvider = (props: RoleRowPermissionContextProps) => {
 
-    const [role, setRole] = useState<IRole>();
+    const [role, setRole] = useState<InterfaceRole>();
 
     const onClose = useCallback(() => {
         setRole(undefined);
     }, []);
 
-    const onOpen = useCallback((role: IRole) => {
+    const onOpen = useCallback((role: InterfaceRole) => {
         setRole(role);
     }, []);
 
@@ -63,4 +63,4 @@ const useRoleRowPermission = () => {
     return context;
 }
 
-export {RoleRowPermissionProvider, useRoleRowPermission};
+export { RoleRowPermissionProvider, useRoleRowPermission };

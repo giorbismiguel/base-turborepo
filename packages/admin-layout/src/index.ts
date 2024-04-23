@@ -10,13 +10,7 @@ export * from "./components/Notification";
 
 export { Scrollbar } from "./components/Scrollbar";
 
-export {
-  SidebarItem,
-  AdminSidebar,
-  SidebarSection,
-  AdminLayout,
-  AdminMain,
-} from "./layout";
+export * from "./layout"
 
 export * from "./components/Table";
 export * from "./components/Actions";

@@ -1,21 +1,21 @@
-import {memo} from 'react'
+import { memo } from 'react'
 import {
     List,
 } from "@mui/material";
 import RoleItem from "modules/users/components/UserSummary/RoleItem";
-import {IRole} from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 
 type RoleListProps = {
-    roles: IRole[]
+    roles: InterfaceRole[]
     userId: string
 }
 
-const RoleList = ({roles, userId}: RoleListProps) => {
+const RoleList = ({ roles, userId }: RoleListProps) => {
     return (
         <List dense>
             {
                 roles?.map((role) => (
-                    <RoleItem key={role?._id} role={role} roles={roles} userId={userId}/>
+                    <RoleItem key={role?._id} role={role} roles={roles} userId={userId} />
                 ))
             }
         </List>

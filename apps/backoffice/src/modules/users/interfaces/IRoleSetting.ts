@@ -1,5 +1,5 @@
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 
 export interface InterfaceRoleSetting {
-  role: IRole;
+  role: InterfaceRole;
 }

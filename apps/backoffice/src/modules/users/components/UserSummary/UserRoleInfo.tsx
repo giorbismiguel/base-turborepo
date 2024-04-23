@@ -5,7 +5,7 @@ import { memo } from 'react';
 import { useTranslation } from "react-i18next";
 import RoleList from "modules/users/components/UserSummary/RoleList";
 import { FlexBox } from "mui-react-common";
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 import AddRoleToUserModal from "../AddRoleToUserModal/AddRoleToUserModal";
 
 function UserRoleInfo() {
@@ -31,7 +31,7 @@ function UserRoleInfo() {
     return (
         <>
             {
-                Boolean(user?.roles?.length) && <RoleList roles={user?.roles as IRole[]} userId={user?._id as string} />
+                Boolean(user?.roles?.length) && <RoleList roles={user?.roles as InterfaceRole[]} userId={user?._id as string} />
             }
 
             <Box px={2}>

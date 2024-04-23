@@ -1,5 +1,7 @@
-export * from "./SidebarItem";
-export * from "./AdminSidebar";
-export * from "./AdminLayout";
-export * from "./SidebarSection";
-export * from "./AdminMain";
+export { default as SidebarItem } from "./SidebarItem";
+export { default as SidebarSection } from "./SidebarSection";
+export { default as AdminLayout } from "./AdminLayout";
+export { default as AdminMain } from "./AdminMain";
+export { default as AdminSidebar } from "./AdminSidebar";
+
+

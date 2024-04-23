@@ -1,8 +1,8 @@
 import UserAvatar from "assets/avatar.png";
 import RoleImage from "assets/role6.png";
-import { IPermission } from "modules/users/interfaces/IPermission";
-import { InterfaceRoleSetting } from "modules/users/interfaces/IRoleSetting";
-import { InterfaceUser } from "modules/users/interfaces/IUser";
+import type { IPermission } from "modules/users/interfaces/IPermission";
+import type { InterfaceRoleSetting } from "modules/users/interfaces/IRoleSetting";
+import type { InterfaceUser } from "modules/users/interfaces/IUser";
 
 const PermissionsMock: IPermission[] = [1, 2, 3].map((index) => ({
   _id: String(index),
@@ -16,7 +16,7 @@ const RoleMock: InterfaceRoleSetting[] = [
     role: {
       _id: Math.floor(Math.random() * 100000).toString(),
       name: "Developer",
-      image: RoleImage,
+      avatar: RoleImage,
       permissions: PermissionsMock,
     },
   },

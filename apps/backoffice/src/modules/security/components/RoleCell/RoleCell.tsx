@@ -6,13 +6,13 @@ import {
 } from "@mui/material";
 import { ReactLink } from "security";
 import SecurityIcon from "@mui/icons-material/Security";
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 
 interface UserCellProps {
-    role: IRole
+    role: InterfaceRole
 }
 
-function RoleAvatar({ size = 32, role }: { size?: number, role: IRole }) {
+function RoleAvatar({ size = 32, role }: { size?: number, role: InterfaceRole }) {
     return (
         <Avatar
             alt={role?.name}

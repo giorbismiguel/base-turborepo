@@ -2,10 +2,10 @@ import { createContext, useContext } from 'react';
 import { useFindOneRoles } from "modules/security/hooks/useFindOneRoles";
 import { ChildrenProps } from "mui-react-common";
 import { UseQueryResult } from "react-query";
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 
 
-type RoleDetailContextValue = UseQueryResult<IRole> & {
+type RoleDetailContextValue = UseQueryResult<InterfaceRole> & {
     roleId: string
 }
 // create context

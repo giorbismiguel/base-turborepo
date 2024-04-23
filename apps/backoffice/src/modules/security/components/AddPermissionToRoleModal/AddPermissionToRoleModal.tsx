@@ -10,14 +10,14 @@ import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import { Trans, useTranslation } from "react-i18next";
 import { DialogForm, Form, FormSelectAutocompleteField, HandlerError } from "mui-react-common";
-import { IRole } from "modules/security/interfaces";
+import { InterfaceRole } from "modules/security/interfaces";
 import useAddPermissionToRoleForm from "modules/security/hooks/useAddPermissionToRoleForm";
 import { PERMISSIONS_GROUPS } from "../../constants/permissions-group";
 import { LoadingButton } from '@mui/lab';
 
 type AddPermissionToRoleModalProps = {
     open: boolean,
-    role: IRole | undefined,
+    role: InterfaceRole | undefined,
     onClose: () => void,
 }
 

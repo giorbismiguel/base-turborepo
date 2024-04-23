@@ -1,5 +1,5 @@
 import type { InterfaceRoleSetting } from "modules/users/interfaces/IRoleSetting";
-import type { IRole } from "modules/security/interfaces";
+import type { InterfaceRole } from "modules/security/interfaces";
 
 export interface InterfaceUser {
   _id?: string;
@@ -12,7 +12,7 @@ export interface InterfaceUser {
   phone: string;
   country?: string;
   createdAt?: Date;
-  roles?: InterfaceRoleSetting[] | IRole[];
+  roles?: InterfaceRoleSetting[] | InterfaceRole[];
   lock?: boolean;
   verified?: boolean;
   _disableForm?: boolean;
