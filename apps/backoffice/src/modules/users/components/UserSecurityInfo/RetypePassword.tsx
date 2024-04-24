@@ -3,7 +3,7 @@ import { Box, FormControlLabel, Grid, Radio, Stack, Typography } from "@mui/mate
 import { Form, FormPasswordField, FormCheckBoxField, FormRadioGroupField } from "mui-react-common";
 import { useTranslation } from "react-i18next";
 import useUserResetPasswordForm from 'modules/users/hooks/useUserResetPasswordForm';
-import { useUserDetail } from 'modules/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/users/contexts/UserDetailContext';
 import { PasswordType } from "modules/users/interfaces/IChangePassword";
 import { LoadingButton } from '@mui/lab';
 

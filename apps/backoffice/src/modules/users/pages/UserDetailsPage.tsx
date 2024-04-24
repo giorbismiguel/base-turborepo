@@ -3,7 +3,7 @@ import UserDetailContainer from "modules/users/containers/UserDetailContainer";
 import {CenterPageLayout} from "layouts";
 
 
-function UserDetails() {
+function UserDetailsPage() {
 
     return (
         <CenterPageLayout>
@@ -13,4 +13,4 @@ function UserDetails() {
 
 }
 
-export default memo(UserDetails);
+export default memo(UserDetailsPage);

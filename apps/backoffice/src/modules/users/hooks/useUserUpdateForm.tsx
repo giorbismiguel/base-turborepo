@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 import { useEffect } from 'react';
 import { userSchema } from '../schemas/user.schema';
 import { USERS_ONE_KEY } from '../constants/queries';
-import { useUserDetail } from '../contexts/UserDetail';
+import { useUserDetail } from '../contexts/UserDetailContext';
 
 const initValues: InterfaceUser = {
     email: '',

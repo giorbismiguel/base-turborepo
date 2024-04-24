@@ -1,6 +1,6 @@
 import { useToggle } from "hook-utils";
 import { Box, Button, Skeleton } from "@mui/material";
-import { useUserDetail } from "modules/users/contexts/UserDetail";
+import { useUserDetail } from "modules/users/contexts/UserDetailContext";
 import { memo } from 'react';
 import { useTranslation } from "react-i18next";
 import RoleList from "modules/users/components/UserSummary/RoleList";

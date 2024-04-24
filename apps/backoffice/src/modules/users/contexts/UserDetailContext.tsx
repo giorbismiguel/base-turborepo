@@ -1,10 +1,11 @@
-import { InterfaceUser } from "modules/users/interfaces/IUser";
-import { createContext, Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import { useFindOneUsers } from "../hooks/useFindOneUsers";
+import type { InterfaceUser } from "modules/users/interfaces/IUser";
+import type { Dispatch, SetStateAction} from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { useParams } from "react-router";
+import { useFindOneUsers } from "../hooks/useFindOneUsers";
 
 // Data value of the provider context
-type UserContextValue = {
+interface UserContextValue {
     user?: InterfaceUser,
     isLoading: boolean,
     setUser?: Dispatch<SetStateAction<InterfaceUser | undefined>>
@@ -19,14 +20,14 @@ const defaultValue: UserContextValue = {
 const UserContext = createContext<UserContextValue>(defaultValue);
 
 // Proptypes of Provider component
-type UserContextProps = {
+interface UserContextProps {
     children: any
 }
 
 /**
  * Provider component
  * */
-const UserDetailProvider = (props: UserContextProps) => {
+function UserDetailProvider(props: UserContextProps) {
     const { id } = useParams();
 
     const { isLoading, data, error } = useFindOneUsers(id ?? null);

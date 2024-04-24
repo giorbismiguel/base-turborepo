@@ -2,7 +2,7 @@ import { memo } from 'react'
 import { Stack, Typography } from "@mui/material";
 import { USER_DETAILS_SUMMARY } from "modules/users/constants";
 import { DetailStack, HandlerError } from "mui-react-common";
-import { useUserDetail } from 'modules/users/contexts/UserDetail';
+import { useUserDetail } from 'modules/users/contexts/UserDetailContext';
 import AvatarUser from "modules/users/components/AvatarUser/AvatarUser";
 import { SummaryWithAvatarSkeleton } from "components/CommonLoadings";
 import type { InterfaceUser } from "modules/users/interfaces/IUser";

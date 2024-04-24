@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect, memo } from 'react'
 import { List, ListItem, ListItemText, Skeleton, Switch, Typography } from "@mui/material";
-import { useUserDetail } from "modules/users/contexts/UserDetail";
+import { useUserDetail } from "modules/users/contexts/UserDetailContext";
 import { useTranslation } from 'react-i18next';
 import { Box } from '@mui/system';
 import { useUpdateUser } from 'modules/users/hooks/useUpdateUser';

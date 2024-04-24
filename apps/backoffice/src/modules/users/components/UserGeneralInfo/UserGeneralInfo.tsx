@@ -4,7 +4,7 @@ import useUserUpdateForm from "modules/users/hooks/useUserUpdateForm";
 import { FormTextField, HandlerError, Form, SkeletonForm } from "mui-react-common";
 import { useTranslation } from "react-i18next";
 import { ACCOUNT_ERRORS } from "modules/users/constants/account.errors";
-import { useUserDetail } from "modules/users/contexts/UserDetail";
+import { useUserDetail } from "modules/users/contexts/UserDetailContext";
 import { LoadingButton } from "@mui/lab";
 
 function UserGeneralInfo() {
