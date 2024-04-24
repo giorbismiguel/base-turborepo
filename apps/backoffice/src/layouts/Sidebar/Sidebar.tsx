@@ -1,6 +1,7 @@
 import { memo } from "react";
 import { AdminSidebar, SpaceSelector, SidebarSection } from "admin-layout";
-import { ChildrenProps, useMenu } from "mui-react-common";
+import type { ChildrenProps} from "mui-react-common";
+import { useMenu } from "mui-react-common";
 import { Box, Divider } from "@mui/material";
 import { useLocation } from "react-router";
 import { MAIN_MENU } from "settings/main.menu";
@@ -10,7 +11,7 @@ declare type AdminSidebarProps = ChildrenProps & {
   open: boolean;
 };
 
-const Sidebar = (props: AdminSidebarProps) => {
+function Sidebar(props: AdminSidebarProps) {
   const sections = useMenu(MAIN_MENU);
   const { pathname } = useLocation();
 
@@ -22,7 +23,7 @@ const Sidebar = (props: AdminSidebarProps) => {
           my: 3,
         }}
       />
-      <Box sx={{ flexGrow: 1 }} className={"cursor-pointer"}>
+      <Box className="cursor-pointer" sx={{ flexGrow: 1 }}>
         {sections.map((section) => (
           <SidebarSection
             key={section.title}
@@ -39,6 +40,6 @@ const Sidebar = (props: AdminSidebarProps) => {
       </Box>
     </AdminSidebar>
   );
-};
+}
 
 export default memo(Sidebar);

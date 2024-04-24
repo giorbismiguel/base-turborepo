@@ -5,7 +5,7 @@ import { UserDetailProvider } from "modules/users/contexts/UserDetailContext";
 import { DetailContent, DetailLayout, DetailSummary } from "form-layout";
 
 function UserDetailContainer() {
-    return <UserDetailProvider>
+  return <UserDetailProvider>
         <DetailLayout>
             <DetailSummary>
                 <UserSummary />

@@ -6,15 +6,15 @@ export {
   AccountButton,
 } from "./components/Navbar";
 
-export * from "./components/Notification";
+export {
+  SidebarItem,
+  AdminLayout,
+  AdminMain,
+  AdminSidebar,
+  SidebarSection,
+} from "./layout";
 
 export { Scrollbar } from "./components/Scrollbar";
-
-export * from "./layout/SidebarItem";
-export * from "./layout/SidebarSection";
-export * from "./layout/AdminLayout";
-export * from "./layout/AdminMain";
-export * from "./layout/AdminSidebar";
 
 export * from "./components/Table";
 export * from "./components/Actions";
