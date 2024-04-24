@@ -95,6 +95,10 @@ const AdminSidebar = ({
   );
 };
 
-AdminSidebar.defaultProps = {};
+AdminSidebar.defaultProps = {
+  onClose: () => {},
+  open: false,
+  children: null,
+};
 
 export default AdminSidebar;

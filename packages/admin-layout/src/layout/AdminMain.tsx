@@ -29,6 +29,9 @@ const AdminMain = ({ children }: ChildrenProps) => {
     </AdminLayoutRoot>
   );
 };
-AdminMain.defaultProps = {};
+
+AdminMain.defaultProps = {
+  children: null,
+};
 
 export default AdminMain;

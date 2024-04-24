@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import { DetailContent, DetailLayout, DetailSummary } from "admin-layout";
+import { DetailContent, DetailLayout, DetailSummary } from "form-layout";
 import { CenterPageLayout } from "layouts/index";
 import RoleDetailsSummary from "modules/security/containers/RoleDetailsSummary";
 import RoleUsersTable from "modules/security/containers/RoleUsersTable";

@@ -19,6 +19,8 @@ const AdminLayout = ({ children }: AdminLayoutProps) => {
   );
 };
 
-AdminLayout.defaultProps = {};
+AdminLayout.defaultProps = {
+  children: null,
+};
 
 export default AdminLayout;

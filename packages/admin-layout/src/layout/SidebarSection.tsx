@@ -113,6 +113,11 @@ const SidebarSection = (props: SidebarSectionProps) => {
   );
 };
 
-SidebarSection.defaultProps = {};
+SidebarSection.defaultProps = {
+  items: [],
+  path: "",
+  title: "",
+  atLessOne: false,
+};
 
 export default SidebarSection;
