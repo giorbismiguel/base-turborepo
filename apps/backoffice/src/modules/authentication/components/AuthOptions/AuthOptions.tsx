@@ -39,7 +39,7 @@ function AuthOptions() {
           underline="hover"
         >
           <FiberManualRecordIcon sx={{ fontSize: "8px", mr: "2px" }} />
-          {t("reset_password")}
+          {t("resetPassword")}
         </MuiLink>
       </Stack>
     </div>
