@@ -8,7 +8,6 @@ const useSignUpForm = () => {
     resolver: yupResolver(signUpSchema),
     defaultValues: {
       email: "",
-      identifier: "",
       password: "",
       acceptTerms: false,
     },

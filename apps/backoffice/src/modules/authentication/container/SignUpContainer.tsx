@@ -17,8 +17,8 @@ import useSignUpForm from "modules/authentication/hooks/useSignUpForm";
 import { SignUpSent } from "modules/authentication/components/SignUpSent";
 import { ReactLink } from "security";
 import Box from "@mui/material/Box";
-import { SIGNUP_ERRORS } from "../constants/login.errors";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { SIGNUP_ERRORS } from "../constants/login.errors";
 
 const components = {
   terms: <ReactLink target="_blank" to="/terms-conditions" underline="hover" />,

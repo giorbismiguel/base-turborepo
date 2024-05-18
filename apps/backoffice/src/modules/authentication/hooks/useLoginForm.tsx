@@ -21,7 +21,6 @@ const useLoginForm = () => {
     resolver: yupResolver<Yup.AnyObjectSchema>(loginSchema),
     defaultValues: {
       email: "",
-      identifier: "",
       password: "",
       remember: false,
     },

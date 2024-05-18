@@ -1,12 +1,14 @@
 import { RoleRowActions } from "modules/security/components/RoleRowActions";
-import { CellType, HeadCell } from "admin-layout";
-import { OwnChipProps, renderTagList } from "mui-react-common";
+import type { HeadCell } from "admin-layout";
+import { CellType } from "admin-layout";
+import type { OwnChipProps} from "mui-react-common";
+import { renderTagList } from "mui-react-common";
 import PermissionItem from "modules/security/components/PermissionList/PermissionItem";
 import { RoleCell } from "modules/security/components/RoleCell";
 
 
-const Text = ({ text }: OwnChipProps) => {
-    return (<PermissionItem label={text} inline />);
+function Text({ text }: OwnChipProps) {
+    return (<PermissionItem inline label={text} />);
 }
 
 export const roleColumns: HeadCell[] = [

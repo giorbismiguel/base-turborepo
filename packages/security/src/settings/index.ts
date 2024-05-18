@@ -9,7 +9,7 @@ export const API_AUTH = {
   url:
     process.env.REACT_APP_AUTH_URL ||
     process.env.NEXT_PUBLIC_AUTH_URL ||
-    "/ms-auth/api",
+    "/api",
 };
 
 export const SUPERADMIN_ROLE =

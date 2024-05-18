@@ -14,8 +14,9 @@ import { Box, Stack } from "@mui/material";
 import SocialLogin from "modules/authentication/components/SocialLogin/SocialLogin";
 import OrDivider from "modules/authentication/components/OrDivider/OrDivider";
 import { ReactLink } from "security";
-import { LOGIN_ERRORS } from "../constants";
 import LoadingButton from "@mui/lab/LoadingButton";
+import { LOGIN_ERRORS } from "../constants";
+
 function LoginContainer() {
   const { t } = useTranslation(["authentication", "common"]);
   const { onSubmit, control, isLoading, error } = useLoginForm();
@@ -28,7 +29,7 @@ function LoginContainer() {
       <Form control={control} isLoading={isLoading} onSubmit={onSubmit}>
         <Grid columnSpacing={2} container rowSpacing={4}>
           <Grid item xs={12}>
-            <FormTextField label={t("common:email")} name="identifier" />
+            <FormTextField label={t("common:email")} name="email" />
           </Grid>
           <Grid item xs={12}>
             <FormPasswordField label={t("common:password")} name="password" />
